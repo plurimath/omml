@@ -1,0 +1,28 @@
+# frozen_string_literal: true
+
+require "lutaml/model"
+require_relative "ct_on_off"
+require_relative "ct_ctrl_pr"
+class CTRadPr < Lutaml::Model::Serializable
+  attribute :deg_hide, :ct_on_off, collection: 0..1
+  attribute :ctrl_pr, :ct_ctrl_pr, collection: 0..1
+
+  xml do
+    root "RadPr"
+
+    sequence do
+      map_element :degHide, to: :deg_hide
+      map_element :ctrlPr, to: :ctrl_pr
+    end
+  end
+
+  def self.register
+    Lutaml::Model::GlobalRegister.lookup(Omml.register_id)
+  end
+
+  def self.register_class_with_id
+    register.register_model(self, id: :ct_rad_pr)
+  end
+end
+
+CTRadPr.register_class_with_id

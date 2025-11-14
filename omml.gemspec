@@ -4,7 +4,7 @@ require_relative 'lib/omml/version'
 
 Gem::Specification.new do |spec|
   spec.name = 'omml'
-  spec.version = Oomml::VERSION
+  spec.version = Omml::VERSION
   spec.authors = ['Ribose Inc.']
   spec.email = ['open.source@ribose.com']
 
@@ -30,5 +30,5 @@ Gem::Specification.new do |spec|
   spec.executables = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
 
-  spec.add_runtime_dependency 'lutaml-model'
+  spec.add_runtime_dependency 'lutaml-xsd'
 end
