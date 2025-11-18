@@ -15,6 +15,7 @@ class CTSdtDate < Lutaml::Model::Serializable
 
   xml do
     root "SdtDate"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do
       map_element :dateFormat, to: :date_format

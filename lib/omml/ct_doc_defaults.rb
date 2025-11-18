@@ -9,6 +9,7 @@ class CTDocDefaults < Lutaml::Model::Serializable
 
   xml do
     root "DocDefaults"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do
       map_element :rPrDefault, to: :r_pr_default

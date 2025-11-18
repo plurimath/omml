@@ -12,6 +12,7 @@ class CTSectPrBase < Lutaml::Model::Serializable
 
   xml do
     root "SectPrBase"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do
       import_model_mappings :eg_sect_pr_contents

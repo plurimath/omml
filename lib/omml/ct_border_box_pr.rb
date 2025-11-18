@@ -16,6 +16,7 @@ class CTBorderBoxPr < Lutaml::Model::Serializable
 
   xml do
     root "BorderBoxPr"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do
       map_element :hideTop, to: :hide_top

@@ -9,6 +9,7 @@ class CTGroupChr < Lutaml::Model::Serializable
 
   xml do
     root "GroupChr"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do
       map_element :groupChrPr, to: :group_chr_pr

@@ -10,6 +10,7 @@ class CTDivBdr < Lutaml::Model::Serializable
 
   xml do
     root "DivBdr"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do
       map_element :top, to: :top

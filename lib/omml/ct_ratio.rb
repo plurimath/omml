@@ -8,6 +8,7 @@ class CTRatio < Lutaml::Model::Serializable
 
   xml do
     root "Ratio"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :n, to: :n
     map_attribute :d, to: :d

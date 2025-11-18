@@ -10,6 +10,7 @@ class CTLimUpp < Lutaml::Model::Serializable
 
   xml do
     root "LimUpp"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do
       map_element :limUppPr, to: :lim_upp_pr

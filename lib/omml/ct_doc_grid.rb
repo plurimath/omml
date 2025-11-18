@@ -10,6 +10,7 @@ class CTDocGrid < Lutaml::Model::Serializable
 
   xml do
     root "DocGrid"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :type, to: :type
     map_attribute :linePitch, to: :line_pitch

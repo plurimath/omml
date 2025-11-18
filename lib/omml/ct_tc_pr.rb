@@ -7,6 +7,7 @@ class CTTcPr < CTTcPrInner
 
   xml do
     root "TcPr"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do
       map_element :tcPrChange, to: :tc_pr_change

@@ -7,6 +7,7 @@ class CTDocument < CTDocumentBase
 
   xml do
     root "Document"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do
       map_element :body, to: :body

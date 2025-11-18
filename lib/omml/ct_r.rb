@@ -14,7 +14,8 @@ class CTR < Lutaml::Model::Serializable
   end
 
   xml do
-    root "R"
+    root "r"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do
       map_element :rPr, to: :r_pr

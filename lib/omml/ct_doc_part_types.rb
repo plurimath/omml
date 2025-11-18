@@ -11,6 +11,7 @@ class CTDocPartTypes < Lutaml::Model::Serializable
 
   xml do
     root "DocPartTypes"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_element :type, to: :type
     map_attribute :all, to: :all

@@ -9,6 +9,7 @@ class CTParaRPrOriginal < Lutaml::Model::Serializable
 
   xml do
     root "ParaRPrOriginal"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do
       import_model_mappings :eg_para_r_pr_track_changes

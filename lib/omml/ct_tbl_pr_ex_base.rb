@@ -21,6 +21,7 @@ class CTTblPrExBase < Lutaml::Model::Serializable
 
   xml do
     root "TblPrExBase"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do
       map_element :tblW, to: :tbl_w

@@ -14,14 +14,15 @@ class CTRPR < Lutaml::Model::Serializable
   attribute :aln, :ct_on_off, collection: 0..1
 
   xml do
-    root "RPR"
+    root "rPr"
+    namespace "http://schemas.openxmlformats.org/wordprocessingml/2006/main", "w"
 
     sequence do
       map_element :lit, to: :lit
       map_element :nor, to: :nor
-        sequence do
-                import_model_mappings :eg_script_style
-        end
+      sequence do
+        import_model_mappings :eg_script_style
+      end
       map_element :brk, to: :brk
       map_element :aln, to: :aln
     end

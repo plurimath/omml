@@ -9,6 +9,7 @@ class CTSSubSupPr < Lutaml::Model::Serializable
 
   xml do
     root "SSubSupPr"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do
       map_element :alnScr, to: :aln_scr

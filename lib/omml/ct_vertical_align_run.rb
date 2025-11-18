@@ -7,6 +7,7 @@ class CTVerticalAlignRun < Lutaml::Model::Serializable
 
   xml do
     root "VerticalAlignRun"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :val, to: :val
   end

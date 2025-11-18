@@ -7,6 +7,7 @@ class CTHdrFtrRef < CTRel
 
   xml do
     root "HdrFtrRef"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :type, to: :type
   end

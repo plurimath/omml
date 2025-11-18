@@ -9,6 +9,7 @@ class CTSym < Lutaml::Model::Serializable
 
   xml do
     root "Sym"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :font, to: :font
     map_attribute :char, to: :char

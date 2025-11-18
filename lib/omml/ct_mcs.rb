@@ -7,6 +7,7 @@ class CTMCS < Lutaml::Model::Serializable
 
   xml do
     root "MCS"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do
       map_element :mc, to: :mc

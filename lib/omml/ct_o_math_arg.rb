@@ -11,6 +11,7 @@ class CTOMathArg < Lutaml::Model::Serializable
 
   xml do
     root "OMathArg"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do
       map_element :argPr, to: :arg_pr

@@ -29,6 +29,7 @@ class CTTcPrBase < Lutaml::Model::Serializable
 
   xml do
     root "TcPrBase"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do
       map_element :cnfStyle, to: :cnf_style

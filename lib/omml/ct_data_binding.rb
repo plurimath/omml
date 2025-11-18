@@ -9,6 +9,7 @@ class CTDataBinding < Lutaml::Model::Serializable
 
   xml do
     root "DataBinding"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :prefixMappings, to: :prefix_mappings
     map_attribute :xpath, to: :xpath

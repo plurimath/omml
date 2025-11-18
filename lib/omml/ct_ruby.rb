@@ -10,6 +10,7 @@ class CTRuby < Lutaml::Model::Serializable
 
   xml do
     root "Ruby"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do
       map_element :rubyPr, to: :ruby_pr

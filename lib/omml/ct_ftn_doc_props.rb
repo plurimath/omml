@@ -7,6 +7,7 @@ class CTFtnDocProps < CTFtnProps
 
   xml do
     root "FtnDocProps"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do
       map_element :footnote, to: :footnote

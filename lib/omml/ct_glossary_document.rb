@@ -7,6 +7,7 @@ class CTGlossaryDocument < CTDocumentBase
 
   xml do
     root "GlossaryDocument"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do
       map_element :docParts, to: :doc_parts

@@ -7,6 +7,7 @@ class CTPlaceholder < Lutaml::Model::Serializable
 
   xml do
     root "Placeholder"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do
       map_element :docPart, to: :doc_part

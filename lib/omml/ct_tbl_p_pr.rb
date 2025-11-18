@@ -21,6 +21,7 @@ class CTTblPPr < Lutaml::Model::Serializable
 
   xml do
     root "TblPPr"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :leftFromText, to: :left_from_text
     map_attribute :rightFromText, to: :right_from_text

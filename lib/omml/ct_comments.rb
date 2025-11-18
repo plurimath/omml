@@ -7,6 +7,7 @@ class CTComments < Lutaml::Model::Serializable
 
   xml do
     root "Comments"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do
       map_element :comment, to: :comment

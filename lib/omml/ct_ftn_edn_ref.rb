@@ -9,6 +9,7 @@ class CTFtnEdnRef < Lutaml::Model::Serializable
 
   xml do
     root "FtnEdnRef"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :customMarkFollows, to: :custom_mark_follows
     map_attribute :id, to: :id

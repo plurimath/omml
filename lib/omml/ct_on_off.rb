@@ -7,6 +7,7 @@ class CTOnOff < Lutaml::Model::Serializable
 
   xml do
     root "OnOff"
+    namespace "http://schemas.openxmlformats.org/wordprocessingml/2006/main", "w"
 
     map_attribute :val, to: :val
   end

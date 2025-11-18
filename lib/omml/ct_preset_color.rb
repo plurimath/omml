@@ -9,6 +9,7 @@ class CTPresetColor < Lutaml::Model::Serializable
 
   xml do
     root "PresetColor"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do
       import_model_mappings :eg_color_transform

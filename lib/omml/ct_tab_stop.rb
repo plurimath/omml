@@ -11,6 +11,7 @@ class CTTabStop < Lutaml::Model::Serializable
 
   xml do
     root "TabStop"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :val, to: :val
     map_attribute :leader, to: :leader

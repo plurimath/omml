@@ -8,6 +8,7 @@ class CTCellMergeTrackChange < CTTrackChange
 
   xml do
     root "CellMergeTrackChange"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :vMerge, to: :v_merge
     map_attribute :vMergeOrig, to: :v_merge_orig

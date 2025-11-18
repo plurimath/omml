@@ -7,6 +7,7 @@ class CTDocPartGallery < Lutaml::Model::Serializable
 
   xml do
     root "DocPartGallery"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :val, to: :val
   end

@@ -7,6 +7,7 @@ class CTUcharHexNumber < Lutaml::Model::Serializable
 
   xml do
     root "UcharHexNumber"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :val, to: :val
   end

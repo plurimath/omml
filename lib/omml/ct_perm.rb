@@ -9,6 +9,7 @@ class CTPerm < Lutaml::Model::Serializable
 
   xml do
     root "Perm"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :id, to: :id
     map_attribute :displacedByCustomXml, to: :displaced_by_custom_xml

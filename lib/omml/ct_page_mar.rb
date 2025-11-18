@@ -14,6 +14,7 @@ class CTPageMar < Lutaml::Model::Serializable
 
   xml do
     root "PageMar"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :top, to: :top
     map_attribute :right, to: :right

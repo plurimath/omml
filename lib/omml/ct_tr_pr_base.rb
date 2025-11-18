@@ -25,6 +25,7 @@ class CTTrPrBase < Lutaml::Model::Serializable
 
   xml do
     root "TrPrBase"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_element :cnfStyle, to: :cnf_style
     map_element :divId, to: :div_id

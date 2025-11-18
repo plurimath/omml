@@ -9,6 +9,7 @@ class CTSphereCoords < Lutaml::Model::Serializable
 
   xml do
     root "SphereCoords"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :lat, to: :lat
     map_attribute :lon, to: :lon

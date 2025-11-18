@@ -5,6 +5,7 @@ class CTEmpty < Lutaml::Model::Serializable
 
   xml do
     root "Empty"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
   end
 
   def self.register

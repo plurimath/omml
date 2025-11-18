@@ -7,6 +7,7 @@ class CTTcPrInner < CTTcPrBase
 
   xml do
     root "TcPrInner"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do
       import_model_mappings :eg_cell_markup_elements

@@ -7,6 +7,7 @@ class CTParaRPrChange < CTTrackChange
 
   xml do
     root "ParaRPrChange"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do
       map_element :rPr, to: :r_pr

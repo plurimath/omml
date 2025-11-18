@@ -71,6 +71,7 @@ class CTCompat < Lutaml::Model::Serializable
 
   xml do
     root "Compat"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do
       map_element :useSingleBorderforContiguousCells, to: :use_single_borderfor_contiguous_cells

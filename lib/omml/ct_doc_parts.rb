@@ -9,6 +9,7 @@ class CTDocParts < Lutaml::Model::Serializable
 
   xml do
     root "DocParts"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_element :docPart, to: :doc_part
   end

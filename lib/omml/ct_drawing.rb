@@ -11,6 +11,7 @@ class CTDrawing < Lutaml::Model::Serializable
 
   xml do
     root "Drawing"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_element :anchor, to: :anchor
     map_element :inline, to: :inline

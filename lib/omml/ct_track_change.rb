@@ -9,6 +9,7 @@ class CTTrackChange < CTMarkup
 
   xml do
     root "TrackChange"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :author, to: :author
     map_attribute :date, to: :date

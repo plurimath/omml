@@ -11,6 +11,7 @@ class CTLvlLegacy < Lutaml::Model::Serializable
 
   xml do
     root "LvlLegacy"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :legacy, to: :legacy
     map_attribute :legacySpace, to: :legacy_space

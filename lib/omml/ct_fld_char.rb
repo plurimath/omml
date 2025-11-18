@@ -18,6 +18,7 @@ class CTFldChar < Lutaml::Model::Serializable
 
   xml do
     root "FldChar"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_element :fldData, to: :fld_data
     map_element :ffData, to: :ff_data

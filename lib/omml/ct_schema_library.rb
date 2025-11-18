@@ -7,6 +7,7 @@ class CTSchemaLibrary < Lutaml::Model::Serializable
 
   xml do
     root "SchemaLibrary"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do
       map_element :schema, to: :schema

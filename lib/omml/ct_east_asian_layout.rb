@@ -13,6 +13,7 @@ class CTEastAsianLayout < Lutaml::Model::Serializable
 
   xml do
     root "EastAsianLayout"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :id, to: :id
     map_attribute :combine, to: :combine

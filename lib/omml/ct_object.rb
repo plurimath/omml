@@ -10,6 +10,7 @@ class CTObject < CTPictureBase
 
   xml do
     root "Object"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do
       map_element :control, to: :control

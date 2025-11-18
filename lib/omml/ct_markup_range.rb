@@ -7,6 +7,7 @@ class CTMarkupRange < CTMarkup
 
   xml do
     root "MarkupRange"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :displacedByCustomXml, to: :displaced_by_custom_xml
   end

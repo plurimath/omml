@@ -26,6 +26,7 @@ class CTFont < Lutaml::Model::Serializable
 
   xml do
     root "Font"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do
       map_element :altName, to: :alt_name

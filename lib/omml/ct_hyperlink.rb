@@ -16,6 +16,7 @@ class CTHyperlink < Lutaml::Model::Serializable
 
   xml do
     root "Hyperlink"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     import_model_mappings :eg_p_content
     map_attribute :tgtFrame, to: :tgt_frame

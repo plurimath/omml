@@ -53,6 +53,7 @@ class CTPPrBase < Lutaml::Model::Serializable
 
   xml do
     root "PPrBase"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do
       map_element :pStyle, to: :p_style

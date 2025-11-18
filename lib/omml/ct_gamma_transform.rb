@@ -5,6 +5,7 @@ class CTGammaTransform < Lutaml::Model::Serializable
 
   xml do
     root "GammaTransform"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
   end
 
   def self.register

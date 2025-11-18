@@ -29,6 +29,7 @@ class CTDocProtect < Lutaml::Model::Serializable
 
   xml do
     root "DocProtect"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :edit, to: :edit
     map_attribute :formatting, to: :formatting

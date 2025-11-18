@@ -7,6 +7,7 @@ class CTSdtText < Lutaml::Model::Serializable
 
   xml do
     root "SdtText"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :multiLine, to: :multi_line
   end

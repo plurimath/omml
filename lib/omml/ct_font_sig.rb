@@ -12,6 +12,7 @@ class CTFontSig < Lutaml::Model::Serializable
 
   xml do
     root "FontSig"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :usb0, to: :usb0
     map_attribute :usb1, to: :usb1

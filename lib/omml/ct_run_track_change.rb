@@ -11,6 +11,7 @@ class CTRunTrackChange < CTTrackChange
 
   xml do
     root "RunTrackChange"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     import_model_mappings :eg_content_run_content
     import_model_mappings :eg_o_math_math_elements

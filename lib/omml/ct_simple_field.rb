@@ -14,6 +14,7 @@ class CTSimpleField < Lutaml::Model::Serializable
 
   xml do
     root "SimpleField"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do
       map_element :fldData, to: :fld_data

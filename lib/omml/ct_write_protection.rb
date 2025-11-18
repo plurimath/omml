@@ -26,6 +26,7 @@ class CTWriteProtection < Lutaml::Model::Serializable
 
   xml do
     root "WriteProtection"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :recommended, to: :recommended
     map_attribute :cryptProviderType, to: :crypt_provider_type

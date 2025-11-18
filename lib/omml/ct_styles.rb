@@ -11,6 +11,7 @@ class CTStyles < Lutaml::Model::Serializable
 
   xml do
     root "Styles"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do
       map_element :docDefaults, to: :doc_defaults

@@ -11,6 +11,7 @@ class CTPath2DArcTo < Lutaml::Model::Serializable
 
   xml do
     root "Path2DArcTo"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :wR, to: :w_r
     map_attribute :hR, to: :h_r

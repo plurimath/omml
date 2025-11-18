@@ -9,6 +9,7 @@ class CTPoint3D < Lutaml::Model::Serializable
 
   xml do
     root "Point3D"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :x, to: :x
     map_attribute :y, to: :y

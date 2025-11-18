@@ -18,6 +18,7 @@ class CTColorSchemeMapping < Lutaml::Model::Serializable
 
   xml do
     root "ColorSchemeMapping"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :bg1, to: :bg1
     map_attribute :t1, to: :t1

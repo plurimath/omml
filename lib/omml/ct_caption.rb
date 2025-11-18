@@ -18,6 +18,7 @@ class CTCaption < Lutaml::Model::Serializable
 
   xml do
     root "Caption"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :name, to: :name
     map_attribute :pos, to: :pos

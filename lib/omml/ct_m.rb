@@ -9,6 +9,7 @@ class CTM < Lutaml::Model::Serializable
 
   xml do
     root "M"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do
       map_element :mPr, to: :m_pr

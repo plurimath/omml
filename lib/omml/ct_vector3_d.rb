@@ -9,6 +9,7 @@ class CTVector3D < Lutaml::Model::Serializable
 
   xml do
     root "Vector3D"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :dx, to: :dx
     map_attribute :dy, to: :dy

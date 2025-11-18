@@ -18,6 +18,7 @@ class CTSpacing < Lutaml::Model::Serializable
 
   xml do
     root "Spacing"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :before, to: :before
     map_attribute :beforeLines, to: :before_lines

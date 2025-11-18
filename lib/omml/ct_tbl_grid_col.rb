@@ -7,6 +7,7 @@ class CTTblGridCol < Lutaml::Model::Serializable
 
   xml do
     root "TblGridCol"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :w, to: :w
   end

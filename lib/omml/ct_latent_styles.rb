@@ -15,6 +15,7 @@ class CTLatentStyles < Lutaml::Model::Serializable
 
   xml do
     root "LatentStyles"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do
       map_element :lsdException, to: :lsd_exception

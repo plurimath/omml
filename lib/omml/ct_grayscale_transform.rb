@@ -5,6 +5,7 @@ class CTGrayscaleTransform < Lutaml::Model::Serializable
 
   xml do
     root "GrayscaleTransform"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
   end
 
   def self.register

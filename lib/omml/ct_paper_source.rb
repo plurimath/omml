@@ -8,6 +8,7 @@ class CTPaperSource < Lutaml::Model::Serializable
 
   xml do
     root "PaperSource"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :first, to: :first
     map_attribute :other, to: :other

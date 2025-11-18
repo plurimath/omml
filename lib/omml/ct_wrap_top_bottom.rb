@@ -10,6 +10,7 @@ class CTWrapTopBottom < Lutaml::Model::Serializable
 
   xml do
     root "WrapTopBottom"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do
       map_element :effectExtent, to: :effect_extent

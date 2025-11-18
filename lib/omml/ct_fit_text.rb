@@ -9,6 +9,7 @@ class CTFitText < Lutaml::Model::Serializable
 
   xml do
     root "FitText"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :val, to: :val
     map_attribute :id, to: :id

@@ -11,6 +11,7 @@ class CTSPre < Lutaml::Model::Serializable
 
   xml do
     root "SPre"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do
       map_element :sPrePr, to: :s_pre_pr

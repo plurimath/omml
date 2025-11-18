@@ -20,6 +20,7 @@ class CTMPr < Lutaml::Model::Serializable
 
   xml do
     root "MPr"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do
       map_element :baseJc, to: :base_jc

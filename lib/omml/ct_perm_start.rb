@@ -12,6 +12,7 @@ class CTPermStart < CTPerm
 
   xml do
     root "PermStart"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :edGrp, to: :ed_grp
     map_attribute :ed, to: :ed

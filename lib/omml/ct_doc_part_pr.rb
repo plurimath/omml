@@ -20,6 +20,7 @@ class CTDocPartPr < Lutaml::Model::Serializable
 
   xml do
     root "DocPartPr"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_element :name, to: :name
     map_element :style, to: :style

@@ -9,6 +9,7 @@ class CTNonVisualGroupDrawingShapeProps < Lutaml::Model::Serializable
 
   xml do
     root "NonVisualGroupDrawingShapeProps"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do
       map_element :grpSpLocks, to: :grp_sp_locks

@@ -7,6 +7,7 @@ class CTTblPrChange < CTTrackChange
 
   xml do
     root "TblPrChange"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do
       map_element :tblPr, to: :tbl_pr

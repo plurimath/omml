@@ -10,6 +10,7 @@ class CTSdtDocPart < Lutaml::Model::Serializable
 
   xml do
     root "SdtDocPart"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do
       map_element :docPartGallery, to: :doc_part_gallery

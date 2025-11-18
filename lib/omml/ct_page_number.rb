@@ -12,6 +12,7 @@ class CTPageNumber < Lutaml::Model::Serializable
 
   xml do
     root "PageNumber"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :fmt, to: :fmt
     map_attribute :start, to: :start

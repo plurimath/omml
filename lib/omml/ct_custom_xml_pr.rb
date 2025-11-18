@@ -9,6 +9,7 @@ class CTCustomXmlPr < Lutaml::Model::Serializable
 
   xml do
     root "CustomXmlPr"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do
       map_element :placeholder, to: :placeholder

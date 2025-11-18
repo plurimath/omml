@@ -9,6 +9,7 @@ class CTSdtEndPr < Lutaml::Model::Serializable
 
   xml do
     root "SdtEndPr"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_element :rPr, to: :r_pr
   end

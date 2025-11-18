@@ -10,6 +10,7 @@ class CTControl < Lutaml::Model::Serializable
 
   xml do
     root "Control"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :name, to: :name
     map_attribute :shapeid, to: :shapeid

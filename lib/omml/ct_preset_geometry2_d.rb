@@ -9,6 +9,7 @@ class CTPresetGeometry2D < Lutaml::Model::Serializable
 
   xml do
     root "PresetGeometry2D"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do
       map_element :avLst, to: :av_lst

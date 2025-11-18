@@ -10,6 +10,7 @@ class CTF < Lutaml::Model::Serializable
 
   xml do
     root "F"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do
       map_element :fPr, to: :f_pr

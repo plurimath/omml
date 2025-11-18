@@ -31,6 +31,7 @@ class CTFramePr < Lutaml::Model::Serializable
 
   xml do
     root "FramePr"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :dropCap, to: :drop_cap
     map_attribute :lines, to: :lines

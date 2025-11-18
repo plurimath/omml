@@ -12,6 +12,7 @@ class CTNonVisualConnectorProperties < Lutaml::Model::Serializable
 
   xml do
     root "NonVisualConnectorProperties"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do
       map_element :cxnSpLocks, to: :cxn_sp_locks

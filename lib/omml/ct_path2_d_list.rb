@@ -7,6 +7,7 @@ class CTPath2DList < Lutaml::Model::Serializable
 
   xml do
     root "Path2DList"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do
       map_element :path, to: :path

@@ -26,6 +26,7 @@ class CTPath2D < Lutaml::Model::Serializable
 
   xml do
     root "Path2D"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_element :close, to: :close
     map_element :moveTo, to: :move_to

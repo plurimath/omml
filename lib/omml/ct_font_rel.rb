@@ -9,6 +9,7 @@ class CTFontRel < CTRel
 
   xml do
     root "FontRel"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :fontKey, to: :font_key
     map_attribute :subsetted, to: :subsetted

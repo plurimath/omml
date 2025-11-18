@@ -36,6 +36,7 @@ class CTAnchor < Lutaml::Model::Serializable
 
   xml do
     root "Anchor"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do
       map_element :simplePos, to: :simple_pos

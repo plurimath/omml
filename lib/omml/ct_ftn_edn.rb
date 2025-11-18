@@ -11,6 +11,7 @@ class CTFtnEdn < Lutaml::Model::Serializable
 
   xml do
     root "FtnEdn"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do
       import_model_mappings :eg_block_level_elts

@@ -7,6 +7,7 @@ class CTDocVars < Lutaml::Model::Serializable
 
   xml do
     root "DocVars"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do
       map_element :docVar, to: :doc_var

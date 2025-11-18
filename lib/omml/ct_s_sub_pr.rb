@@ -7,6 +7,7 @@ class CTSSubPr < Lutaml::Model::Serializable
 
   xml do
     root "SSubPr"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do
       map_element :ctrlPr, to: :ctrl_pr

@@ -9,6 +9,7 @@ class CTBr < Lutaml::Model::Serializable
 
   xml do
     root "Br"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :type, to: :type
     map_attribute :clear, to: :clear

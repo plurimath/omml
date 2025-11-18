@@ -8,7 +8,8 @@ class CTOMathPara < Lutaml::Model::Serializable
   attribute :o_math, :ct_o_math, collection: 1..Float::INFINITY
 
   xml do
-    root "OMathPara"
+    root "oMathPara"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do
       map_element :oMathParaPr, to: :o_math_para_pr

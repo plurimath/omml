@@ -11,6 +11,7 @@ class CTAdjustHandleList < Lutaml::Model::Serializable
 
   xml do
     root "AdjustHandleList"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_element :ahXY, to: :ah_xy
     map_element :ahPolar, to: :ah_polar

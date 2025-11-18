@@ -9,6 +9,7 @@ class CTComment < CTTrackChange
 
   xml do
     root "Comment"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do
       import_model_mappings :eg_block_level_elts

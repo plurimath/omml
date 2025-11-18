@@ -11,6 +11,7 @@ class CTPPr < CTPPrBase
 
   xml do
     root "PPr"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do
       map_element :rPr, to: :r_pr

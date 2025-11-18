@@ -32,6 +32,7 @@ class CTTblPrBase < Lutaml::Model::Serializable
 
   xml do
     root "TblPrBase"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do
       map_element :tblStyle, to: :tbl_style

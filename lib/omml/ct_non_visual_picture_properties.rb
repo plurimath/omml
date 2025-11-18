@@ -10,6 +10,7 @@ class CTNonVisualPictureProperties < Lutaml::Model::Serializable
 
   xml do
     root "NonVisualPictureProperties"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do
       map_element :picLocks, to: :pic_locks

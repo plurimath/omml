@@ -11,6 +11,7 @@ class CTNum < Lutaml::Model::Serializable
 
   xml do
     root "Num"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do
       map_element :abstractNumId, to: :abstract_num_id

@@ -7,6 +7,7 @@ class CTTblGridChange < CTMarkup
 
   xml do
     root "TblGridChange"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do
       map_element :tblGrid, to: :tbl_grid

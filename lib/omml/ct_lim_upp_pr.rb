@@ -7,6 +7,7 @@ class CTLimUppPr < Lutaml::Model::Serializable
 
   xml do
     root "LimUppPr"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do
       map_element :ctrlPr, to: :ctrl_pr

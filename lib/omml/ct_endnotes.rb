@@ -7,6 +7,7 @@ class CTEndnotes < Lutaml::Model::Serializable
 
   xml do
     root "Endnotes"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do
       map_element :endnote, to: :endnote

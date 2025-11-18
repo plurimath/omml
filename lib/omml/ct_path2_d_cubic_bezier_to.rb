@@ -7,6 +7,7 @@ class CTPath2DCubicBezierTo < Lutaml::Model::Serializable
 
   xml do
     root "Path2DCubicBezierTo"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do
       map_element :pt, to: :pt

@@ -7,6 +7,7 @@ class CTSdtContentBlock < Lutaml::Model::Serializable
 
   xml do
     root "SdtContentBlock"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     import_model_mappings :eg_content_block_content
   end

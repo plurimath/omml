@@ -6,9 +6,10 @@ class CTLimLoc < Lutaml::Model::Serializable
   attribute :val, :st_lim_loc
 
   xml do
-    root "LimLoc"
+    root "limLoc"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
-    map_attribute :val, to: :val
+    map_attribute :val, to: :val, namespace: "http://schemas.openxmlformats.org/officeDocument/2006/math", prefix: "m"
   end
 
   def self.register

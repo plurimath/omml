@@ -7,6 +7,7 @@ class CTSdtContentCell < Lutaml::Model::Serializable
 
   xml do
     root "SdtContentCell"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     import_model_mappings :eg_content_cell_content
   end

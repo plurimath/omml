@@ -5,6 +5,7 @@ class CTComplementTransform < Lutaml::Model::Serializable
 
   xml do
     root "ComplementTransform"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
   end
 
   def self.register

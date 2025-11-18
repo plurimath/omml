@@ -8,6 +8,7 @@ class CTSdtListItem < Lutaml::Model::Serializable
 
   xml do
     root "SdtListItem"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :displayText, to: :display_text
     map_attribute :value, to: :value

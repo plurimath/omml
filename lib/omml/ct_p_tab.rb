@@ -11,6 +11,7 @@ class CTPTab < Lutaml::Model::Serializable
 
   xml do
     root "PTab"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :alignment, to: :alignment
     map_attribute :relativeTo, to: :relative_to

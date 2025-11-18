@@ -12,6 +12,7 @@ class CTReadingModeInkLockDown < Lutaml::Model::Serializable
 
   xml do
     root "ReadingModeInkLockDown"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :actualPg, to: :actual_pg
     map_attribute :w, to: :w

@@ -12,6 +12,7 @@ class CTSmartTagRun < Lutaml::Model::Serializable
 
   xml do
     root "SmartTagRun"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do
       map_element :smartTagPr, to: :smart_tag_pr

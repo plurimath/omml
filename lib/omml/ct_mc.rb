@@ -7,6 +7,7 @@ class CTMC < Lutaml::Model::Serializable
 
   xml do
     root "MC"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do
       map_element :mcPr, to: :mc_pr

@@ -16,6 +16,7 @@ class CTInd < Lutaml::Model::Serializable
 
   xml do
     root "Ind"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :left, to: :left
     map_attribute :leftChars, to: :left_chars

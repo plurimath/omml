@@ -9,6 +9,7 @@ class CTFPr < Lutaml::Model::Serializable
 
   xml do
     root "FPr"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do
       map_element :type, to: :type

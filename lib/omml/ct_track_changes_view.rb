@@ -11,6 +11,7 @@ class CTTrackChangesView < Lutaml::Model::Serializable
 
   xml do
     root "TrackChangesView"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :markup, to: :markup
     map_attribute :comments, to: :comments

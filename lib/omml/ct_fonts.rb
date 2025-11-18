@@ -16,11 +16,12 @@ class CTFonts < Lutaml::Model::Serializable
   attribute :cstheme, :st_theme
 
   xml do
-    root "Fonts"
+    root "rFonts"
+    namespace "http://schemas.openxmlformats.org/wordprocessingml/2006/main", "w"
 
     map_attribute :hint, to: :hint
-    map_attribute :ascii, to: :ascii
-    map_attribute :hAnsi, to: :h_ansi
+    map_attribute :ascii, to: :ascii, namespace: "http://schemas.openxmlformats.org/wordprocessingml/2006/main", prefix: "w"
+    map_attribute :hAnsi, to: :h_ansi, namespace: "http://schemas.openxmlformats.org/wordprocessingml/2006/main", prefix: "w"
     map_attribute :eastAsia, to: :east_asia
     map_attribute :cs, to: :cs
     map_attribute :asciiTheme, to: :ascii_theme

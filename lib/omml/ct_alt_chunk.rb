@@ -9,6 +9,7 @@ class CTAltChunk < Lutaml::Model::Serializable
 
   xml do
     root "AltChunk"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do
       map_element :altChunkPr, to: :alt_chunk_pr

@@ -7,6 +7,7 @@ class CTTrackChangeRange < CTTrackChange
 
   xml do
     root "TrackChangeRange"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :displacedByCustomXml, to: :displaced_by_custom_xml
   end

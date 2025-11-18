@@ -9,6 +9,7 @@ class CTConnectionSite < Lutaml::Model::Serializable
 
   xml do
     root "ConnectionSite"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do
       map_element :pos, to: :pos

@@ -9,6 +9,7 @@ class CTBorderBox < Lutaml::Model::Serializable
 
   xml do
     root "BorderBox"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do
       map_element :borderBoxPr, to: :border_box_pr

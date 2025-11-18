@@ -12,6 +12,7 @@ class CTBackground < CTPictureBase
 
   xml do
     root "Background"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :color, to: :color
     map_attribute :themeColor, to: :theme_color

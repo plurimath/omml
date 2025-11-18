@@ -10,6 +10,7 @@ class CTRelativeRect < Lutaml::Model::Serializable
 
   xml do
     root "RelativeRect"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :l, to: :l
     map_attribute :t, to: :t

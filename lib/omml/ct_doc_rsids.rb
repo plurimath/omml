@@ -8,6 +8,7 @@ class CTDocRsids < Lutaml::Model::Serializable
 
   xml do
     root "DocRsids"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do
       map_element :rsidRoot, to: :rsid_root

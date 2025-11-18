@@ -9,6 +9,7 @@ class CTSaveThroughXslt < Lutaml::Model::Serializable
 
   xml do
     root "SaveThroughXslt"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :id, to: :id
     map_attribute :solutionID, to: :solution_id

@@ -7,6 +7,7 @@ class CTPPrDefault < Lutaml::Model::Serializable
 
   xml do
     root "PPrDefault"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do
       map_element :pPr, to: :p_pr

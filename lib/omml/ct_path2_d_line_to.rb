@@ -7,6 +7,7 @@ class CTPath2DLineTo < Lutaml::Model::Serializable
 
   xml do
     root "Path2DLineTo"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do
       map_element :pt, to: :pt

@@ -9,6 +9,7 @@ class CTLanguage < Lutaml::Model::Serializable
 
   xml do
     root "Language"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :val, to: :val
     map_attribute :eastAsia, to: :east_asia

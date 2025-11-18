@@ -9,6 +9,7 @@ class CTEmbeddedWAVAudioFile < Lutaml::Model::Serializable
 
   xml do
     root "EmbeddedWAVAudioFile"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :embed, to: :embed
     map_attribute :name, to: :name
