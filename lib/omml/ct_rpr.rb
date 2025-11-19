@@ -15,7 +15,7 @@ class CTRPR < Lutaml::Model::Serializable
 
   xml do
     root "rPr"
-    namespace "http://schemas.openxmlformats.org/wordprocessingml/2006/main", "w"
+    namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do
       map_element :lit, to: :lit

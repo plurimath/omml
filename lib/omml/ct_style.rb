@@ -9,7 +9,9 @@ class CTStyle < Lutaml::Model::Serializable
     root "Style"
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
-    map_attribute :val, to: :val
+    map_attribute :val, to: :val,
+                        namespace: "http://schemas.openxmlformats.org/officeDocument/2006/math",
+                        prefix: "m"
   end
 
   def self.register

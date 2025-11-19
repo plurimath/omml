@@ -1,0 +1,12 @@
+<m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math">
+  <m:acc>
+    <m:accPr>
+      <m:chr m:val="‾"/> <!-- Overline character -->
+    </m:accPr>
+    <m:e>
+      <m:r>
+        <m:t>AB</m:t>
+      </m:r>
+    </m:e>
+  </m:acc>
+</m:oMath>

@@ -8,6 +8,7 @@ class EGRPrContent < Lutaml::Model::Serializable
 
   xml do
     no_root
+
     sequence do
       import_model_mappings :eg_r_pr_base
       map_element :rPrChange, to: :r_pr_change

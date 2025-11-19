@@ -8,6 +8,7 @@ class EGScriptStyle < Lutaml::Model::Serializable
 
   xml do
     no_root
+
     sequence do
       map_element :scr, to: :scr
       map_element :sty, to: :sty
