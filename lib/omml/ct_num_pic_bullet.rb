@@ -8,7 +8,7 @@ class CTNumPicBullet < Lutaml::Model::Serializable
   attribute :num_pic_bullet_id, :st_decimal_number
 
   xml do
-    root "NumPicBullet"
+    root "NumPicBullet", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

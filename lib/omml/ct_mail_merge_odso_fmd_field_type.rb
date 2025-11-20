@@ -6,7 +6,7 @@ class CTMailMergeOdsoFMDFieldType < Lutaml::Model::Serializable
   attribute :val, :st_mail_merge_odso_fmd_field_type
 
   xml do
-    root "MailMergeOdsoFMDFieldType"
+    root "MailMergeOdsoFMDFieldType", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :val, to: :val

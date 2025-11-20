@@ -15,7 +15,7 @@ class CTPageBorders < Lutaml::Model::Serializable
   attribute :offset_from, :st_page_border_offset
 
   xml do
-    root "PageBorders"
+    root "PageBorders", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

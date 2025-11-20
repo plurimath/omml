@@ -15,7 +15,7 @@ class CTRow < Lutaml::Model::Serializable
   attribute :rsid_tr, :st_long_hex_number
 
   xml do
-    root "Row"
+    root "Row", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

@@ -9,7 +9,7 @@ class CTWrapTopBottom < Lutaml::Model::Serializable
   attribute :dist_b, :st_wrap_distance
 
   xml do
-    root "WrapTopBottom"
+    root "WrapTopBottom", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

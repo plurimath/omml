@@ -6,7 +6,7 @@ class CTTxbxContent < Lutaml::Model::Serializable
   import_model_attributes :eg_block_level_elts
 
   xml do
-    root "TxbxContent"
+    root "TxbxContent", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     import_model_mappings :eg_block_level_elts

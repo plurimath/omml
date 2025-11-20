@@ -12,7 +12,7 @@ class CTNumbering < Lutaml::Model::Serializable
   attribute :num_id_mac_at_cleanup, :ct_decimal_number, collection: 0..1
 
   xml do
-    root "Numbering"
+    root "Numbering", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

@@ -8,7 +8,7 @@ class CTSdtDropDownList < Lutaml::Model::Serializable
   attribute :last_value, :st_string
 
   xml do
-    root "SdtDropDownList"
+    root "SdtDropDownList", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

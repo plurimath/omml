@@ -7,7 +7,7 @@ class CTScale2D < Lutaml::Model::Serializable
   attribute :sy, :ct_ratio, collection: 1..1
 
   xml do
-    root "Scale2D"
+    root "Scale2D", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

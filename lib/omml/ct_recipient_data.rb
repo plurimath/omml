@@ -10,7 +10,7 @@ class CTRecipientData < Lutaml::Model::Serializable
   attribute :unique_tag, :base64_binary, collection: 1..1
 
   xml do
-    root "RecipientData"
+    root "RecipientData", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

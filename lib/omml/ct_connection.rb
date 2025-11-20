@@ -8,7 +8,7 @@ class CTConnection < Lutaml::Model::Serializable
   attribute :idx, :unsigned_int
 
   xml do
-    root "Connection"
+    root "Connection", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :id, to: :id

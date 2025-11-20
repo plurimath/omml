@@ -7,7 +7,7 @@ class CTSdtListItem < Lutaml::Model::Serializable
   attribute :value, :st_string
 
   xml do
-    root "SdtListItem"
+    root "SdtListItem", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :displayText, to: :display_text

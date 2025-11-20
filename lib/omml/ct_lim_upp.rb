@@ -9,7 +9,7 @@ class CTLimUpp < Lutaml::Model::Serializable
   attribute :lim, :ct_o_math_arg
 
   xml do
-    root "LimUpp"
+    root "LimUpp", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

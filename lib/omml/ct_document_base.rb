@@ -6,7 +6,7 @@ class CTDocumentBase < Lutaml::Model::Serializable
   attribute :background, :ct_background, collection: 0..1
 
   xml do
-    root "DocumentBase"
+    root "DocumentBase", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

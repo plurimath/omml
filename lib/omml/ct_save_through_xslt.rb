@@ -8,7 +8,7 @@ class CTSaveThroughXslt < Lutaml::Model::Serializable
   attribute :solution_id, :st_string
 
   xml do
-    root "SaveThroughXslt"
+    root "SaveThroughXslt", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :id, to: :id

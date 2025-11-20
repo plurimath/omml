@@ -14,7 +14,7 @@ class CTWritingStyle < Lutaml::Model::Serializable
   attribute :app_name, :st_string
 
   xml do
-    root "WritingStyle"
+    root "WritingStyle", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :lang, to: :lang

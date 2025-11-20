@@ -70,7 +70,7 @@ class CTCompat < Lutaml::Model::Serializable
   attribute :cached_col_balance, :ct_on_off, collection: 0..1
 
   xml do
-    root "Compat"
+    root "Compat", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

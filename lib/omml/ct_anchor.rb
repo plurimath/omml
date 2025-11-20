@@ -35,7 +35,7 @@ class CTAnchor < Lutaml::Model::Serializable
   attribute :allow_overlap, :boolean
 
   xml do
-    root "Anchor"
+    root "Anchor", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

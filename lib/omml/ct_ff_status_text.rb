@@ -8,7 +8,7 @@ class CTFFStatusText < Lutaml::Model::Serializable
   attribute :val, :st_ff_status_text_val
 
   xml do
-    root "FFStatusText"
+    root "FFStatusText", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :type, to: :type

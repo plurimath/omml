@@ -10,7 +10,7 @@ class CTScRgbColor < Lutaml::Model::Serializable
   attribute :b, :st_percentage
 
   xml do
-    root "ScRgbColor"
+    root "ScRgbColor", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

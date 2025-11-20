@@ -7,7 +7,7 @@ class CTPaperSource < Lutaml::Model::Serializable
   attribute :other, :st_decimal_number
 
   xml do
-    root "PaperSource"
+    root "PaperSource", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :first, to: :first

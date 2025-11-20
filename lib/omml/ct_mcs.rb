@@ -6,7 +6,7 @@ class CTMCS < Lutaml::Model::Serializable
   attribute :mc, :ct_mc, collection: 1..Float::INFINITY
 
   xml do
-    root "MCS"
+    root "MCS", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

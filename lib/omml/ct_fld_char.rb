@@ -17,7 +17,7 @@ class CTFldChar < Lutaml::Model::Serializable
   attribute :dirty, :st_on_off
 
   xml do
-    root "FldChar"
+    root "FldChar", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_element :fldData, to: :fld_data

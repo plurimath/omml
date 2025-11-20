@@ -6,7 +6,7 @@ class CTTabs < Lutaml::Model::Serializable
   attribute :tab, :ct_tab_stop, collection: 1..Float::INFINITY
 
   xml do
-    root "Tabs"
+    root "Tabs", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

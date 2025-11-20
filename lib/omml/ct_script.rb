@@ -6,7 +6,7 @@ class CTScript < Lutaml::Model::Serializable
   attribute :val, :st_script
 
   xml do
-    root "Script"
+    root "Script", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :val, to: :val

@@ -6,7 +6,7 @@ class CTCtrlPr < Lutaml::Model::Serializable
   import_model_attributes :eg_r_pr_math
 
   xml do
-    root "CtrlPr"
+    root "CtrlPr", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

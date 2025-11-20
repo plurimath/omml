@@ -4,7 +4,7 @@ require "lutaml/model"
 class CTInverseTransform < Lutaml::Model::Serializable
 
   xml do
-    root "InverseTransform"
+    root "InverseTransform", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
   end
 

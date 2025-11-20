@@ -6,7 +6,7 @@ class CTPath2DMoveTo < Lutaml::Model::Serializable
   attribute :pt, :ct_adj_point2_d, collection: 1..1
 
   xml do
-    root "Path2DMoveTo"
+    root "Path2DMoveTo", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

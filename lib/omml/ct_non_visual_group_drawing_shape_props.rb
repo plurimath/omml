@@ -8,7 +8,7 @@ class CTNonVisualGroupDrawingShapeProps < Lutaml::Model::Serializable
   attribute :ext_lst, :ct_office_art_extension_list, collection: 0..1
 
   xml do
-    root "NonVisualGroupDrawingShapeProps"
+    root "NonVisualGroupDrawingShapeProps", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

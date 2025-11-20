@@ -6,7 +6,7 @@ class CTXAlign < Lutaml::Model::Serializable
   attribute :val, :st_x_align
 
   xml do
-    root "XAlign"
+    root "XAlign", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :val, to: :val

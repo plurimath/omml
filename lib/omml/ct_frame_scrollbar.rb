@@ -6,7 +6,7 @@ class CTFrameScrollbar < Lutaml::Model::Serializable
   attribute :val, :st_frame_scrollbar
 
   xml do
-    root "FrameScrollbar"
+    root "FrameScrollbar", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :val, to: :val

@@ -8,7 +8,7 @@ class CTHeight < Lutaml::Model::Serializable
   attribute :h_rule, :st_height_rule
 
   xml do
-    root "Height"
+    root "Height", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :val, to: :val

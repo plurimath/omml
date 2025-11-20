@@ -6,7 +6,7 @@ class CTPositiveFixedAngle < Lutaml::Model::Serializable
   attribute :val, :st_positive_fixed_angle
 
   xml do
-    root "PositiveFixedAngle"
+    root "PositiveFixedAngle", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :val, to: :val

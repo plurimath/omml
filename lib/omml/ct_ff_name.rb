@@ -6,7 +6,7 @@ class CTFFName < Lutaml::Model::Serializable
   attribute :val, :st_ff_name
 
   xml do
-    root "FFName"
+    root "FFName", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :val, to: :val

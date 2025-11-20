@@ -8,7 +8,7 @@ class CTCustomXmlPr < Lutaml::Model::Serializable
   attribute :attr, :ct_attr, collection: 0..Float::INFINITY
 
   xml do
-    root "CustomXmlPr"
+    root "CustomXmlPr", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

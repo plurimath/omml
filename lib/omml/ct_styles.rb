@@ -10,7 +10,7 @@ class CTStyles < Lutaml::Model::Serializable
   attribute :style, :ct_style, collection: 0..Float::INFINITY
 
   xml do
-    root "Styles"
+    root "Styles", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

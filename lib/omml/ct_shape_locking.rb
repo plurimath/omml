@@ -17,7 +17,7 @@ class CTShapeLocking < Lutaml::Model::Serializable
   attribute :no_text_edit, :boolean
 
   xml do
-    root "ShapeLocking"
+    root "ShapeLocking", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

@@ -6,7 +6,7 @@ class CTInteger255 < Lutaml::Model::Serializable
   attribute :val, :st_integer255
 
   xml do
-    root "Integer255"
+    root "Integer255", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :val, to: :val

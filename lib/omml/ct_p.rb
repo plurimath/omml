@@ -14,7 +14,7 @@ class CTP < Lutaml::Model::Serializable
   attribute :rsid_r_default, :st_long_hex_number
 
   xml do
-    root "P"
+    root "P", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

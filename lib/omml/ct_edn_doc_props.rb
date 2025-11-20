@@ -6,7 +6,7 @@ class CTEdnDocProps < CTEdnProps
   attribute :endnote, :ct_ftn_edn_sep_ref, collection: 0..3
 
   xml do
-    root "EdnDocProps"
+    root "EdnDocProps", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

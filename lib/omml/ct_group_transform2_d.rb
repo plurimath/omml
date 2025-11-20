@@ -14,7 +14,7 @@ class CTGroupTransform2D < Lutaml::Model::Serializable
   attribute :flip_v, :boolean
 
   xml do
-    root "GroupTransform2D"
+    root "GroupTransform2D", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

@@ -6,7 +6,7 @@ class CTRubyContent < Lutaml::Model::Serializable
   import_model_attributes :eg_ruby_content
 
   xml do
-    root "RubyContent"
+    root "RubyContent", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     import_model_mappings :eg_ruby_content

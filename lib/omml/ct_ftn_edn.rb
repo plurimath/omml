@@ -10,7 +10,7 @@ class CTFtnEdn < Lutaml::Model::Serializable
   attribute :id, :st_decimal_number
 
   xml do
-    root "FtnEdn"
+    root "FtnEdn", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

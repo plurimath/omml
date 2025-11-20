@@ -4,7 +4,7 @@ require "lutaml/model"
 class CTPictureBase < Lutaml::Model::Serializable
 
   xml do
-    root "PictureBase"
+    root "PictureBase", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
   end
 

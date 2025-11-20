@@ -6,7 +6,7 @@ class CTEndnotes < Lutaml::Model::Serializable
   attribute :endnote, :ct_ftn_edn, collection: 0..1
 
   xml do
-    root "Endnotes"
+    root "Endnotes", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

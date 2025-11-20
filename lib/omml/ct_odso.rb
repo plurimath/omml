@@ -18,7 +18,7 @@ class CTOdso < Lutaml::Model::Serializable
   attribute :recipient_data, :ct_rel, collection: 0..Float::INFINITY
 
   xml do
-    root "Odso"
+    root "Odso", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

@@ -8,7 +8,7 @@ class CTLanguage < Lutaml::Model::Serializable
   attribute :bidi, :st_lang
 
   xml do
-    root "Language"
+    root "Language", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :val, to: :val

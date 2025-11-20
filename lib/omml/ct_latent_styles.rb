@@ -14,7 +14,7 @@ class CTLatentStyles < Lutaml::Model::Serializable
   attribute :count, :st_decimal_number
 
   xml do
-    root "LatentStyles"
+    root "LatentStyles", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

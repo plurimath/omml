@@ -8,7 +8,7 @@ class CTComment < CTTrackChange
   attribute :initials, :st_string
 
   xml do
-    root "Comment"
+    root "Comment", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

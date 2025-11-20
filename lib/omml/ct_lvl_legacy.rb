@@ -10,7 +10,7 @@ class CTLvlLegacy < Lutaml::Model::Serializable
   attribute :legacy_indent, :st_signed_twips_measure
 
   xml do
-    root "LvlLegacy"
+    root "LvlLegacy", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :legacy, to: :legacy

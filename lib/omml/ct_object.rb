@@ -9,7 +9,7 @@ class CTObject < CTPictureBase
   attribute :dya_orig, :st_twips_measure
 
   xml do
-    root "Object"
+    root "Object", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

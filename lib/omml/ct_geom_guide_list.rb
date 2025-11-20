@@ -6,7 +6,7 @@ class CTGeomGuideList < Lutaml::Model::Serializable
   attribute :gd, :ct_geom_guide, collection: 0..Float::INFINITY
 
   xml do
-    root "GeomGuideList"
+    root "GeomGuideList", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

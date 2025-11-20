@@ -12,7 +12,7 @@ class CTPosH < Lutaml::Model::Serializable
   attribute :relative_from, :st_rel_from_h
 
   xml do
-    root "PosH"
+    root "PosH", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

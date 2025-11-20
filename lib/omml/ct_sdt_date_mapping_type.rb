@@ -6,7 +6,7 @@ class CTSdtDateMappingType < Lutaml::Model::Serializable
   attribute :val, :st_sdt_date_mapping_type
 
   xml do
-    root "SdtDateMappingType"
+    root "SdtDateMappingType", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :val, to: :val

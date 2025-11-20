@@ -8,7 +8,7 @@ class CTEqArr < Lutaml::Model::Serializable
   attribute :e, :ct_o_math_arg, collection: 1..Float::INFINITY
 
   xml do
-    root "EqArr"
+    root "EqArr", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

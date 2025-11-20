@@ -8,7 +8,7 @@ class CTSmartTagType < Lutaml::Model::Serializable
   attribute :url, :st_string
 
   xml do
-    root "SmartTagType"
+    root "SmartTagType", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :namespaceuri, to: :namespaceuri

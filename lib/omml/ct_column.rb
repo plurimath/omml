@@ -7,7 +7,7 @@ class CTColumn < Lutaml::Model::Serializable
   attribute :space, :st_twips_measure
 
   xml do
-    root "Column"
+    root "Column", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :w, to: :w

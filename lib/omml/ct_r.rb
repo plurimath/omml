@@ -13,7 +13,7 @@ class CTR < Lutaml::Model::Serializable
   end
 
   xml do
-    root "r"
+    root "r", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

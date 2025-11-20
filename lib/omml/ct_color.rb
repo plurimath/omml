@@ -11,7 +11,7 @@ class CTColor < Lutaml::Model::Serializable
   attribute :theme_shade, :st_uchar_hex_number
 
   xml do
-    root "Color"
+    root "Color", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :val, to: :val

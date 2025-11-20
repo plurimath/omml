@@ -16,7 +16,7 @@ class CTTblStylePr < Lutaml::Model::Serializable
   attribute :type, :st_tbl_style_override_type
 
   xml do
-    root "TblStylePr"
+    root "TblStylePr", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

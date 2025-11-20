@@ -8,7 +8,7 @@ class CTDocPartBehaviors < Lutaml::Model::Serializable
   end
 
   xml do
-    root "DocPartBehaviors"
+    root "DocPartBehaviors", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_element :behavior, to: :behavior

@@ -9,7 +9,7 @@ class CTFFDDList < Lutaml::Model::Serializable
   attribute :list_entry, :ct_string, collection: 0..Float::INFINITY
 
   xml do
-    root "FFDDList"
+    root "FFDDList", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

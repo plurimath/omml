@@ -9,7 +9,7 @@ class CTRuby < Lutaml::Model::Serializable
   attribute :ruby_base, :ct_ruby_content
 
   xml do
-    root "Ruby"
+    root "Ruby", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

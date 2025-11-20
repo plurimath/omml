@@ -7,7 +7,7 @@ class CTProof < Lutaml::Model::Serializable
   attribute :grammar, :st_proof
 
   xml do
-    root "Proof"
+    root "Proof", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :spelling, to: :spelling

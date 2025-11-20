@@ -15,7 +15,7 @@ class CTPolarAdjustHandle < Lutaml::Model::Serializable
   attribute :max_ang, :st_adj_angle
 
   xml do
-    root "PolarAdjustHandle"
+    root "PolarAdjustHandle", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

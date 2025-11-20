@@ -8,7 +8,7 @@ class CTTc < Lutaml::Model::Serializable
   import_model_attributes :eg_block_level_elts
 
   xml do
-    root "Tc"
+    root "Tc", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

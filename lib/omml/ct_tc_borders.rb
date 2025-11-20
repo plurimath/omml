@@ -13,7 +13,7 @@ class CTTcBorders < Lutaml::Model::Serializable
   attribute :tr2bl, :ct_border, collection: 0..1
 
   xml do
-    root "TcBorders"
+    root "TcBorders", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

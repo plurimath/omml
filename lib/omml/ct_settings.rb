@@ -135,7 +135,7 @@ class CTSettings < Lutaml::Model::Serializable
   attribute :list_separator, :ct_string, collection: 0..1
 
   xml do
-    root "Settings"
+    root "Settings", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

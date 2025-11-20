@@ -6,7 +6,7 @@ class CTPath2DList < Lutaml::Model::Serializable
   attribute :path, :ct_path2_d, collection: 0..Float::INFINITY
 
   xml do
-    root "Path2DList"
+    root "Path2DList", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

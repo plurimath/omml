@@ -8,7 +8,7 @@ class CTSRgbColor < Lutaml::Model::Serializable
   attribute :val, :st_hex_binary3
 
   xml do
-    root "SRgbColor"
+    root "SRgbColor", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

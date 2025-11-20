@@ -6,7 +6,7 @@ class CTMR < Lutaml::Model::Serializable
   attribute :e, :ct_o_math_arg, collection: 1..Float::INFINITY
 
   xml do
-    root "MR"
+    root "MR", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

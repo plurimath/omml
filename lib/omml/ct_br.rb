@@ -8,7 +8,7 @@ class CTBr < Lutaml::Model::Serializable
   attribute :clear, :st_br_clear
 
   xml do
-    root "Br"
+    root "Br", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :type, to: :type

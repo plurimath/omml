@@ -8,7 +8,7 @@ class CTZoom < Lutaml::Model::Serializable
   attribute :percent, :st_decimal_number
 
   xml do
-    root "Zoom"
+    root "Zoom", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :val, to: :val

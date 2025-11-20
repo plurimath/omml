@@ -8,7 +8,7 @@ class CTMoveBookmark < CTBookmark
   attribute :date, :st_date_time
 
   xml do
-    root "MoveBookmark"
+    root "MoveBookmark", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :author, to: :author

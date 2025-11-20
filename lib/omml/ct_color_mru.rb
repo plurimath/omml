@@ -6,7 +6,7 @@ class CTColorMRU < Lutaml::Model::Serializable
   import_model_attributes :eg_color_choice
 
   xml do
-    root "ColorMRU"
+    root "ColorMRU", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

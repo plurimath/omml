@@ -6,7 +6,7 @@ class CTFontsList < Lutaml::Model::Serializable
   attribute :font, :ct_font, collection: 0..Float::INFINITY
 
   xml do
-    root "FontsList"
+    root "FontsList", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

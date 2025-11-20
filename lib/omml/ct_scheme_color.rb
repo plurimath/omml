@@ -8,7 +8,7 @@ class CTSchemeColor < Lutaml::Model::Serializable
   attribute :val, :st_scheme_color_val
 
   xml do
-    root "SchemeColor"
+    root "SchemeColor", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

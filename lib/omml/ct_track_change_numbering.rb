@@ -6,7 +6,7 @@ class CTTrackChangeNumbering < CTTrackChange
   attribute :original, :st_string
 
   xml do
-    root "TrackChangeNumbering"
+    root "TrackChangeNumbering", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :original, to: :original

@@ -28,7 +28,7 @@ class CTTcPrBase < Lutaml::Model::Serializable
   attribute :hide_mark, :ct_on_off, collection: 0..1
 
   xml do
-    root "TcPrBase"
+    root "TcPrBase", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

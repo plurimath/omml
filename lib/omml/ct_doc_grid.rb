@@ -9,7 +9,7 @@ class CTDocGrid < Lutaml::Model::Serializable
   attribute :char_space, :st_decimal_number
 
   xml do
-    root "DocGrid"
+    root "DocGrid", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :type, to: :type

@@ -8,7 +8,7 @@ class CTVector3D < Lutaml::Model::Serializable
   attribute :dz, :st_coordinate
 
   xml do
-    root "Vector3D"
+    root "Vector3D", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :dx, to: :dx

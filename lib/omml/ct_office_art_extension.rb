@@ -6,7 +6,7 @@ class CTOfficeArtExtension < Lutaml::Model::Serializable
   attribute :uri, :token
 
   xml do
-    root "OfficeArtExtension"
+    root "OfficeArtExtension", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :uri, to: :uri

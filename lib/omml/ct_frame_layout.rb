@@ -6,7 +6,7 @@ class CTFrameLayout < Lutaml::Model::Serializable
   attribute :val, :st_frame_layout
 
   xml do
-    root "FrameLayout"
+    root "FrameLayout", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :val, to: :val

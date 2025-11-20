@@ -25,7 +25,7 @@ class CTWriteProtection < Lutaml::Model::Serializable
   attribute :salt, :base64_binary
 
   xml do
-    root "WriteProtection"
+    root "WriteProtection", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :recommended, to: :recommended

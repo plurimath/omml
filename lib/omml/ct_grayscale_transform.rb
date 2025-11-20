@@ -4,7 +4,7 @@ require "lutaml/model"
 class CTGrayscaleTransform < Lutaml::Model::Serializable
 
   xml do
-    root "GrayscaleTransform"
+    root "GrayscaleTransform", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
   end
 

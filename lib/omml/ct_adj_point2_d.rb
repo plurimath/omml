@@ -7,7 +7,7 @@ class CTAdjPoint2D < Lutaml::Model::Serializable
   attribute :y, :st_adj_coordinate
 
   xml do
-    root "AdjPoint2D"
+    root "AdjPoint2D", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :x, to: :x

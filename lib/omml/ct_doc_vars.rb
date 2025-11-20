@@ -6,7 +6,7 @@ class CTDocVars < Lutaml::Model::Serializable
   attribute :doc_var, :ct_doc_var, collection: 0..Float::INFINITY
 
   xml do
-    root "DocVars"
+    root "DocVars", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

@@ -8,7 +8,7 @@ class CTWrapPath < Lutaml::Model::Serializable
   attribute :edited, :boolean
 
   xml do
-    root "WrapPath"
+    root "WrapPath", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

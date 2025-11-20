@@ -7,7 +7,7 @@ class CTText < Lutaml::Model::Serializable
   attribute :content, :st_string
   attribute :space, :nc_name
   xml do
-    root "t"
+    root "t", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_content to: :content

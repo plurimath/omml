@@ -9,7 +9,7 @@ class CTRelativeRect < Lutaml::Model::Serializable
   attribute :b, :st_percentage
 
   xml do
-    root "RelativeRect"
+    root "RelativeRect", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :l, to: :l

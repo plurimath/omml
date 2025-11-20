@@ -9,7 +9,7 @@ class CTF < Lutaml::Model::Serializable
   attribute :den, :ct_o_math_arg
 
   xml do
-    root "F"
+    root "F", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

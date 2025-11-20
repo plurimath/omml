@@ -19,7 +19,7 @@ class CTInline < Lutaml::Model::Serializable
   attribute :dist_r, :st_wrap_distance
 
   xml do
-    root "Inline"
+    root "Inline", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

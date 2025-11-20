@@ -6,7 +6,7 @@ class CTFtnPos < Lutaml::Model::Serializable
   attribute :val, :st_ftn_pos
 
   xml do
-    root "FtnPos"
+    root "FtnPos", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :val, to: :val

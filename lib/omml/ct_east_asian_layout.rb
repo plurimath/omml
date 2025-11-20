@@ -12,7 +12,7 @@ class CTEastAsianLayout < Lutaml::Model::Serializable
   attribute :vert_compress, :st_on_off
 
   xml do
-    root "EastAsianLayout"
+    root "EastAsianLayout", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :id, to: :id

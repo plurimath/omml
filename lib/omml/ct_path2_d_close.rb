@@ -4,7 +4,7 @@ require "lutaml/model"
 class CTPath2DClose < Lutaml::Model::Serializable
 
   xml do
-    root "Path2DClose"
+    root "Path2DClose", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
   end
 

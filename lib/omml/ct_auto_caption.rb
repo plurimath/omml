@@ -7,7 +7,7 @@ class CTAutoCaption < Lutaml::Model::Serializable
   attribute :caption, :st_string
 
   xml do
-    root "AutoCaption"
+    root "AutoCaption", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :name, to: :name

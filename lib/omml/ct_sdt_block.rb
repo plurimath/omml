@@ -10,7 +10,7 @@ class CTSdtBlock < Lutaml::Model::Serializable
   attribute :sdt_content, :ct_sdt_content_block, collection: 0..1
 
   xml do
-    root "SdtBlock"
+    root "SdtBlock", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

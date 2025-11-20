@@ -11,7 +11,7 @@ class CTPageSz < Lutaml::Model::Serializable
   attribute :code, :st_decimal_number
 
   xml do
-    root "PageSz"
+    root "PageSz", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :w, to: :w

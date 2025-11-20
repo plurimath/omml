@@ -10,7 +10,7 @@ class CTTrackChangesView < Lutaml::Model::Serializable
   attribute :ink_annotations, :st_on_off
 
   xml do
-    root "TrackChangesView"
+    root "TrackChangesView", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :markup, to: :markup

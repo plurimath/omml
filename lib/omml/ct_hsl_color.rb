@@ -11,7 +11,7 @@ class CTHslColor < Lutaml::Model::Serializable
   attribute :lum, :st_percentage
 
   xml do
-    root "HslColor"
+    root "HslColor", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

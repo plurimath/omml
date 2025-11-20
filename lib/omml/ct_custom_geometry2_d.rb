@@ -15,7 +15,7 @@ class CTCustomGeometry2D < Lutaml::Model::Serializable
   attribute :path_lst, :ct_path2_d_list, collection: 1..1
 
   xml do
-    root "CustomGeometry2D"
+    root "CustomGeometry2D", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

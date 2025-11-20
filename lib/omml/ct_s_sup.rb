@@ -9,7 +9,7 @@ class CTSSup < Lutaml::Model::Serializable
   attribute :sup, :ct_o_math_arg
 
   xml do
-    root "SSup"
+    root "SSup", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

@@ -25,7 +25,7 @@ class CTPath2D < Lutaml::Model::Serializable
   attribute :extrusion_ok, :boolean
 
   xml do
-    root "Path2D"
+    root "Path2D", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_element :close, to: :close

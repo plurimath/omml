@@ -9,7 +9,7 @@ class CTControl < Lutaml::Model::Serializable
   attribute :id, :st_relationship_id
 
   xml do
-    root "Control"
+    root "Control", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :name, to: :name

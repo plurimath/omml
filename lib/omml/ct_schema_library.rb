@@ -6,7 +6,7 @@ class CTSchemaLibrary < Lutaml::Model::Serializable
   attribute :schema, :ct_schema, collection: 0..Float::INFINITY
 
   xml do
-    root "SchemaLibrary"
+    root "SchemaLibrary", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

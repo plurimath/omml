@@ -6,7 +6,7 @@ class CTSdtContentRow < Lutaml::Model::Serializable
   import_model_attributes :eg_content_row_content
 
   xml do
-    root "SdtContentRow"
+    root "SdtContentRow", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     import_model_mappings :eg_content_row_content

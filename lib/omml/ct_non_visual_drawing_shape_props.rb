@@ -9,7 +9,7 @@ class CTNonVisualDrawingShapeProps < Lutaml::Model::Serializable
   attribute :tx_box, :boolean
 
   xml do
-    root "NonVisualDrawingShapeProps"
+    root "NonVisualDrawingShapeProps", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

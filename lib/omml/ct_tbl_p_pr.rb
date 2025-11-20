@@ -20,7 +20,7 @@ class CTTblPPr < Lutaml::Model::Serializable
   attribute :tblp_y, :st_signed_twips_measure
 
   xml do
-    root "TblPPr"
+    root "TblPPr", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :leftFromText, to: :left_from_text

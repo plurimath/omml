@@ -12,7 +12,7 @@ class CTPosV < Lutaml::Model::Serializable
   attribute :relative_from, :st_rel_from_v
 
   xml do
-    root "PosV"
+    root "PosV", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

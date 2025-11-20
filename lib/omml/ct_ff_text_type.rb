@@ -6,7 +6,7 @@ class CTFFTextType < Lutaml::Model::Serializable
   attribute :val, :st_ff_text_type
 
   xml do
-    root "FFTextType"
+    root "FFTextType", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :val, to: :val

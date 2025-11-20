@@ -6,7 +6,7 @@ class CTTblGridCol < Lutaml::Model::Serializable
   attribute :w, :st_twips_measure
 
   xml do
-    root "TblGridCol"
+    root "TblGridCol", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :w, to: :w

@@ -10,7 +10,7 @@ class CTSdtRun < Lutaml::Model::Serializable
   attribute :sdt_content, :ct_sdt_content_run, collection: 0..1
 
   xml do
-    root "SdtRun"
+    root "SdtRun", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

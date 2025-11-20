@@ -6,7 +6,7 @@ class CTBreakBin < Lutaml::Model::Serializable
   attribute :val, :st_break_bin
 
   xml do
-    root "BreakBin"
+    root "BreakBin", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :val, to: :val

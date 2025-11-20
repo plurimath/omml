@@ -6,7 +6,7 @@ class CTTextDirection < Lutaml::Model::Serializable
   attribute :val, :st_text_direction
 
   xml do
-    root "TextDirection"
+    root "TextDirection", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :val, to: :val

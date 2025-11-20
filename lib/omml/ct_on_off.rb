@@ -6,10 +6,10 @@ class CTOnOff < Lutaml::Model::Serializable
   attribute :val, :st_on_off
 
   xml do
-    root "OnOff"
+    root "OnOff", ordered: true
     namespace "http://schemas.openxmlformats.org/wordprocessingml/2006/main", "w"
 
-    map_attribute :val, to: :val
+    map_attribute :val, to: :val, namespace: "http://schemas.openxmlformats.org/officeDocument/2006/math", prefix: "m"
   end
 
   def self.register

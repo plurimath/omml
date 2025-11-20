@@ -9,7 +9,7 @@ class CTEffectExtent < Lutaml::Model::Serializable
   attribute :b, :st_coordinate
 
   xml do
-    root "EffectExtent"
+    root "EffectExtent", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :l, to: :l

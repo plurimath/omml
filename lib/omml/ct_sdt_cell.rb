@@ -10,7 +10,7 @@ class CTSdtCell < Lutaml::Model::Serializable
   attribute :sdt_content, :ct_sdt_content_cell, collection: 0..1
 
   xml do
-    root "SdtCell"
+    root "SdtCell", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

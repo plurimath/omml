@@ -6,7 +6,7 @@ class CTDivs < Lutaml::Model::Serializable
   attribute :div, :ct_div
 
   xml do
-    root "Divs"
+    root "Divs", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

@@ -6,7 +6,7 @@ class CTTextEffect < Lutaml::Model::Serializable
   attribute :val, :st_text_effect
 
   xml do
-    root "TextEffect"
+    root "TextEffect", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :val, to: :val

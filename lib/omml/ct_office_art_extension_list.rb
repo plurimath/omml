@@ -6,7 +6,7 @@ class CTOfficeArtExtensionList < Lutaml::Model::Serializable
   import_model_attributes :eg_office_art_extension_list
 
   xml do
-    root "OfficeArtExtensionList"
+    root "OfficeArtExtensionList", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

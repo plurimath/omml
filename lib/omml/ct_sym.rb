@@ -8,7 +8,7 @@ class CTSym < Lutaml::Model::Serializable
   attribute :char, :st_short_hex_number
 
   xml do
-    root "Sym"
+    root "Sym", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :font, to: :font

@@ -6,7 +6,7 @@ class CTAngle < Lutaml::Model::Serializable
   attribute :val, :st_angle
 
   xml do
-    root "Angle"
+    root "Angle", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :val, to: :val

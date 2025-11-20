@@ -4,7 +4,7 @@ require "lutaml/model"
 class CTEmpty < Lutaml::Model::Serializable
 
   xml do
-    root "Empty"
+    root "Empty", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
   end
 

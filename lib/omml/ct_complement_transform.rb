@@ -4,7 +4,7 @@ require "lutaml/model"
 class CTComplementTransform < Lutaml::Model::Serializable
 
   xml do
-    root "ComplementTransform"
+    root "ComplementTransform", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
   end
 

@@ -8,7 +8,7 @@ class CTPresetColor < Lutaml::Model::Serializable
   attribute :val, :st_preset_color_val
 
   xml do
-    root "PresetColor"
+    root "PresetColor", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

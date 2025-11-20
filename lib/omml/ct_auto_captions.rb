@@ -6,7 +6,7 @@ class CTAutoCaptions < Lutaml::Model::Serializable
   attribute :auto_caption, :ct_auto_caption, collection: 1..Float::INFINITY
 
   xml do
-    root "AutoCaptions"
+    root "AutoCaptions", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

@@ -6,7 +6,7 @@ class CTRPr < Lutaml::Model::Serializable
   import_model_attributes :eg_r_pr_content
 
   xml do
-    root "rPr"
+    root "rPr", ordered: true
     namespace  "http://schemas.openxmlformats.org/wordprocessingml/2006/main", "w"
 
     sequence do

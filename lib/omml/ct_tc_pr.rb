@@ -6,7 +6,7 @@ class CTTcPr < CTTcPrInner
   attribute :tc_pr_change, :ct_tc_pr_change, collection: 0..1
 
   xml do
-    root "TcPr"
+    root "TcPr", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

@@ -9,7 +9,7 @@ class CTTblCellMar < Lutaml::Model::Serializable
   attribute :right, :ct_tbl_width, collection: 0..1
 
   xml do
-    root "TblCellMar"
+    root "TblCellMar", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

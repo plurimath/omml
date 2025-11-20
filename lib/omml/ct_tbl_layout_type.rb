@@ -6,7 +6,7 @@ class CTTblLayoutType < Lutaml::Model::Serializable
   attribute :type, :st_tbl_layout_type
 
   xml do
-    root "TblLayoutType"
+    root "TblLayoutType", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :type, to: :type

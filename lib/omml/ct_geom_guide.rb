@@ -8,7 +8,7 @@ class CTGeomGuide < Lutaml::Model::Serializable
   attribute :fmla, :st_geom_guide_formula
 
   xml do
-    root "GeomGuide"
+    root "GeomGuide", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :name, to: :name

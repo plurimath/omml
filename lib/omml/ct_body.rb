@@ -8,7 +8,7 @@ class CTBody < Lutaml::Model::Serializable
   attribute :sect_pr, :ct_sect_pr, collection: 0..1
 
   xml do
-    root "Body"
+    root "Body", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

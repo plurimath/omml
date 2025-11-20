@@ -6,7 +6,7 @@ class CTConnectionSiteList < Lutaml::Model::Serializable
   attribute :cxn, :ct_connection_site, collection: 0..Float::INFINITY
 
   xml do
-    root "ConnectionSiteList"
+    root "ConnectionSiteList", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

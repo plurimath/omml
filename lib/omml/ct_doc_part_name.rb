@@ -8,7 +8,7 @@ class CTDocPartName < Lutaml::Model::Serializable
   attribute :decorated, :st_on_off
 
   xml do
-    root "DocPartName"
+    root "DocPartName", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :val, to: :val

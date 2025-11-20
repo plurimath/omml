@@ -6,7 +6,7 @@ class CTTblGrid < CTTblGridBase
   attribute :tbl_grid_change, :ct_tbl_grid_change, collection: 0..1
 
   xml do
-    root "TblGrid"
+    root "TblGrid", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

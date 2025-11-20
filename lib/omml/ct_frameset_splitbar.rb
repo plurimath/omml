@@ -11,7 +11,7 @@ class CTFramesetSplitbar < Lutaml::Model::Serializable
   attribute :flat_borders, :ct_on_off, collection: 0..1
 
   xml do
-    root "FramesetSplitbar"
+    root "FramesetSplitbar", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

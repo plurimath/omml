@@ -6,7 +6,7 @@ class CTTwipsMeasure < Lutaml::Model::Serializable
   attribute :val, :st_twips_measure
 
   xml do
-    root "TwipsMeasure"
+    root "TwipsMeasure", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :val, to: :val

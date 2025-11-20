@@ -6,7 +6,7 @@ class CTGlossaryDocument < CTDocumentBase
   attribute :doc_parts, :ct_doc_parts, collection: 0..1
 
   xml do
-    root "GlossaryDocument"
+    root "GlossaryDocument", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

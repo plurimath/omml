@@ -8,7 +8,7 @@ class CTPresetTextShape < Lutaml::Model::Serializable
   attribute :prst, :st_text_shape_type
 
   xml do
-    root "PresetTextShape"
+    root "PresetTextShape", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

@@ -6,7 +6,7 @@ class CTPositivePercentage < Lutaml::Model::Serializable
   attribute :val, :st_positive_percentage
 
   xml do
-    root "PositivePercentage"
+    root "PositivePercentage", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :val, to: :val

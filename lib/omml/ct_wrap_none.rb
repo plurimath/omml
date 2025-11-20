@@ -4,7 +4,7 @@ require "lutaml/model"
 class CTWrapNone < Lutaml::Model::Serializable
 
   xml do
-    root "WrapNone"
+    root "WrapNone", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
   end
 

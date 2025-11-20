@@ -6,7 +6,7 @@ class CTMailMergeSourceType < Lutaml::Model::Serializable
   attribute :val, :st_mail_merge_source_type
 
   xml do
-    root "MailMergeSourceType"
+    root "MailMergeSourceType", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :val, to: :val

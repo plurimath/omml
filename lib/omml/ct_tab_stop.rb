@@ -10,7 +10,7 @@ class CTTabStop < Lutaml::Model::Serializable
   attribute :pos, :st_signed_twips_measure
 
   xml do
-    root "TabStop"
+    root "TabStop", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :val, to: :val

@@ -6,7 +6,7 @@ class CTRubyAlign < Lutaml::Model::Serializable
   attribute :val, :st_ruby_align
 
   xml do
-    root "RubyAlign"
+    root "RubyAlign", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :val, to: :val

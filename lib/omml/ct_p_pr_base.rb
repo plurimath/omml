@@ -52,7 +52,7 @@ class CTPPrBase < Lutaml::Model::Serializable
   attribute :cnf_style, :ct_cnf, collection: 0..1
 
   xml do
-    root "PPrBase"
+    root "PPrBase", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

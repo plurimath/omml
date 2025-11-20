@@ -6,7 +6,7 @@ class CTEm < Lutaml::Model::Serializable
   attribute :val, :st_em
 
   xml do
-    root "Em"
+    root "Em", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :val, to: :val

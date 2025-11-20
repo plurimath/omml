@@ -6,7 +6,7 @@ class CTNumRestart < Lutaml::Model::Serializable
   attribute :val, :st_restart_number
 
   xml do
-    root "NumRestart"
+    root "NumRestart", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :val, to: :val

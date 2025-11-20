@@ -6,7 +6,7 @@ class CTLevelSuffix < Lutaml::Model::Serializable
   attribute :val, :st_level_suffix
 
   xml do
-    root "LevelSuffix"
+    root "LevelSuffix", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :val, to: :val

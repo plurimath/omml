@@ -7,7 +7,7 @@ class CTDocRsids < Lutaml::Model::Serializable
   attribute :rsid, :ct_long_hex_number, collection: 0..Float::INFINITY
 
   xml do
-    root "DocRsids"
+    root "DocRsids", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

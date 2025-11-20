@@ -8,7 +8,7 @@ class CTMCPr < Lutaml::Model::Serializable
   attribute :mc_jc, :ct_x_align, collection: 0..1
 
   xml do
-    root "MCPr"
+    root "MCPr", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

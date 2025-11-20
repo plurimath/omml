@@ -15,7 +15,7 @@ class CTHyperlink < Lutaml::Model::Serializable
   attribute :id, :st_relationship_id
 
   xml do
-    root "Hyperlink"
+    root "Hyperlink", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     import_model_mappings :eg_p_content

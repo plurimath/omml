@@ -8,7 +8,7 @@ class CTSdtComboBox < Lutaml::Model::Serializable
   attribute :last_value, :st_string
 
   xml do
-    root "SdtComboBox"
+    root "SdtComboBox", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

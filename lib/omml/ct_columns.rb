@@ -13,7 +13,7 @@ class CTColumns < Lutaml::Model::Serializable
   attribute :sep, :st_on_off
 
   xml do
-    root "Columns"
+    root "Columns", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

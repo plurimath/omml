@@ -6,7 +6,7 @@ class CTRPrOriginal < Lutaml::Model::Serializable
   import_model_attributes :eg_r_pr_base
 
   xml do
-    root "RPrOriginal"
+    root "RPrOriginal", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

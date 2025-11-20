@@ -8,7 +8,7 @@ class CTM < Lutaml::Model::Serializable
   attribute :mr, :ct_mr, collection: 1..Float::INFINITY
 
   xml do
-    root "M"
+    root "M", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

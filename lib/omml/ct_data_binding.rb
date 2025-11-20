@@ -8,7 +8,7 @@ class CTDataBinding < Lutaml::Model::Serializable
   attribute :store_item_id, :st_string
 
   xml do
-    root "DataBinding"
+    root "DataBinding", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :prefixMappings, to: :prefix_mappings

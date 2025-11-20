@@ -13,7 +13,7 @@ class CTGroupLocking < Lutaml::Model::Serializable
   attribute :no_resize, :boolean
 
   xml do
-    root "GroupLocking"
+    root "GroupLocking", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

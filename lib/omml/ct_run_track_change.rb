@@ -10,7 +10,7 @@ class CTRunTrackChange < CTTrackChange
   end
 
   xml do
-    root "RunTrackChange"
+    root "RunTrackChange", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     import_model_mappings :eg_content_run_content

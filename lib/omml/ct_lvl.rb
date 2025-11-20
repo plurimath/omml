@@ -32,7 +32,7 @@ class CTLvl < Lutaml::Model::Serializable
   attribute :tentative, :st_on_off
 
   xml do
-    root "Lvl"
+    root "Lvl", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

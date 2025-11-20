@@ -6,7 +6,7 @@ class CTMailMergeDest < Lutaml::Model::Serializable
   attribute :val, :st_mail_merge_dest
 
   xml do
-    root "MailMergeDest"
+    root "MailMergeDest", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :val, to: :val

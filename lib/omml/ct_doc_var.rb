@@ -7,7 +7,7 @@ class CTDocVar < Lutaml::Model::Serializable
   attribute :val, :st_string
 
   xml do
-    root "DocVar"
+    root "DocVar", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :name, to: :name

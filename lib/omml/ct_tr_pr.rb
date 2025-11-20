@@ -9,7 +9,7 @@ class CTTrPr < CTTrPrBase
   attribute :tr_pr_change, :ct_tr_pr_change, collection: 0..1
 
   xml do
-    root "TrPr"
+    root "TrPr", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

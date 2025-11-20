@@ -17,7 +17,7 @@ class CTSpacing < Lutaml::Model::Serializable
   attribute :line_rule, :st_line_spacing_rule
 
   xml do
-    root "Spacing"
+    root "Spacing", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :before, to: :before

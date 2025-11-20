@@ -6,7 +6,7 @@ class CTLongHexNumber < Lutaml::Model::Serializable
   attribute :val, :st_long_hex_number
 
   xml do
-    root "LongHexNumber"
+    root "LongHexNumber", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :val, to: :val

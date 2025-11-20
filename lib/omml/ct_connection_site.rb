@@ -8,7 +8,7 @@ class CTConnectionSite < Lutaml::Model::Serializable
   attribute :ang, :st_adj_angle
 
   xml do
-    root "ConnectionSite"
+    root "ConnectionSite", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

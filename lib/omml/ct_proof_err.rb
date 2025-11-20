@@ -6,7 +6,7 @@ class CTProofErr < Lutaml::Model::Serializable
   attribute :type, :st_proof_err
 
   xml do
-    root "ProofErr"
+    root "ProofErr", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :type, to: :type

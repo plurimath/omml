@@ -6,7 +6,7 @@ class CTLimLoc < Lutaml::Model::Serializable
   attribute :val, :st_lim_loc
 
   xml do
-    root "limLoc"
+    root "limLoc", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :val, to: :val, namespace: "http://schemas.openxmlformats.org/officeDocument/2006/math", prefix: "m"

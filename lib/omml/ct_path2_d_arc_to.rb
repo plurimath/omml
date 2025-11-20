@@ -10,7 +10,7 @@ class CTPath2DArcTo < Lutaml::Model::Serializable
   attribute :sw_ang, :st_adj_angle
 
   xml do
-    root "Path2DArcTo"
+    root "Path2DArcTo", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :wR, to: :w_r

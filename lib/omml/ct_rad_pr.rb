@@ -8,7 +8,7 @@ class CTRadPr < Lutaml::Model::Serializable
   attribute :ctrl_pr, :ct_ctrl_pr, collection: 0..1
 
   xml do
-    root "RadPr"
+    root "RadPr", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

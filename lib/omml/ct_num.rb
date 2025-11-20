@@ -10,7 +10,7 @@ class CTNum < Lutaml::Model::Serializable
   attribute :num_id, :st_decimal_number
 
   xml do
-    root "Num"
+    root "Num", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

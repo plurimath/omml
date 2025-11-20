@@ -6,7 +6,7 @@ class CTFixedPercentage < Lutaml::Model::Serializable
   attribute :val, :st_fixed_percentage
 
   xml do
-    root "FixedPercentage"
+    root "FixedPercentage", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :val, to: :val

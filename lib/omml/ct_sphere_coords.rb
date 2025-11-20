@@ -8,7 +8,7 @@ class CTSphereCoords < Lutaml::Model::Serializable
   attribute :rev, :st_positive_fixed_angle
 
   xml do
-    root "SphereCoords"
+    root "SphereCoords", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :lat, to: :lat

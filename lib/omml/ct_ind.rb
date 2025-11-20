@@ -15,7 +15,7 @@ class CTInd < Lutaml::Model::Serializable
   attribute :first_line_chars, :st_decimal_number
 
   xml do
-    root "Ind"
+    root "Ind", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :left, to: :left

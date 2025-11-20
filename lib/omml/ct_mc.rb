@@ -6,7 +6,7 @@ class CTMC < Lutaml::Model::Serializable
   attribute :mc_pr, :ct_mc_pr, collection: 0..1
 
   xml do
-    root "MC"
+    root "MC", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

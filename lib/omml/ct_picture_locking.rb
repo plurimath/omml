@@ -17,7 +17,7 @@ class CTPictureLocking < Lutaml::Model::Serializable
   attribute :no_crop, :boolean
 
   xml do
-    root "PictureLocking"
+    root "PictureLocking", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

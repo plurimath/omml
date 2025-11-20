@@ -10,7 +10,7 @@ class CTParaRPr < Lutaml::Model::Serializable
   attribute :r_pr_change, :ct_para_r_pr_change, collection: 0..1
 
   xml do
-    root "ParaRPr"
+    root "ParaRPr", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

@@ -11,7 +11,7 @@ class CTFontSig < Lutaml::Model::Serializable
   attribute :csb1, :st_long_hex_number
 
   xml do
-    root "FontSig"
+    root "FontSig", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :usb0, to: :usb0

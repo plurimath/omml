@@ -11,7 +11,7 @@ class CTPageNumber < Lutaml::Model::Serializable
   attribute :chap_sep, :st_chapter_sep
 
   xml do
-    root "PageNumber"
+    root "PageNumber", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :fmt, to: :fmt

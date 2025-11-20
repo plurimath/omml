@@ -13,7 +13,7 @@ class CTLsdException < Lutaml::Model::Serializable
   attribute :q_format, :st_on_off
 
   xml do
-    root "LsdException"
+    root "LsdException", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :name, to: :name

@@ -6,7 +6,7 @@ class CTComments < Lutaml::Model::Serializable
   attribute :comment, :ct_comment, collection: 0..Float::INFINITY
 
   xml do
-    root "Comments"
+    root "Comments", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

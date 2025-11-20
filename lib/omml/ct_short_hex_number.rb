@@ -6,7 +6,7 @@ class CTShortHexNumber < Lutaml::Model::Serializable
   attribute :val, :st_short_hex_number
 
   xml do
-    root "ShortHexNumber"
+    root "ShortHexNumber", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :val, to: :val

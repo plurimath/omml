@@ -6,7 +6,7 @@ class CTYAlign < Lutaml::Model::Serializable
   attribute :val, :st_y_align
 
   xml do
-    root "YAlign"
+    root "YAlign", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :val, to: :val

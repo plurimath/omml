@@ -41,7 +41,7 @@ class EGOMathMathElements < Lutaml::Model::Serializable
     attribute :s_sub, :ct_s_sub
     attribute :s_sub_sup, :ct_s_sub_sup
     attribute :s_sup, :ct_s_sup
-    attribute :r, :ct_r
+    attribute :r, :ct_r, collection: true
   end
 
   xml do

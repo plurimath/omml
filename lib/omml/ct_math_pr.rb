@@ -29,7 +29,7 @@ class CTMathPr < Lutaml::Model::Serializable
   attribute :nary_lim, :ct_lim_loc, collection: 0..1
 
   xml do
-    root "MathPr"
+    root "MathPr", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

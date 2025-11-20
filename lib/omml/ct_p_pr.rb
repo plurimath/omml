@@ -10,7 +10,7 @@ class CTPPr < CTPPrBase
   attribute :p_pr_change, :ct_p_pr_change, collection: 0..1
 
   xml do
-    root "PPr"
+    root "PPr", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

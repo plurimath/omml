@@ -6,7 +6,7 @@ class CTPath2DQuadBezierTo < Lutaml::Model::Serializable
   attribute :pt, :ct_adj_point2_d, collection: 2..2
 
   xml do
-    root "Path2DQuadBezierTo"
+    root "Path2DQuadBezierTo", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

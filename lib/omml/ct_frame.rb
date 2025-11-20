@@ -17,7 +17,7 @@ class CTFrame < Lutaml::Model::Serializable
   attribute :linked_to_file, :ct_on_off, collection: 0..1
 
   xml do
-    root "Frame"
+    root "Frame", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

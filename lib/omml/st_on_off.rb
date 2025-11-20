@@ -5,7 +5,7 @@ class STOnOff < Lutaml::Model::Type::String
   def self.cast(value, options = {})
     return if value.nil?
 
-    options[:values] = [super("on"), super("off")]
+    options[:values] = [super("on"), super("off"), super("1"), super("0")]
     super(value, options)
   end
 

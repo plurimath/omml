@@ -14,14 +14,16 @@ class CTDPr < Lutaml::Model::Serializable
   attribute :ctrl_pr, :ct_ctrl_pr, collection: 0..1
 
   xml do
-    root "DPr"
+    root "DPr", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do
       map_element :begChr, to: :beg_chr
       map_element :sepChr, to: :sep_chr
       map_element :endChr, to: :end_chr
-      map_element :grow, to: :grow
+      map_element :grow, to: :grow,
+                         namespace: "http://schemas.openxmlformats.org/officeDocument/2006/math",
+                         prefix: "m"
       map_element :shp, to: :shp
       map_element :ctrlPr, to: :ctrl_pr
     end

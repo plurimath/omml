@@ -17,7 +17,7 @@ class CTColorSchemeMapping < Lutaml::Model::Serializable
   attribute :followed_hyperlink, :st_color_scheme_index
 
   xml do
-    root "ColorSchemeMapping"
+    root "ColorSchemeMapping", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :bg1, to: :bg1

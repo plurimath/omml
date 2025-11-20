@@ -6,7 +6,7 @@ class CTAltChunkPr < Lutaml::Model::Serializable
   attribute :match_src, :ct_on_off, collection: 0..1
 
   xml do
-    root "AltChunkPr"
+    root "AltChunkPr", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

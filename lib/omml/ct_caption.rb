@@ -17,7 +17,7 @@ class CTCaption < Lutaml::Model::Serializable
   attribute :sep, :st_chapter_sep
 
   xml do
-    root "Caption"
+    root "Caption", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :name, to: :name

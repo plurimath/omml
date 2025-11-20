@@ -8,7 +8,7 @@ class CTGroupChr < Lutaml::Model::Serializable
   attribute :e, :ct_o_math_arg
 
   xml do
-    root "GroupChr"
+    root "GroupChr", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

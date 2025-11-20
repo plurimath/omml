@@ -6,7 +6,7 @@ class CTGraphicalObject < Lutaml::Model::Serializable
   attribute :graphic_data, :ct_graphical_object_data
 
   xml do
-    root "GraphicalObject"
+    root "GraphicalObject", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

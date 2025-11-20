@@ -14,7 +14,7 @@ class CTNonVisualDrawingProps < Lutaml::Model::Serializable
   attribute :hidden, :boolean
 
   xml do
-    root "NonVisualDrawingProps"
+    root "NonVisualDrawingProps", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

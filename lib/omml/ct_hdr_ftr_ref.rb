@@ -6,7 +6,7 @@ class CTHdrFtrRef < CTRel
   attribute :type, :st_hdr_ftr
 
   xml do
-    root "HdrFtrRef"
+    root "HdrFtrRef", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :type, to: :type

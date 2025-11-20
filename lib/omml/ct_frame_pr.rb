@@ -30,7 +30,7 @@ class CTFramePr < Lutaml::Model::Serializable
   attribute :anchor_lock, :st_on_off
 
   xml do
-    root "FramePr"
+    root "FramePr", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :dropCap, to: :drop_cap

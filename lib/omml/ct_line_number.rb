@@ -11,7 +11,7 @@ class CTLineNumber < Lutaml::Model::Serializable
   attribute :restart, :st_line_number_restart
 
   xml do
-    root "LineNumber"
+    root "LineNumber", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :countBy, to: :count_by

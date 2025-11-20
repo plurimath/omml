@@ -6,7 +6,7 @@ class CTGuid < Lutaml::Model::Serializable
   attribute :val, :st_guid
 
   xml do
-    root "Guid"
+    root "Guid", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :val, to: :val

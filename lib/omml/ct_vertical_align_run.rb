@@ -6,7 +6,7 @@ class CTVerticalAlignRun < Lutaml::Model::Serializable
   attribute :val, :st_vertical_align_run
 
   xml do
-    root "VerticalAlignRun"
+    root "VerticalAlignRun", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :val, to: :val

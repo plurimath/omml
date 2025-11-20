@@ -8,7 +8,7 @@ class CTCaptions < Lutaml::Model::Serializable
   attribute :auto_captions, :ct_auto_captions, collection: 0..1
 
   xml do
-    root "Captions"
+    root "Captions", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

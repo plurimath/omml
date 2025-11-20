@@ -6,7 +6,7 @@ class CTRel < Lutaml::Model::Serializable
   attribute :id, :st_relationship_id
 
   xml do
-    root "Rel"
+    root "Rel", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :id, to: :id

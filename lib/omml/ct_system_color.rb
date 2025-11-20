@@ -10,7 +10,7 @@ class CTSystemColor < Lutaml::Model::Serializable
   attribute :last_clr, :st_hex_binary3
 
   xml do
-    root "SystemColor"
+    root "SystemColor", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

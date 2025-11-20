@@ -6,7 +6,7 @@ class CTTextAlignment < Lutaml::Model::Serializable
   attribute :val, :st_text_alignment
 
   xml do
-    root "TextAlignment"
+    root "TextAlignment", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :val, to: :val

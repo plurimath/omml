@@ -14,7 +14,7 @@ class CTRubyPr < Lutaml::Model::Serializable
   attribute :dirty, :ct_on_off, collection: 0..1
 
   xml do
-    root "RubyPr"
+    root "RubyPr", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

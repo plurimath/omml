@@ -15,7 +15,7 @@ class CTOdsoFieldMapData < Lutaml::Model::Serializable
   attribute :dynamic_address, :ct_on_off, collection: 0..1
 
   xml do
-    root "OdsoFieldMapData"
+    root "OdsoFieldMapData", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

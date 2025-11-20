@@ -8,7 +8,7 @@ class CTAltChunk < Lutaml::Model::Serializable
   attribute :id, :st_relationship_id
 
   xml do
-    root "AltChunk"
+    root "AltChunk", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

@@ -6,7 +6,7 @@ class CTHMerge < Lutaml::Model::Serializable
   attribute :val, :st_merge
 
   xml do
-    root "HMerge"
+    root "HMerge", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :val, to: :val

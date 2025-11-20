@@ -8,7 +8,7 @@ class CTDocPartCategory < Lutaml::Model::Serializable
   attribute :gallery, :ct_doc_part_gallery, collection: 1..1
 
   xml do
-    root "DocPartCategory"
+    root "DocPartCategory", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

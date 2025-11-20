@@ -10,7 +10,7 @@ class CTFtnProps < Lutaml::Model::Serializable
   import_model_attributes :eg_ftn_edn_num_props
 
   xml do
-    root "FtnProps"
+    root "FtnProps", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

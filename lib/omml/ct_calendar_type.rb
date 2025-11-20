@@ -6,7 +6,7 @@ class CTCalendarType < Lutaml::Model::Serializable
   attribute :val, :st_calendar_type
 
   xml do
-    root "CalendarType"
+    root "CalendarType", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :val, to: :val

@@ -6,7 +6,7 @@ class CTFType < Lutaml::Model::Serializable
   attribute :val, :st_f_type
 
   xml do
-    root "FType"
+    root "FType", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :val, to: :val

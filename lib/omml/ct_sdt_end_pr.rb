@@ -8,7 +8,7 @@ class CTSdtEndPr < Lutaml::Model::Serializable
   end
 
   xml do
-    root "SdtEndPr"
+    root "SdtEndPr", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_element :rPr, to: :r_pr

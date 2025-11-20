@@ -14,7 +14,7 @@ class CTSdtDate < Lutaml::Model::Serializable
   attribute :full_date, :st_date_time
 
   xml do
-    root "SdtDate"
+    root "SdtDate", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

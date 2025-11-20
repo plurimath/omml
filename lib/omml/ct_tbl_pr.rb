@@ -6,7 +6,7 @@ class CTTblPr < CTTblPrBase
   attribute :tbl_pr_change, :ct_tbl_pr_change, collection: 0..1
 
   xml do
-    root "TblPr"
+    root "TblPr", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

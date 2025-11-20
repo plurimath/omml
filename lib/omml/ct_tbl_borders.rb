@@ -11,7 +11,7 @@ class CTTblBorders < Lutaml::Model::Serializable
   attribute :inside_v, :ct_border, collection: 0..1
 
   xml do
-    root "TblBorders"
+    root "TblBorders", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

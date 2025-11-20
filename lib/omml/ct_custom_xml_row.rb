@@ -11,7 +11,7 @@ class CTCustomXmlRow < Lutaml::Model::Serializable
   attribute :element, :st_string
 
   xml do
-    root "CustomXmlRow"
+    root "CustomXmlRow", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

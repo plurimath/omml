@@ -25,7 +25,7 @@ class CTFont < Lutaml::Model::Serializable
   attribute :name, :st_string
 
   xml do
-    root "Font"
+    root "Font", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

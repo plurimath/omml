@@ -6,7 +6,7 @@ class CTBookmark < CTBookmarkRange
   attribute :name, :st_string
 
   xml do
-    root "Bookmark"
+    root "Bookmark", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :name, to: :name

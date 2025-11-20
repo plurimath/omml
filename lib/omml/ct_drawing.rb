@@ -10,7 +10,7 @@ class CTDrawing < Lutaml::Model::Serializable
   end
 
   xml do
-    root "Drawing"
+    root "Drawing", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_element :anchor, to: :anchor

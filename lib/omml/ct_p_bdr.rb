@@ -11,7 +11,7 @@ class CTPBdr < Lutaml::Model::Serializable
   attribute :bar, :ct_border, collection: 0..1
 
   xml do
-    root "PBdr"
+    root "PBdr", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

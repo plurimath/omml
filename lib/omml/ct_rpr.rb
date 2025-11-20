@@ -14,7 +14,7 @@ class CTRPR < Lutaml::Model::Serializable
   attribute :aln, :ct_on_off, collection: 0..1
 
   xml do
-    root "rPr"
+    root "rPr", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

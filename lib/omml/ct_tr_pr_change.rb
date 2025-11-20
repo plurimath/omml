@@ -6,7 +6,7 @@ class CTTrPrChange < CTTrackChange
   attribute :tr_pr, :ct_tr_pr_base, collection: 1..1
 
   xml do
-    root "TrPrChange"
+    root "TrPrChange", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

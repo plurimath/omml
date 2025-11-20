@@ -8,7 +8,7 @@ class CTTblWidth < Lutaml::Model::Serializable
   attribute :type, :st_tbl_width
 
   xml do
-    root "TblWidth"
+    root "TblWidth", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :w, to: :w

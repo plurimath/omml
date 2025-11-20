@@ -7,7 +7,7 @@ class CTPositiveSize2D < Lutaml::Model::Serializable
   attribute :cy, :st_positive_coordinate
 
   xml do
-    root "PositiveSize2D"
+    root "PositiveSize2D", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :cx, to: :cx

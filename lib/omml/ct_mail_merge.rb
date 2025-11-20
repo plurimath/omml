@@ -28,7 +28,7 @@ class CTMailMerge < Lutaml::Model::Serializable
   attribute :odso, :ct_odso, collection: 0..1
 
   xml do
-    root "MailMerge"
+    root "MailMerge", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

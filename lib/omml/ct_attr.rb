@@ -8,7 +8,7 @@ class CTAttr < Lutaml::Model::Serializable
   attribute :val, :st_string
 
   xml do
-    root "Attr"
+    root "Attr", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :uri, to: :uri

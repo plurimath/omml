@@ -8,7 +8,7 @@ class CTFFHelpText < Lutaml::Model::Serializable
   attribute :val, :st_ff_help_text_val
 
   xml do
-    root "FFHelpText"
+    root "FFHelpText", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :type, to: :type

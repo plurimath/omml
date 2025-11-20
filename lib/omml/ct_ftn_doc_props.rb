@@ -6,7 +6,7 @@ class CTFtnDocProps < CTFtnProps
   attribute :footnote, :ct_ftn_edn_sep_ref, collection: 0..3
 
   xml do
-    root "FtnDocProps"
+    root "FtnDocProps", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

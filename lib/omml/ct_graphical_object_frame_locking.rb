@@ -12,7 +12,7 @@ class CTGraphicalObjectFrameLocking < Lutaml::Model::Serializable
   attribute :no_resize, :boolean
 
   xml do
-    root "GraphicalObjectFrameLocking"
+    root "GraphicalObjectFrameLocking", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

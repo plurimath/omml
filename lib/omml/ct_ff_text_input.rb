@@ -11,7 +11,7 @@ class CTFFTextInput < Lutaml::Model::Serializable
   attribute :format, :ct_string, collection: 0..1
 
   xml do
-    root "FFTextInput"
+    root "FFTextInput", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

@@ -7,7 +7,7 @@ class CTBookmarkRange < CTMarkupRange
   attribute :col_last, :st_decimal_number
 
   xml do
-    root "BookmarkRange"
+    root "BookmarkRange", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :colFirst, to: :col_first

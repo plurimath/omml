@@ -10,7 +10,7 @@ class CTDocPartTypes < Lutaml::Model::Serializable
   attribute :all, :st_on_off
 
   xml do
-    root "DocPartTypes"
+    root "DocPartTypes", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_element :type, to: :type

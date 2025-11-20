@@ -6,7 +6,7 @@ class CTSchema < Lutaml::Model::Serializable
   attribute :manifest_location, :string
 
   xml do
-    root "Schema"
+    root "Schema", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :uri, to: :uri

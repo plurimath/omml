@@ -9,7 +9,7 @@ class CTNonVisualPictureProperties < Lutaml::Model::Serializable
   attribute :prefer_relative_resize, :boolean
 
   xml do
-    root "NonVisualPictureProperties"
+    root "NonVisualPictureProperties", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

@@ -6,7 +6,7 @@ class CTTextboxTightWrap < Lutaml::Model::Serializable
   attribute :val, :st_textbox_tight_wrap
 
   xml do
-    root "TextboxTightWrap"
+    root "TextboxTightWrap", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :val, to: :val

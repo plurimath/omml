@@ -9,7 +9,7 @@ class CTSdtDocPart < Lutaml::Model::Serializable
   attribute :doc_part_unique, :ct_on_off, collection: 0..1
 
   xml do
-    root "SdtDocPart"
+    root "SdtDocPart", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

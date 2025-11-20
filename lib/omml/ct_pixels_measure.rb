@@ -6,7 +6,7 @@ class CTPixelsMeasure < Lutaml::Model::Serializable
   attribute :val, :st_pixels_measure
 
   xml do
-    root "PixelsMeasure"
+    root "PixelsMeasure", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :val, to: :val

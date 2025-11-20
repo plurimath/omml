@@ -16,7 +16,7 @@ class CTConnectorLocking < Lutaml::Model::Serializable
   attribute :no_change_shape_type, :boolean
 
   xml do
-    root "ConnectorLocking"
+    root "ConnectorLocking", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

@@ -11,7 +11,7 @@ class CTPermStart < CTPerm
   attribute :col_last, :st_decimal_number
 
   xml do
-    root "PermStart"
+    root "PermStart", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :edGrp, to: :ed_grp

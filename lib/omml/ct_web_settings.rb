@@ -23,7 +23,7 @@ class CTWebSettings < Lutaml::Model::Serializable
   attribute :save_smart_tags_as_xml, :ct_on_off, collection: 0..1
 
   xml do
-    root "WebSettings"
+    root "WebSettings", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

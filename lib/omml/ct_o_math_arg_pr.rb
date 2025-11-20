@@ -6,7 +6,7 @@ class CTOMathArgPr < Lutaml::Model::Serializable
   attribute :arg_sz, :ct_integer2, collection: 0..1
 
   xml do
-    root "OMathArgPr"
+    root "OMathArgPr", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

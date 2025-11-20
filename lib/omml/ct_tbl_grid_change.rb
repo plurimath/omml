@@ -6,7 +6,7 @@ class CTTblGridChange < CTMarkup
   attribute :tbl_grid, :ct_tbl_grid_base
 
   xml do
-    root "TblGridChange"
+    root "TblGridChange", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

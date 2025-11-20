@@ -11,7 +11,7 @@ class CTCustomXmlBlock < Lutaml::Model::Serializable
   attribute :element, :st_string
 
   xml do
-    root "CustomXmlBlock"
+    root "CustomXmlBlock", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

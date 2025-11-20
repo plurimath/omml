@@ -6,7 +6,7 @@ class CTDocType < Lutaml::Model::Serializable
   attribute :val, :st_doc_type
 
   xml do
-    root "DocType"
+    root "DocType", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :val, to: :val

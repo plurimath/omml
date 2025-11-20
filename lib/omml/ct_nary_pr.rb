@@ -14,15 +14,15 @@ class CTNaryPr < Lutaml::Model::Serializable
   attribute :ctrl_pr, :ct_ctrl_pr, collection: 0..1
 
   xml do
-    root "NaryPr"
+    root "NaryPr", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do
       map_element :chr, to: :chr
       map_element :limLoc, to: :lim_loc
       map_element :grow, to: :grow
-      map_element :subHide, to: :sub_hide
-      map_element :supHide, to: :sup_hide
+      map_element :subHide, to: :sub_hide, namespace: :inherit, prefix: "m"
+      map_element :supHide, to: :sup_hide, namespace: :inherit, prefix: "m"
       map_element :ctrlPr, to: :ctrl_pr
     end
   end

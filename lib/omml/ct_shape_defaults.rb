@@ -6,7 +6,7 @@ class CTShapeDefaults < Lutaml::Model::Serializable
   end
 
   xml do
-    root "ShapeDefaults"
+    root "ShapeDefaults", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
   end
 

@@ -6,7 +6,7 @@ class CTManualBreak < Lutaml::Model::Serializable
   attribute :aln_at, :st_integer255
 
   xml do
-    root "ManualBreak"
+    root "ManualBreak", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :alnAt, to: :aln_at

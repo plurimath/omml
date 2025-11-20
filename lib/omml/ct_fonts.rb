@@ -16,7 +16,7 @@ class CTFonts < Lutaml::Model::Serializable
   attribute :cstheme, :st_theme
 
   xml do
-    root "rFonts"
+    root "rFonts", ordered: true
     namespace "http://schemas.openxmlformats.org/wordprocessingml/2006/main", "w"
 
     map_attribute :hint, to: :hint

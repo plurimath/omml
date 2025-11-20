@@ -6,7 +6,7 @@ class CTTargetScreenSz < Lutaml::Model::Serializable
   attribute :val, :st_target_screen_sz
 
   xml do
-    root "TargetScreenSz"
+    root "TargetScreenSz", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :val, to: :val

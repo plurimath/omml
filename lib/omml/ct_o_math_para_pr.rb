@@ -6,7 +6,7 @@ class CTOMathParaPr < Lutaml::Model::Serializable
   attribute :jc, :ct_o_math_jc, collection: 0..1
 
   xml do
-    root "OMathParaPr"
+    root "OMathParaPr", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

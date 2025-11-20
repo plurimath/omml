@@ -8,7 +8,7 @@ class CTLevelText < Lutaml::Model::Serializable
   attribute :null, :st_on_off
 
   xml do
-    root "LevelText"
+    root "LevelText", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :val, to: :val

@@ -13,7 +13,7 @@ class CTPageMar < Lutaml::Model::Serializable
   attribute :gutter, :st_twips_measure
 
   xml do
-    root "PageMar"
+    root "PageMar", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_attribute :top, to: :top

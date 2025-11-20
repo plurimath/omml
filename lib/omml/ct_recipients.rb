@@ -6,7 +6,7 @@ class CTRecipients < Lutaml::Model::Serializable
   attribute :recipient_data, :ct_recipient_data, collection: 1..Float::INFINITY
 
   xml do
-    root "Recipients"
+    root "Recipients", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

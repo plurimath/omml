@@ -42,7 +42,7 @@ class CTSdtPr < Lutaml::Model::Serializable
   end
 
   xml do
-    root "SdtPr"
+    root "SdtPr", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     map_element :rPr, to: :r_pr

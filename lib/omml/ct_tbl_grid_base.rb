@@ -6,7 +6,7 @@ class CTTblGridBase < Lutaml::Model::Serializable
   attribute :grid_col, :ct_tbl_grid_col, collection: 0..Float::INFINITY
 
   xml do
-    root "TblGridBase"
+    root "TblGridBase", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do

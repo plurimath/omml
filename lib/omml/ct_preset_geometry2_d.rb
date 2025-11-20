@@ -8,7 +8,7 @@ class CTPresetGeometry2D < Lutaml::Model::Serializable
   attribute :prst, :st_shape_type
 
   xml do
-    root "PresetGeometry2D"
+    root "PresetGeometry2D", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do
