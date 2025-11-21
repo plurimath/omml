@@ -9,7 +9,9 @@ class CTInteger255 < Lutaml::Model::Serializable
     root "Integer255", ordered: true
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
-    map_attribute :val, to: :val
+    map_attribute :val, to: :val,
+                        namespace: "http://schemas.openxmlformats.org/officeDocument/2006/math",
+                        prefix: "m"
   end
 
   def self.register

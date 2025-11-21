@@ -26,7 +26,7 @@ class EGOMathMathElements < Lutaml::Model::Serializable
     attribute :bar, :ct_bar
     attribute :box, :ct_box
     attribute :border_box, :ct_border_box
-    attribute :d, :ct_d
+    attribute :d, :ct_d, collection: true
     attribute :eq_arr, :ct_eq_arr
     attribute :f, :ct_f
     attribute :func, :ct_func
