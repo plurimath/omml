@@ -22,25 +22,25 @@ require_relative "ct_s_sup"
 require_relative "ct_r"
 class EGOMathMathElements < Lutaml::Model::Serializable
   choice(min: 1, max: 1) do
-    attribute :acc, :ct_acc
-    attribute :bar, :ct_bar
-    attribute :box, :ct_box
-    attribute :border_box, :ct_border_box
-    attribute :d, :ct_d, collection: true
-    attribute :eq_arr, :ct_eq_arr
-    attribute :f, :ct_f
-    attribute :func, :ct_func
-    attribute :group_chr, :ct_group_chr
-    attribute :lim_low, :ct_lim_low
-    attribute :lim_upp, :ct_lim_upp
-    attribute :m, :ct_m
-    attribute :nary, :ct_nary
-    attribute :phant, :ct_phant
-    attribute :rad, :ct_rad
-    attribute :s_pre, :ct_s_pre
-    attribute :s_sub, :ct_s_sub
-    attribute :s_sub_sup, :ct_s_sub_sup
-    attribute :s_sup, :ct_s_sup
+    attribute :acc, :ct_acc, collection: true
+    attribute :bar, :ct_bar, collection: true
+    attribute :box, :ct_box, collection: true
+    attribute :border_box, :ct_border_box, collection: true
+    attribute :d, :ct_d, collection: true, collection: true
+    attribute :eq_arr, :ct_eq_arr, collection: true
+    attribute :f, :ct_f, collection: true
+    attribute :func, :ct_func, collection: true
+    attribute :group_chr, :ct_group_chr, collection: true
+    attribute :lim_low, :ct_lim_low, collection: true
+    attribute :lim_upp, :ct_lim_upp, collection: true
+    attribute :m, :ct_m, collection: true
+    attribute :nary, :ct_nary, collection: true
+    attribute :phant, :ct_phant, collection: true
+    attribute :rad, :ct_rad, collection: true
+    attribute :s_pre, :ct_s_pre, collection: true
+    attribute :s_sub, :ct_s_sub, collection: true
+    attribute :s_sub_sup, :ct_s_sub_sup, collection: true
+    attribute :s_sup, :ct_s_sup, collection: true
     attribute :r, :ct_r, collection: true
   end
 

@@ -6,10 +6,12 @@ class CTTopBot < Lutaml::Model::Serializable
   attribute :val, :st_top_bot
 
   xml do
-    root "TopBot", ordered: true
+    root "TopBot"
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
-    map_attribute :val, to: :val
+    map_attribute :val, to: :val,
+                        namespace: "http://schemas.openxmlformats.org/officeDocument/2006/math",
+                        prefix: "m"
   end
 
   def self.register

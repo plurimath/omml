@@ -5,6 +5,8 @@ RSpec.describe Omml do
     subject(:formula) { Omml.parse(input) }
 
     Dir.glob(File.join("spec", "fixtures", "**", "*")).each.with_index(1) do |filepath, index|
+      next if File.directory?(filepath)
+
       context "contains example ##{sprintf('%02d', index)} from file: #{File.basename(filepath, ".omml")}" do
         let(:input) { File.read(filepath) }
 

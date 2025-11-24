@@ -10,6 +10,7 @@ class CTR < Lutaml::Model::Serializable
   choice(min: 0, max: Float::INFINITY) do
     import_model_attributes :eg_run_inner_content
     attribute :t, :ct_text, collection: 0..1
+    attribute :r, :ct_r, collection: true
   end
 
   xml do
@@ -20,6 +21,7 @@ class CTR < Lutaml::Model::Serializable
       map_element :rPr, to: :r_pr
       import_model_mappings :eg_run_inner_content
       map_element :t, to: :t
+      map_element :r, to: :r
     end
   end
 

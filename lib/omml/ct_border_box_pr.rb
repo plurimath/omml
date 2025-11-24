@@ -19,15 +19,15 @@ class CTBorderBoxPr < Lutaml::Model::Serializable
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do
-      map_element :hideTop, to: :hide_top
-      map_element :hideBot, to: :hide_bot
-      map_element :hideLeft, to: :hide_left
-      map_element :hideRight, to: :hide_right
-      map_element :strikeH, to: :strike_h
-      map_element :strikeV, to: :strike_v
-      map_element :strikeBLTR, to: :strike_bltr
-      map_element :strikeTLBR, to: :strike_tlbr
-      map_element :ctrlPr, to: :ctrl_pr
+      map_element :hideTop, to: :hide_top, namespace: "http://schemas.openxmlformats.org/officeDocument/2006/math", prefix: "m"
+      map_element :hideBot, to: :hide_bot, namespace: "http://schemas.openxmlformats.org/officeDocument/2006/math", prefix: "m"
+      map_element :hideLeft, to: :hide_left, namespace: "http://schemas.openxmlformats.org/officeDocument/2006/math", prefix: "m"
+      map_element :hideRight, to: :hide_right, namespace: "http://schemas.openxmlformats.org/officeDocument/2006/math", prefix: "m"
+      map_element :strikeH, to: :strike_h, namespace: "http://schemas.openxmlformats.org/officeDocument/2006/math", prefix: "m"
+      map_element :strikeV, to: :strike_v, namespace: "http://schemas.openxmlformats.org/officeDocument/2006/math", prefix: "m"
+      map_element :strikeBLTR, to: :strike_bltr, namespace: "http://schemas.openxmlformats.org/officeDocument/2006/math", prefix: "m"
+      map_element :strikeTLBR, to: :strike_tlbr, namespace: "http://schemas.openxmlformats.org/officeDocument/2006/math", prefix: "m"
+      map_element :ctrlPr, to: :ctrl_pr, namespace: "http://schemas.openxmlformats.org/officeDocument/2006/math", prefix: "m"
     end
   end
 
