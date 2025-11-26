@@ -44,7 +44,7 @@
               <m:t>*E</m:t>
             </m:r>
             <m:r>
-              <m:t>,  &</m:t>
+              <m:t>,  &amp;</m:t>
             </m:r>
             <m:r>
               <m:t>if</m:t>

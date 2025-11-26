@@ -6,7 +6,8 @@ require_relative "eg_r_pr"
 require_relative "eg_run_inner_content"
 require_relative "ct_text"
 class CTR < Lutaml::Model::Serializable
-  attribute :r_pr, :ct_rpr, collection: 0..1
+  attribute :m_r_pr, :ct_rpr, collection: 0..1
+  import_model_attributes :eg_r_pr
   choice(min: 0, max: Float::INFINITY) do
     import_model_attributes :eg_run_inner_content
     attribute :t, :ct_text, collection: 0..1
@@ -18,7 +19,8 @@ class CTR < Lutaml::Model::Serializable
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do
-      map_element :rPr, to: :r_pr
+      map_element :rPr, to: :m_r_pr
+      map_element :rPr, to: :r_pr, namespace: "http://schemas.openxmlformats.org/wordprocessingml/2006/main", prefix: "w"
       import_model_mappings :eg_run_inner_content
       map_element :t, to: :t
       map_element :r, to: :r
