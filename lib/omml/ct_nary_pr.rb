@@ -21,8 +21,8 @@ class CTNaryPr < Lutaml::Model::Serializable
       map_element :chr, to: :chr
       map_element :limLoc, to: :lim_loc
       map_element :grow, to: :grow
-      map_element :subHide, to: :sub_hide, namespace: :inherit, prefix: "m"
-      map_element :supHide, to: :sup_hide, namespace: :inherit, prefix: "m"
+      map_element :subHide, to: :sub_hide, prefix: "m"
+      map_element :supHide, to: :sup_hide, prefix: "m"
       map_element :ctrlPr, to: :ctrl_pr
     end
   end
