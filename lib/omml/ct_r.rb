@@ -19,7 +19,7 @@ class CTR < Lutaml::Model::Serializable
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do
-      map_element :rPr, to: :m_r_pr
+      map_element :rPr, to: :m_r_pr, namespace: "http://schemas.openxmlformats.org/officeDocument/2006/math", prefix: "m"
       map_element :rPr, to: :r_pr, namespace: "http://schemas.openxmlformats.org/wordprocessingml/2006/main", prefix: "w"
       import_model_mappings :eg_run_inner_content
       map_element :t, to: :t

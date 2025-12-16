@@ -12,7 +12,7 @@ class CTRadPr < Lutaml::Model::Serializable
     namespace "http://schemas.openxmlformats.org/officeDocument/2006/math", "m"
 
     sequence do
-      map_element :degHide, to: :deg_hide
+      map_element :degHide, to: :deg_hide, namespace: "http://schemas.openxmlformats.org/officeDocument/2006/math", prefix: "m"
       map_element :ctrlPr, to: :ctrl_pr
     end
   end
