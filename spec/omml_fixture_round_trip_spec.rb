@@ -41,8 +41,10 @@ RSpec.describe Omml do
                  end
 
     attributes.filter_map do |attribute|
-      [attribute.name, normalize_string(attribute.value)]
-    end.sort_by(&:first)
+      namespace = attribute.namespace&.uri if attribute.respond_to?(:namespace)
+
+      [attribute.name, namespace, normalize_string(attribute.value)]
+    end.sort_by { |name, namespace, _value| [name, namespace.to_s] }
   end
 
   def compare_xml_nodes(expected, actual, path)
