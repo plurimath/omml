@@ -98,17 +98,13 @@ RSpec.describe Omml do
     Omml::Configuration.reset_context!
   end
 
-  it "raises a specific error when no XML adapter is configured" do
-    allow(Lutaml::Model::Config).to receive(:adapter_for)
-      .with(:xml)
-      .and_return(nil)
+  it "configures the default XML adapter before resolving it" do
+    expect(Omml::Configuration).to receive(:adapter=)
+      .with(described_class.default_adapter)
+      .and_call_original
+    allow(Omml::Configuration).to receive(:adapter).and_return(nil)
 
-    expect do
-      Omml::Configuration.xml_adapter
-    end.to raise_error(
-      Omml::Errors::XmlAdapterNotConfiguredError,
-      "XML adapter is not configured",
-    )
+    expect(Omml::Configuration.xml_adapter).not_to be_nil
   end
 
   it "parses oMath roots into the handwritten wrapper" do
@@ -137,6 +133,7 @@ RSpec.describe Omml do
     expect(r_pr.b.first).to be_a(Omml::Models::CTWordprocessingOnOff)
     expect(r_pr.i.first).to be_a(Omml::Models::CTWordprocessingOnOff)
     expect(r_pr.i.first.val).to eq("0")
+    expect(serialized).to include('w:val="0"')
     expect(reparsed_r_pr.b.first).to be_a(Omml::Models::CTWordprocessingOnOff)
     expect(reparsed_r_pr.i.first.val).to eq("0")
   end
@@ -168,6 +165,22 @@ RSpec.describe Omml do
       Omml::Errors::UnsupportedRootElementError,
       "Unsupported OMML root element: somethingElse",
     )
+  end
+
+  it "rejects supported root names outside the OMML namespace" do
+    wrong_namespace_xml = <<~XML
+      <m:oMath xmlns:m="http://example.com/not-omml"/>
+    XML
+    unqualified_xml = "<oMath/>"
+
+    [wrong_namespace_xml, unqualified_xml].each do |xml|
+      expect do
+        described_class.parse(xml)
+      end.to raise_error(
+        Omml::Errors::UnsupportedRootElementError,
+        "Unsupported OMML root element: oMath",
+      )
+    end
   end
 
   it "rejects unsupported input objects" do

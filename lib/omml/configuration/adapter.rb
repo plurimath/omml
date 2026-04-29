@@ -13,10 +13,9 @@ module Omml
       end
 
       def xml_adapter
-        configured_adapter = Lutaml::Model::Config.adapter_for(:xml)
-        return configured_adapter if configured_adapter
+        self.adapter = Omml.default_adapter unless adapter
 
-        raise Omml::Errors::XmlAdapterNotConfiguredError
+        Lutaml::Model::Config.adapter_for(:xml)
       end
     end
   end

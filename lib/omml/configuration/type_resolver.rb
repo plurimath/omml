@@ -11,7 +11,11 @@ module Omml
       end
 
       def root_name_from_document(document)
-        root_element_from(document).name.split(":").last
+        root = root_element_from(document)
+        root_name = root.name.split(":").last
+        return root_name if root_namespace_uri(root) == Omml::Namespace.uri
+
+        raise Omml::Errors::UnsupportedRootElementError, root_name
       end
 
       def resolve_root_class(document, context: context_id)
@@ -25,6 +29,12 @@ module Omml
 
       def root_element_from(document)
         document.root || raise(Omml::Errors::RootElementNotFoundError)
+      end
+
+      def root_namespace_uri(root)
+        return unless root.respond_to?(:namespace)
+
+        root.namespace&.uri
       end
 
       def resolve_root_type(root_name)
