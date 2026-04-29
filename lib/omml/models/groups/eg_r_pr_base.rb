@@ -1,23 +1,5 @@
 # frozen_string_literal: true
 
-require_relative "../ct_string"
-require_relative "../ct_fonts"
-require_relative "../ct_wordprocessing_on_off"
-require_relative "../ct_color"
-require_relative "../ct_signed_twips_measure"
-require_relative "../ct_text_scale"
-require_relative "../ct_hps_measure"
-require_relative "../ct_signed_hps_measure"
-require_relative "../ct_highlight"
-require_relative "../ct_underline"
-require_relative "../ct_text_effect"
-require_relative "../ct_border"
-require_relative "../ct_shd"
-require_relative "../ct_fit_text"
-require_relative "../ct_vertical_align_run"
-require_relative "../ct_em"
-require_relative "../ct_language"
-require_relative "../ct_east_asian_layout"
 module Omml
   module Models
     class EGRPrBase < Lutaml::Model::Serializable

@@ -1,10 +1,5 @@
 # frozen_string_literal: true
 
-require_relative "../ct_wrap_none"
-require_relative "../ct_wrap_square"
-require_relative "../ct_wrap_tight"
-require_relative "../ct_wrap_through"
-require_relative "../ct_wrap_top_bottom"
 module Omml
   module Models
     class EGWrapType < Lutaml::Model::Serializable

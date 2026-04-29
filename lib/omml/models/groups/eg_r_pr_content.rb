@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require_relative "eg_r_pr_base"
-require_relative "../ct_r_pr_change"
 module Omml
   module Models
     class EGRPrContent < Lutaml::Model::Serializable

@@ -1,25 +1,5 @@
 # frozen_string_literal: true
 
-require_relative "../ct_acc"
-require_relative "../ct_bar"
-require_relative "../ct_box"
-require_relative "../ct_border_box"
-require_relative "../ct_d"
-require_relative "../ct_eq_arr"
-require_relative "../ct_f"
-require_relative "../ct_func"
-require_relative "../ct_group_chr"
-require_relative "../ct_lim_low"
-require_relative "../ct_lim_upp"
-require_relative "../ct_m"
-require_relative "../ct_nary"
-require_relative "../ct_phant"
-require_relative "../ct_rad"
-require_relative "../ct_s_pre"
-require_relative "../ct_s_sub"
-require_relative "../ct_s_sub_sup"
-require_relative "../ct_s_sup"
-require_relative "../ct_r"
 module Omml
   module Models
     class EGOMathMathElements < Lutaml::Model::Serializable

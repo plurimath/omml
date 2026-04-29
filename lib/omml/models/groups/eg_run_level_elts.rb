@@ -1,11 +1,5 @@
 # frozen_string_literal: true
 
-require_relative "../ct_proof_err"
-require_relative "../ct_perm_start"
-require_relative "../ct_perm"
-require_relative "eg_range_markup_elements"
-require_relative "../ct_run_track_change"
-require_relative "eg_math_content"
 module Omml
   module Models
     class EGRunLevelElts < Lutaml::Model::Serializable

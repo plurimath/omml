@@ -1,17 +1,5 @@
 # frozen_string_literal: true
 
-require_relative "../ct_br"
-require_relative "../ct_text"
-require_relative "../ct_empty"
-require_relative "../ct_sym"
-require_relative "../ct_object"
-require_relative "../ct_picture"
-require_relative "../ct_fld_char"
-require_relative "../ct_ruby"
-require_relative "../ct_ftn_edn_ref"
-require_relative "../ct_markup"
-require_relative "../ct_drawing"
-require_relative "../ct_p_tab"
 module Omml
   module Models
     class EGRunInnerContent < Lutaml::Model::Serializable
