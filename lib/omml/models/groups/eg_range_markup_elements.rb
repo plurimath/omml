@@ -1,10 +1,5 @@
 # frozen_string_literal: true
 
-require_relative "../ct_bookmark"
-require_relative "../ct_markup_range"
-require_relative "../ct_move_bookmark"
-require_relative "../ct_track_change"
-require_relative "../ct_markup"
 module Omml
   module Models
     class EGRangeMarkupElements < Lutaml::Model::Serializable

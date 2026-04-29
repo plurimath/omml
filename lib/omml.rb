@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
 require "lutaml/model"
-require_relative "omml/version"
 
 module Omml
   class Error < StandardError; end
 
+  autoload :VERSION, "omml/version"
   autoload :Configuration, "omml/configuration"
   autoload :Errors, "omml/errors"
   autoload :Models, "omml/models"

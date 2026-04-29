@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require_relative "../ct_o_math_para"
-require_relative "../ct_o_math"
 module Omml
   module Models
     class EGMathContent < Lutaml::Model::Serializable

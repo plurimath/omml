@@ -1,9 +1,5 @@
 # frozen_string_literal: true
 
-require_relative "eg_content_run_content"
-require_relative "../ct_simple_field"
-require_relative "../ct_hyperlink"
-require_relative "../ct_rel"
 module Omml
   module Models
     class EGPContent < Lutaml::Model::Serializable

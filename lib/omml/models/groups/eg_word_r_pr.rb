@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require_relative "../ct_r_pr"
-
 module Omml
   module Models
     class EGWordRPr < Lutaml::Model::Serializable

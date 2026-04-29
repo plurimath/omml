@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require_relative "../ct_office_art_extension"
 module Omml
   module Models
     class EGOfficeArtExtensionList < Lutaml::Model::Serializable

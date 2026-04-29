@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require_relative "../ct_script"
-require_relative "../ct_style"
 module Omml
   module Models
     class EGScriptStyle < Lutaml::Model::Serializable

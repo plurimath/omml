@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require_relative "eg_o_math_math_elements"
-require_relative "eg_run_level_elts"
 module Omml
   module Models
     class EGOMathElements < Lutaml::Model::Serializable

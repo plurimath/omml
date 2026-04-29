@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require_relative "../ct_r"
-require_relative "eg_run_level_elts"
 module Omml
   module Models
     class EGRubyContent < Lutaml::Model::Serializable

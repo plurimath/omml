@@ -1,10 +1,5 @@
 # frozen_string_literal: true
 
-require_relative "../ct_custom_xml_run"
-require_relative "../ct_smart_tag_run"
-require_relative "../ct_sdt_run"
-require_relative "../ct_r"
-require_relative "eg_run_level_elts"
 module Omml
   module Models
     class EGContentRunContent < Lutaml::Model::Serializable
