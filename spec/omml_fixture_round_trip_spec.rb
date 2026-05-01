@@ -41,7 +41,8 @@ RSpec.describe Omml do
                  end
 
     attributes.filter_map do |attribute|
-      namespace = attribute.namespace&.uri if attribute.respond_to?(:namespace)
+      namespace = attribute.namespace
+      namespace = namespace.uri if namespace.respond_to?(:uri)
 
       [attribute.name, namespace, normalize_string(attribute.value)]
     end.sort_by { |name, namespace, _value| [name, namespace.to_s] }
