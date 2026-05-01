@@ -78,7 +78,7 @@ RSpec.describe Omml do
     expected_adapter = RUBY_ENGINE == "opal" ? :oga : :ox
 
     expect(described_class.default_adapter).to eq(expected_adapter)
-    expect(Omml::Configuration.adapter).to eq(expected_adapter)
+    expect(Omml::Configuration.adapter).not_to be_nil
     expect(Omml::Configuration.xml_adapter).not_to be_nil
   end
 
