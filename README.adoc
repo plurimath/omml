@@ -1,9 +1,227 @@
-= Plurimath OMML library
+= Omml: OMML parser and builder for Ruby
+
+:toc:
+:toclevels: 2
 
 == Purpose
 
-`omml` is the OMML (Office Math Markup Language) library used by Plurimath.
+Omml provides OMML (Office Math Markup Language) XML parsing and serialization
+for Ruby. It maps the full OMML element set into Ruby model classes using the
+https://github.com/lutaml/lutaml-model[lutaml-model] framework and is used by
+https://github.com/plurimath/plurimath[Plurimath] for mathematical formula
+representation.
 
-== Copyright and License
+Key features:
 
-Copyright (c) 2024 Ribose Inc.
+* **Round-trip fidelity**: Parse XML to an object graph, modify, and serialize back
+* **Full schema coverage**: 172 complex types, 53 simple types, and 17 group models
+  generated from the OOXML Shared Math schema (`shared-math.xsd`)
+* **Namespace handling**: OMML namespace with `m:` prefix, plus Word ML namespace
+  for embedded `w:rPr` run properties
+* **Opal support**: Runs in the browser via Ruby-to-JavaScript compilation
+
+== Installation
+
+[source,ruby]
+----
+gem 'omml'
+----
+
+[source,bash]
+----
+$ bundle install
+# or
+$ gem install omml
+----
+
+== Quick start
+
+[source,ruby]
+----
+require "omml"
+
+# Parse OMML XML
+math = Omml.parse('<m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math"><m:r><m:t>x</m:t></m:r></m:oMath>')
+# => #<Omml::Models::OMath:...>
+
+# Serialize back to XML
+math.to_xml(prefix: 'm')
+# => "<m:oMath xmlns:m=\"...\">...</m:oMath>"
+----
+
+== Parsing and serialization
+
+=== Parsing
+
+`Omml.parse` accepts an XML string and returns a model tree. The root element
+determines the wrapper class:
+
+* `<m:oMath>` → `Omml::Models::OMath`
+* `<m:oMathPara>` → `Omml::Models::OMathPara`
+
+[source,ruby]
+----
+# oMath root
+math = Omml.parse('<m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math"><m:r><m:t>x</m:t></m:r></m:oMath>')
+math.class # => Omml::Models::OMath
+
+# oMathPara root
+para = Omml.parse('<m:oMathPara xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math"><m:oMath><m:r><m:t>y</m:t></m:r></m:oMath></m:oMathPara>')
+para.class # => Omml::Models::OMathPara
+----
+
+=== Serialization
+
+[source,ruby]
+----
+math.to_xml              # Default serialization
+math.to_xml(prefix: 'm') # With m: prefix on all elements
+----
+
+=== Round-trip (parse, modify, serialize)
+
+[source,ruby]
+----
+math = Omml.parse(xml_string)
+# Access and modify the model tree
+math.r.first.t.content = "new value"
+math.to_xml(prefix: 'm')
+----
+
+== Internal architecture
+
+=== Parsing flow
+
+`Omml.parse(xml_string)` delegates to `Parser.parse`, which:
+
+1. Configures the XML adapter (`:ox` on MRI, `:oga` on Opal)
+2. Parses the XML string into a document
+3. Resolves the root class from the root element name (`OMath` or `OMathPara`)
+4. Calls `.of_xml` to deserialize into a Lutaml model tree
+
+=== Type context system
+
+`Omml::Configuration` manages a `Lutaml::Model::GlobalContext` (context ID `:omml`)
+that holds a registry of all model classes. Models register themselves at load
+time via `Omml::Configuration.register_model`. The context is populated lazily on
+first parse.
+
+Custom contexts can be created for downstream libraries (e.g., Plurimath) that
+fall back to the OMML context:
+
+[source,ruby]
+----
+# Create a custom context with OMML fallback
+Omml::Configuration.create_context(id: :custom_omml)
+
+# Parse using the custom context
+Omml.parse(xml, context: :custom_omml)
+----
+
+Model IDs are derived from class names by stripping the `CT`/`EG`/`ST` prefix
+and snake-casing with the prefix (e.g., `CTOMath` → `:ct_o_math`,
+`EGOMathElements` → `:eg_o_math_elements`).
+
+=== Model layer (`lib/omml/models/`)
+
+Three categories of models, all extending `Lutaml::Model::Serializable`:
+
+*Complex types* (`ct_*.rb`): Represent OMML schema complex types. Each defines
+attributes and XML element mappings, and self-registers via
+`Omml::Configuration.register_model`.
+
+*Simple types* (`simple_types/st_*.rb`): Enum/value types like `STJc`, `STOnOff`.
+These wrap string values with validation.
+
+*Group models* (`groups/eg_*.rb`): Shared compositional groups (e.g.,
+`EGOMathElements`). These use `import_model_attributes` /
+`import_model_mappings` to compose attributes from other groups, implementing
+the OMML schema's choice/sequence patterns.
+
+Root element wrappers (`o_math.rb`, `o_math_para.rb`) extend
+`CommonCode::RootModel` and use `omml_root_element` to declare themselves as XML
+root elements with the OMML namespace.
+
+=== Namespaces
+
+* `Omml::Namespace` — OMML namespace
+  (`http://schemas.openxmlformats.org/officeDocument/2006/math`, prefix `m`)
+* `Omml::WordprocessingNamespace` — Word ML namespace (prefix `w`), used for
+  elements like `w:rPr` that appear inside OMML `ctrlPr` elements
+
+=== Type substitutions
+
+Many OMML simple types are aliases for built-in Lutaml types (e.g., `STString`
+→ `Lutaml::Model::Type::String`). These are registered as aliases in the
+context rather than as separate model classes, via `Omml::TypeSubstitutions`.
+
+== Configuration
+
+[source,ruby]
+----
+# XML adapter (default: :ox, :oga on Opal)
+Omml.configure_adapter!
+Omml::Configuration.adapter = :oga
+
+# Access the built-in context
+Omml::Configuration.context_id # => :omml
+Omml::Configuration.context
+
+# Rebuild after a reset
+Omml::Configuration.populate_context!
+
+# Resolve a model class by its context ID
+Omml::Configuration.resolve_type(:ct_o_math)
+# => Omml::Models::CTOMath
+----
+
+== Test Suite and Fixtures
+
+The gem uses 279 OMML fixture files from `spec/fixtures/omml/` for round-trip
+validation. Each fixture is parsed, serialized, and the output is compared
+structurally against the original.
+
+=== Running Tests
+
+[source,bash]
+----
+bundle exec rake        # Run all specs + rubocop
+bundle exec rspec       # Run all tests
+bundle exec rspec spec/omml_spec.rb              # Run specific test file
+bundle exec rspec spec/omml_spec.rb:77           # Run single test by line
+bundle exec rspec --only-failures                # Re-run failures
+----
+
+=== XSD Validation
+
+The fixture round-trips are validated against the OOXML `shared-math.xsd`
+schema. Some fixtures contain Word-specific deviations from the strict XSD:
+
+* Element ordering differences (Word may output children in a different order
+  than the schema sequence)
+* Numeric `val` values (`1`/`0`) on `CT_OnOff` elements where the XSD specifies
+  `on`/`off` enumeration
+* `r` elements directly under `oMathPara` (Word output, not in the XSD sequence)
+
+These are well-known Word compatibilities and do not represent parser bugs.
+
+== Development
+
+[source,bash]
+----
+bundle install          # Install dependencies
+bundle exec rake        # Run specs + rubocop
+bundle exec rspec       # Run tests
+bundle exec rubocop     # Lint
+----
+
+== Contributing
+
+Bug reports and pull requests are welcome on GitHub at
+https://github.com/plurimath/omml.
+
+== Copyright and license
+
+Copyright Ribose Inc.
+
+https://opensource.org/licenses/BSD-2-Clause[BSD-2-Clause License].
