@@ -74,37 +74,12 @@ RSpec.describe Omml do
     expect(Omml::VERSION).not_to be_nil
   end
 
-  it "configures the default XML adapter consistently" do
-    expected_adapter = RUBY_ENGINE == "opal" ? :oga : :ox
-
-    expect(described_class.default_adapter).to eq(expected_adapter)
-    expect(Omml::Configuration.adapter).not_to be_nil
+  it "resolves the XML adapter from global configuration" do
     expect(Omml::Configuration.xml_adapter).not_to be_nil
   end
 
-  it "configures supported XML adapters explicitly" do
-    original_adapter = Omml::Configuration.adapter
-
-    %i[oga ox].each do |adapter|
-      described_class.configure_adapter!(adapter)
-      Omml::Configuration.reset_context!
-
-      expect(Omml::Configuration.adapter).to eq(adapter)
-      expect(described_class.parse(o_math_xml)).to be_a(Omml::Models::OMath)
-    end
-  ensure
-    adapter = original_adapter || described_class.default_adapter
-    described_class.configure_adapter!(adapter)
-    Omml::Configuration.reset_context!
-  end
-
-  it "configures the default XML adapter before resolving it" do
-    expect(Omml::Configuration).to receive(:adapter=)
-      .with(described_class.default_adapter)
-      .and_call_original
-    allow(Omml::Configuration).to receive(:adapter).and_return(nil)
-
-    expect(Omml::Configuration.xml_adapter).not_to be_nil
+  it "parses with the globally configured adapter" do
+    expect(described_class.parse(o_math_xml)).to be_a(Omml::Models::OMath)
   end
 
   it "parses oMath roots into the handwritten wrapper" do

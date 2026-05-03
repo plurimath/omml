@@ -16,14 +16,6 @@ module Omml
 
   module_function
 
-  def default_adapter
-    RUBY_ENGINE == "opal" ? :oga : :ox
-  end
-
-  def configure_adapter!(adapter = default_adapter)
-    Configuration.adapter = adapter
-  end
-
   def parse(input, context: nil)
     Parser.parse(
       string_input(input),

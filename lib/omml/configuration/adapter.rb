@@ -8,13 +8,12 @@ module Omml
         Lutaml::Model::Config.xml_adapter_type
       end
 
-      def adapter=(adapter)
-        Lutaml::Model::Config.xml_adapter_type = adapter
+      def adapter=(_adapter)
+        # No-op: omml is not user-facing and must not change the global
+        # adapter. Adapter resolution is handled by AdapterResolver.
       end
 
       def xml_adapter
-        self.adapter = Omml.default_adapter unless adapter
-
         Lutaml::Model::Config.adapter_for(:xml)
       end
     end
