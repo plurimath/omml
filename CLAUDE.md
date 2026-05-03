@@ -59,6 +59,6 @@ Many OMML simple types are aliases for built-in Lutaml types (e.g., `STString` â
 ## Key conventions
 
 - All models are in the `Omml::Models` module namespace
-- The XML adapter defaults to `:ox` (MRI) or `:oga` (Opal)
+- The XML adapter is resolved by lutaml-model's AdapterResolver (lazy auto-detection)
 - Models use `ordered` and `sequence` blocks for XML mapping to preserve element order
 - `render_empty: true` is used on elements that must be emitted even when empty
