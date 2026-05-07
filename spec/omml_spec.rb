@@ -278,6 +278,11 @@ RSpec.describe Omml do
     end
   end
 
+  it "uses Opal-compatible simple type pattern sources" do
+    expect(Omml::Models::HexBinary::PATTERN.source).not_to include("(?-mix:")
+    expect(Omml::Models::Token::TOKEN_PATTERN.source).not_to include("(?-mix:")
+  end
+
   it "creates custom contexts that fall back to the OMML context" do
     Omml::Configuration.create_context(id: :custom_omml)
 
