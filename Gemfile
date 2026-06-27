@@ -8,6 +8,8 @@ git_source(:github) { |repo_name| "https://github.com/#{repo_name}" }
 # TODO: remove this override once lutaml-model 0.8.0 is released.
 gem "lutaml-model", github: "lutaml/lutaml-model", branch: "main"
 
+gem "nokogiri"
+gem "opal", "~> 1.8"
 gem "pry"
 gem "rake", "~> 12.0"
 gem "rspec", "~> 3.0"
