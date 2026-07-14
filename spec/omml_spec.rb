@@ -298,21 +298,15 @@ RSpec.describe Omml do
     )
   end
 
-  it "registers schema models against the context being populated" do
+  it "registers schema models into a consumer context via register_in" do
     custom_context_id = :isolated_omml
-    Omml::Configuration.populate_context!
-    custom_context = Omml::Configuration.create_context(id: custom_context_id,
-                                                        fallback_to: [])
+    Omml::Configuration.register_in(custom_context_id, fallback_to: [])
 
-    Omml::Configuration.send(:register_models_in, custom_context)
-
-    registered_context = Omml::Models::OMath.instance_variable_get(:@register)
     resolved_type = Omml::Configuration.resolve_type(
       :o_math,
       context: custom_context_id,
     )
 
-    expect(registered_context).to eq(custom_context_id)
     expect(resolved_type).to eq(Omml::Models::OMath)
   ensure
     Omml::Configuration.reset_context!(id: custom_context_id)
