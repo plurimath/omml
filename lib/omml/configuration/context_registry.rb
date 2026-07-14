@@ -23,8 +23,9 @@ module Omml
       end
 
       def populate_context!
-        # Trigger the model manifest autoload before replaying registrations.
-        Omml.const_get(:Models)
+        # Eager-load every model so its `inherited` hook fires and the class
+        # is registered before we replay registrations into the new context.
+        Omml::Models.eager_load!
         reset_context!
         register_models_in(populate_base_context)
       end
