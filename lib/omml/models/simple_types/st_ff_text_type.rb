@@ -12,7 +12,5 @@ module Omml
         calculated
       ].freeze
     end
-
-    Omml::Configuration.register_model(STFFTextType)
   end
 end

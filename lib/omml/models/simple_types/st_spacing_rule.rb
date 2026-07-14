@@ -9,7 +9,6 @@ module Omml
         super(value, options.merge(max: 4, min: 0))
       end
     end
-
     Omml::Configuration.register_model(STSpacingRule)
   end
 end

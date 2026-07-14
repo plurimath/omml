@@ -10,7 +10,5 @@ module Omml
         noBar
       ].freeze
     end
-
-    Omml::Configuration.register_model(STFType)
   end
 end

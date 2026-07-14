@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTHpsMeasure < Lutaml::Model::Serializable
+    class CTHpsMeasure < Base
       attribute :val, :st_hps_measure
 
       xml do
@@ -13,7 +13,5 @@ module Omml
         map_attribute :val, to: :val
       end
     end
-
-    Omml::Configuration.register_model(CTHpsMeasure)
   end
 end

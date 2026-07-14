@@ -10,7 +10,5 @@ module Omml
         bi
       ].freeze
     end
-
-    Omml::Configuration.register_model(STStyle)
   end
 end

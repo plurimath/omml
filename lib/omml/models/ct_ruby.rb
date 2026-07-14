@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTRuby < Lutaml::Model::Serializable
+    class CTRuby < Base
       attribute :ruby_pr, :ct_ruby_pr
       attribute :rt, :ct_ruby_content
       attribute :ruby_base, :ct_ruby_content
@@ -19,7 +19,5 @@ module Omml
         end
       end
     end
-
-    Omml::Configuration.register_model(CTRuby)
   end
 end

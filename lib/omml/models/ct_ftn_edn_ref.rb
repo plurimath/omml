@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTFtnEdnRef < Lutaml::Model::Serializable
+    class CTFtnEdnRef < Base
       attribute :custom_mark_follows, :st_on_off
       attribute :id, :st_decimal_number
 
@@ -15,7 +15,5 @@ module Omml
         map_attribute :id, to: :id
       end
     end
-
-    Omml::Configuration.register_model(CTFtnEdnRef)
   end
 end

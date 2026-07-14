@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTEqArr < Lutaml::Model::Serializable
+    class CTEqArr < Base
       attribute :eq_arr_pr, :ct_eq_arr_pr, collection: 0..1
       attribute :e, :ct_o_math_arg, collection: 1..Float::INFINITY
 
@@ -17,7 +17,5 @@ module Omml
         end
       end
     end
-
-    Omml::Configuration.register_model(CTEqArr)
   end
 end

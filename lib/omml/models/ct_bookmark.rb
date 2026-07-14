@@ -13,7 +13,5 @@ module Omml
         map_attribute :name, to: :name
       end
     end
-
-    Omml::Configuration.register_model(CTBookmark)
   end
 end

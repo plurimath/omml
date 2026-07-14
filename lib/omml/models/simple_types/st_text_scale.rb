@@ -9,7 +9,6 @@ module Omml
         super(value, options.merge(max: 600, min: 0))
       end
     end
-
     Omml::Configuration.register_model(STTextScale)
   end
 end

@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTString < Lutaml::Model::Serializable
+    class CTString < Base
       attribute :val, :st_string
 
       xml do
@@ -13,7 +13,5 @@ module Omml
         map_attribute :val, to: :val
       end
     end
-
-    Omml::Configuration.register_model(CTString)
   end
 end

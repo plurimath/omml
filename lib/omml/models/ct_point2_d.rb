@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTPoint2D < Lutaml::Model::Serializable
+    class CTPoint2D < Base
       attribute :x, :st_coordinate
       attribute :y, :st_coordinate
 
@@ -15,7 +15,5 @@ module Omml
         map_attribute :y, to: :y
       end
     end
-
-    Omml::Configuration.register_model(CTPoint2D)
   end
 end

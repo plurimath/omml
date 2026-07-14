@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTFFTextInput < Lutaml::Model::Serializable
+    class CTFFTextInput < Base
       attribute :type, :ct_ff_text_type, collection: 0..1
       attribute :default, :ct_string, collection: 0..1
       attribute :max_length, :ct_decimal_number, collection: 0..1
@@ -21,7 +21,5 @@ module Omml
         end
       end
     end
-
-    Omml::Configuration.register_model(CTFFTextInput)
   end
 end

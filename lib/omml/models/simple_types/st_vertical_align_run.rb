@@ -9,7 +9,5 @@ module Omml
         subscript
       ].freeze
     end
-
-    Omml::Configuration.register_model(STVerticalAlignRun)
   end
 end

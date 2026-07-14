@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTEqArrPr < Lutaml::Model::Serializable
+    class CTEqArrPr < Base
       attribute :base_jc, :ct_y_align, collection: 0..1
       attribute :max_dist, :ct_on_off, collection: 0..1
       attribute :obj_dist, :ct_on_off, collection: 0..1
@@ -25,7 +25,5 @@ module Omml
         end
       end
     end
-
-    Omml::Configuration.register_model(CTEqArrPr)
   end
 end

@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTCustomXmlPr < Lutaml::Model::Serializable
+    class CTCustomXmlPr < Base
       attribute :placeholder, :ct_string, collection: 0..1
       attribute :attr, :ct_attr, collection: 0..Float::INFINITY
 
@@ -17,7 +17,5 @@ module Omml
         end
       end
     end
-
-    Omml::Configuration.register_model(CTCustomXmlPr)
   end
 end

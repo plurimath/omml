@@ -10,7 +10,5 @@ module Omml
         largest
       ].freeze
     end
-
-    Omml::Configuration.register_model(STWrapText)
   end
 end

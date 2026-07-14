@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTSPre < Lutaml::Model::Serializable
+    class CTSPre < Base
       attribute :s_pre_pr, :ct_s_pre_pr, collection: 0..1
       attribute :sub, :ct_o_math_arg
       attribute :sup, :ct_o_math_arg
@@ -22,7 +22,5 @@ module Omml
         end
       end
     end
-
-    Omml::Configuration.register_model(CTSPre)
   end
 end

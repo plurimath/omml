@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTMR < Lutaml::Model::Serializable
+    class CTMR < Base
       attribute :e, :ct_o_math_arg, collection: 1..Float::INFINITY
 
       xml do
@@ -15,7 +15,5 @@ module Omml
         end
       end
     end
-
-    Omml::Configuration.register_model(CTMR)
   end
 end

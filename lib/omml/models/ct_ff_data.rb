@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTFFData < Lutaml::Model::Serializable
+    class CTFFData < Base
       choice(min: 1, max: Float::INFINITY) do
         attribute :name, :ct_ff_name
         attribute :enabled, :ct_on_off
@@ -35,7 +35,5 @@ module Omml
         map_element :textInput, to: :text_input, render_empty: true
       end
     end
-
-    Omml::Configuration.register_model(CTFFData)
   end
 end

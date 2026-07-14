@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTSSub < Lutaml::Model::Serializable
+    class CTSSub < Base
       attribute :s_sub_pr, :ct_s_sub_pr, collection: 0..1
       attribute :e, :ct_o_math_arg
       attribute :sub, :ct_o_math_arg
@@ -19,7 +19,5 @@ module Omml
         end
       end
     end
-
-    Omml::Configuration.register_model(CTSSub)
   end
 end

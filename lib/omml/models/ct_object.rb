@@ -19,7 +19,5 @@ module Omml
         map_attribute :dyaOrig, to: :dya_orig
       end
     end
-
-    Omml::Configuration.register_model(CTObject)
   end
 end

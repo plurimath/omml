@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class EGRPrMath < Lutaml::Model::Serializable
+    class EGRPrMath < Base
       choice(min: 1, max: 1) do
         import_model_attributes :eg_r_pr
         attribute :ins, :ct_r_pr_change
@@ -17,7 +17,5 @@ module Omml
         map_element :del, to: :del, render_empty: true
       end
     end
-
-    Omml::Configuration.register_model(EGRPrMath)
   end
 end

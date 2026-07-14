@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTPerm < Lutaml::Model::Serializable
+    class CTPerm < Base
       attribute :id, :st_string
       attribute :displaced_by_custom_xml, :st_displaced_by_custom_xml
 
@@ -15,7 +15,5 @@ module Omml
         map_attribute :displacedByCustomXml, to: :displaced_by_custom_xml
       end
     end
-
-    Omml::Configuration.register_model(CTPerm)
   end
 end

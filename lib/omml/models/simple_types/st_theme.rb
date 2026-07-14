@@ -14,7 +14,5 @@ module Omml
         minorHAnsi
       ].freeze
     end
-
-    Omml::Configuration.register_model(STTheme)
   end
 end

@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class EGRubyContent < Lutaml::Model::Serializable
+    class EGRubyContent < Base
       choice(min: 1, max: 1) do
         attribute :r, :ct_r
         import_model_attributes :eg_run_level_elts
@@ -14,7 +14,5 @@ module Omml
         import_model_mappings :eg_run_level_elts
       end
     end
-
-    Omml::Configuration.register_model(EGRubyContent)
   end
 end

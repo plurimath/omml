@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTPhant < Lutaml::Model::Serializable
+    class CTPhant < Base
       attribute :phant_pr, :ct_phant_pr, collection: 0..1
       attribute :e, :ct_o_math_arg
 
@@ -17,7 +17,5 @@ module Omml
         end
       end
     end
-
-    Omml::Configuration.register_model(CTPhant)
   end
 end

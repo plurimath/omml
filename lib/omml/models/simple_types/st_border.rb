@@ -197,7 +197,5 @@ module Omml
         zigZagStitch
       ].freeze
     end
-
-    Omml::Configuration.register_model(STBorder)
   end
 end

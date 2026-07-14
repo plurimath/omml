@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTRPr < Lutaml::Model::Serializable
+    class CTRPr < Base
       import_model_attributes :eg_r_pr_content
 
       xml do
@@ -15,7 +15,5 @@ module Omml
         end
       end
     end
-
-    Omml::Configuration.register_model(CTRPr)
   end
 end

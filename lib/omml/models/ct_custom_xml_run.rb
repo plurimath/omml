@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTCustomXmlRun < Lutaml::Model::Serializable
+    class CTCustomXmlRun < Base
       attribute :custom_xml_pr, :ct_custom_xml_pr, collection: 0..1
       import_model_attributes :eg_p_content
       attribute :uri, :st_string
@@ -21,7 +21,5 @@ module Omml
         map_attribute :element, to: :element
       end
     end
-
-    Omml::Configuration.register_model(CTCustomXmlRun)
   end
 end

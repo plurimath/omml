@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTDataBinding < Lutaml::Model::Serializable
+    class CTDataBinding < Base
       attribute :prefix_mappings, :st_string
       attribute :xpath, :st_string
       attribute :store_item_id, :st_string
@@ -17,7 +17,5 @@ module Omml
         map_attribute :storeItemID, to: :store_item_id
       end
     end
-
-    Omml::Configuration.register_model(CTDataBinding)
   end
 end

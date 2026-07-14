@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTLang < Lutaml::Model::Serializable
+    class CTLang < Base
       attribute :val, :st_lang
 
       xml do
@@ -13,7 +13,5 @@ module Omml
         map_attribute :val, to: :val
       end
     end
-
-    Omml::Configuration.register_model(CTLang)
   end
 end

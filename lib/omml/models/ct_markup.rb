@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTMarkup < Lutaml::Model::Serializable
+    class CTMarkup < Base
       attribute :id, :st_decimal_number
 
       xml do
@@ -13,7 +13,5 @@ module Omml
         map_attribute :id, to: :id
       end
     end
-
-    Omml::Configuration.register_model(CTMarkup)
   end
 end

@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTSpacingRule < Lutaml::Model::Serializable
+    class CTSpacingRule < Base
       attribute :val, :st_spacing_rule
 
       xml do
@@ -13,7 +13,5 @@ module Omml
         map_attribute :val, to: :val
       end
     end
-
-    Omml::Configuration.register_model(CTSpacingRule)
   end
 end

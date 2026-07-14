@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTMC < Lutaml::Model::Serializable
+    class CTMC < Base
       attribute :mc_pr, :ct_mc_pr, collection: 0..1
 
       xml do
@@ -15,7 +15,5 @@ module Omml
         end
       end
     end
-
-    Omml::Configuration.register_model(CTMC)
   end
 end

@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTRubyAlign < Lutaml::Model::Serializable
+    class CTRubyAlign < Base
       attribute :val, :st_ruby_align
 
       xml do
@@ -13,7 +13,5 @@ module Omml
         map_attribute :val, to: :val
       end
     end
-
-    Omml::Configuration.register_model(CTRubyAlign)
   end
 end

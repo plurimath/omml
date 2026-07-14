@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class EGRunInnerContent < Lutaml::Model::Serializable
+    class EGRunInnerContent < Base
       choice(min: 1, max: 1) do
         attribute :br, :string
         attribute :t, :ct_text
@@ -77,7 +77,5 @@ module Omml
         map_element :lastRenderedPageBreak, to: :last_rendered_page_break
       end
     end
-
-    Omml::Configuration.register_model(EGRunInnerContent)
   end
 end

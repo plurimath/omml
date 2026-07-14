@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTOMath < Lutaml::Model::Serializable
+    class CTOMath < Base
       import_model_attributes :eg_o_math_elements
 
       xml do
@@ -16,7 +16,5 @@ module Omml
         end
       end
     end
-
-    Omml::Configuration.register_model(CTOMath)
   end
 end

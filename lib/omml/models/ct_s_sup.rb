@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTSSup < Lutaml::Model::Serializable
+    class CTSSup < Base
       attribute :s_sup_pr, :ct_s_sup_pr, collection: 0..1
       attribute :e, :ct_o_math_arg
       attribute :sup, :ct_o_math_arg
@@ -19,7 +19,5 @@ module Omml
         end
       end
     end
-
-    Omml::Configuration.register_model(CTSSup)
   end
 end

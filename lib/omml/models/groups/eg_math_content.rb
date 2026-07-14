@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class EGMathContent < Lutaml::Model::Serializable
+    class EGMathContent < Base
       choice(min: 1, max: 1) do
         attribute :o_math_para, :ct_o_math_para
         attribute :o_math, :ct_o_math
@@ -14,7 +14,5 @@ module Omml
         map_element :oMath, to: :o_math, render_empty: true
       end
     end
-
-    Omml::Configuration.register_model(EGMathContent)
   end
 end
