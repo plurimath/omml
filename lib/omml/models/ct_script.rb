@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTScript < Lutaml::Model::Serializable
+    class CTScript < Base
       attribute :val, :st_script
 
       xml do
@@ -13,7 +13,5 @@ module Omml
         map_attribute :val, to: :val
       end
     end
-
-    Omml::Configuration.register_model(CTScript)
   end
 end

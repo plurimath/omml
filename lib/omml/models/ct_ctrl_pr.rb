@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTCtrlPr < Lutaml::Model::Serializable
+    class CTCtrlPr < Base
       import_model_attributes :eg_r_pr_math
 
       xml do
@@ -15,7 +15,5 @@ module Omml
         end
       end
     end
-
-    Omml::Configuration.register_model(CTCtrlPr)
   end
 end

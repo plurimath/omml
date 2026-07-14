@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTBorderBox < Lutaml::Model::Serializable
+    class CTBorderBox < Base
       attribute :border_box_pr, :ct_border_box_pr, collection: 0..1
       attribute :e, :ct_o_math_arg
 
@@ -18,7 +18,5 @@ module Omml
         end
       end
     end
-
-    Omml::Configuration.register_model(CTBorderBox)
   end
 end

@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTNonVisualDrawingProps < Lutaml::Model::Serializable
+    class CTNonVisualDrawingProps < Base
       attribute :hlink_click, :ct_hyperlink, collection: 0..1
       attribute :hlink_hover, :ct_hyperlink, collection: 0..1
       attribute :ext_lst, :ct_office_art_extension_list, collection: 0..1
@@ -27,7 +27,5 @@ module Omml
         map_attribute :hidden, to: :hidden
       end
     end
-
-    Omml::Configuration.register_model(CTNonVisualDrawingProps)
   end
 end

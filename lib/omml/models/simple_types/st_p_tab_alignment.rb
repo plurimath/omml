@@ -9,7 +9,5 @@ module Omml
         right
       ].freeze
     end
-
-    Omml::Configuration.register_model(STPTabAlignment)
   end
 end

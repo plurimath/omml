@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTSdtPr < Lutaml::Model::Serializable
+    class CTSdtPr < Base
       choice(min: 1, max: Float::INFINITY) do
         attribute :r_pr, :ct_r_pr, collection: 0..1
         attribute :alias, :ct_string, collection: 0..1
@@ -57,7 +57,5 @@ module Omml
         map_element :bibliography, to: :bibliography, render_empty: true
       end
     end
-
-    Omml::Configuration.register_model(CTSdtPr)
   end
 end

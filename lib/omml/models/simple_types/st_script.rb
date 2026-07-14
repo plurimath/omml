@@ -12,7 +12,5 @@ module Omml
         monospace
       ].freeze
     end
-
-    Omml::Configuration.register_model(STScript)
   end
 end

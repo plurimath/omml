@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTHyperlink < Lutaml::Model::Serializable
+    class CTHyperlink < Base
       import_model_attributes :eg_p_content
       attribute :tgt_frame, :st_string
       attribute :tooltip, :st_string
@@ -25,7 +25,5 @@ module Omml
         map_attribute :id, to: :id
       end
     end
-
-    Omml::Configuration.register_model(CTHyperlink)
   end
 end

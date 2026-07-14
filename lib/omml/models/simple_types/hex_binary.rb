@@ -9,7 +9,6 @@ module Omml
         super(value, options.merge(pattern: /(?-mix:([0-9a-fA-F]{2})*)/))
       end
     end
-
     Omml::Configuration.register_model(HexBinary)
   end
 end

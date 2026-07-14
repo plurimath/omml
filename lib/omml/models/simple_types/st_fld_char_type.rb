@@ -9,7 +9,5 @@ module Omml
         end
       ].freeze
     end
-
-    Omml::Configuration.register_model(STFldCharType)
   end
 end

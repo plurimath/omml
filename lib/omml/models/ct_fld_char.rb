@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTFldChar < Lutaml::Model::Serializable
+    class CTFldChar < Base
       choice(min: 1, max: 1) do
         attribute :fld_data, :ct_text, collection: 0..1
         attribute :ff_data, :ct_ff_data, collection: 0..1
@@ -26,7 +26,5 @@ module Omml
         map_attribute :dirty, to: :dirty
       end
     end
-
-    Omml::Configuration.register_model(CTFldChar)
   end
 end

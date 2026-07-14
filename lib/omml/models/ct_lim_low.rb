@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTLimLow < Lutaml::Model::Serializable
+    class CTLimLow < Base
       attribute :lim_low_pr, :ct_lim_low_pr, collection: 0..1
       attribute :e, :ct_o_math_arg
       attribute :lim, :ct_o_math_arg
@@ -20,7 +20,5 @@ module Omml
         end
       end
     end
-
-    Omml::Configuration.register_model(CTLimLow)
   end
 end

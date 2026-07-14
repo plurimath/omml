@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTMCPr < Lutaml::Model::Serializable
+    class CTMCPr < Base
       attribute :count, :ct_integer255, collection: 0..1
       attribute :mc_jc, :ct_x_align, collection: 0..1
 
@@ -17,7 +17,5 @@ module Omml
         end
       end
     end
-
-    Omml::Configuration.register_model(CTMCPr)
   end
 end

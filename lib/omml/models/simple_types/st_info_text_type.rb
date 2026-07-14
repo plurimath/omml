@@ -8,7 +8,5 @@ module Omml
         autoText
       ].freeze
     end
-
-    Omml::Configuration.register_model(STInfoTextType)
   end
 end

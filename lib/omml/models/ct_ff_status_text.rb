@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTFFStatusText < Lutaml::Model::Serializable
+    class CTFFStatusText < Base
       attribute :type, :st_info_text_type
       attribute :val, :st_ff_status_text_val
 
@@ -15,7 +15,5 @@ module Omml
         map_attribute :val, to: :val
       end
     end
-
-    Omml::Configuration.register_model(CTFFStatusText)
   end
 end

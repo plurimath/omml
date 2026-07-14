@@ -3,7 +3,7 @@
 module Omml
   module Models
     # Root element wrapper for the generated CTOMathPara content model.
-    class OMathPara < Lutaml::Model::Serializable
+    class OMathPara < Base
       attribute :o_math_para_pr, :ct_o_math_para_pr, collection: 0..1
       attribute :o_math, :ct_o_math, collection: 1..Float::INFINITY
       attribute :r, :ct_r, collection: 0..Float::INFINITY
@@ -19,7 +19,5 @@ module Omml
         end
       end
     end
-
-    Omml::Configuration.register_model(OMathPara, id: :o_math_para)
   end
 end

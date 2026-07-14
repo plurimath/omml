@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTMPr < Lutaml::Model::Serializable
+    class CTMPr < Base
       attribute :base_jc, :ct_y_align, collection: 0..1
       attribute :plc_hide, :ct_on_off, collection: 0..1
       attribute :r_sp_rule, :ct_spacing_rule, collection: 0..1
@@ -31,7 +31,5 @@ module Omml
         end
       end
     end
-
-    Omml::Configuration.register_model(CTMPr)
   end
 end

@@ -10,7 +10,5 @@ module Omml
         all
       ].freeze
     end
-
-    Omml::Configuration.register_model(STBrClear)
   end
 end

@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTR < Lutaml::Model::Serializable
+    class CTR < Base
       attribute :r_pr, :ct_rpr, collection: 0..1
       import_model_attributes :eg_word_r_pr
       choice(min: 0, max: Float::INFINITY) do
@@ -21,7 +21,5 @@ module Omml
         end
       end
     end
-
-    Omml::Configuration.register_model(CTR)
   end
 end

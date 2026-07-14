@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTStyle < Lutaml::Model::Serializable
+    class CTStyle < Base
       attribute :val, :st_style
 
       xml do
@@ -13,7 +13,5 @@ module Omml
         map_attribute :val, to: :val
       end
     end
-
-    Omml::Configuration.register_model(CTStyle)
   end
 end

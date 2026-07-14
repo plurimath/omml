@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTFFDDList < Lutaml::Model::Serializable
+    class CTFFDDList < Base
       attribute :result, :ct_decimal_number, collection: 0..1
       attribute :default, :ct_decimal_number, collection: 0..1
       attribute :list_entry, :ct_string, collection: 0..Float::INFINITY
@@ -19,7 +19,5 @@ module Omml
         end
       end
     end
-
-    Omml::Configuration.register_model(CTFFDDList)
   end
 end

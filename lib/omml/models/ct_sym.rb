@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTSym < Lutaml::Model::Serializable
+    class CTSym < Base
       attribute :font, :st_string
       attribute :char, :st_short_hex_number
 
@@ -15,7 +15,5 @@ module Omml
         map_attribute :char, to: :char
       end
     end
-
-    Omml::Configuration.register_model(CTSym)
   end
 end

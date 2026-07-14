@@ -9,7 +9,6 @@ module Omml
         super(value, options.merge(max: 2, min: -2))
       end
     end
-
     Omml::Configuration.register_model(STInteger2)
   end
 end

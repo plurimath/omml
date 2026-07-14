@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTRadPr < Lutaml::Model::Serializable
+    class CTRadPr < Base
       attribute :deg_hide, :ct_on_off, collection: 0..1
       attribute :ctrl_pr, :ct_ctrl_pr, collection: 0..1
 
@@ -17,7 +17,5 @@ module Omml
         end
       end
     end
-
-    Omml::Configuration.register_model(CTRadPr)
   end
 end

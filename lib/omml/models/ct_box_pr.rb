@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTBoxPr < Lutaml::Model::Serializable
+    class CTBoxPr < Base
       attribute :op_emu, :ct_on_off, collection: 0..1
       attribute :no_break, :ct_on_off, collection: 0..1
       attribute :diff, :ct_on_off, collection: 0..1
@@ -25,7 +25,5 @@ module Omml
         end
       end
     end
-
-    Omml::Configuration.register_model(CTBoxPr)
   end
 end

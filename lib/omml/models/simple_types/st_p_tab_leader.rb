@@ -11,7 +11,5 @@ module Omml
         middleDot
       ].freeze
     end
-
-    Omml::Configuration.register_model(STPTabLeader)
   end
 end

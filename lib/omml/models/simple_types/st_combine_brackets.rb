@@ -11,7 +11,5 @@ module Omml
         curly
       ].freeze
     end
-
-    Omml::Configuration.register_model(STCombineBrackets)
   end
 end

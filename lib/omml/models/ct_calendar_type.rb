@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTCalendarType < Lutaml::Model::Serializable
+    class CTCalendarType < Base
       attribute :val, :st_calendar_type
 
       xml do
@@ -13,7 +13,5 @@ module Omml
         map_attribute :val, to: :val
       end
     end
-
-    Omml::Configuration.register_model(CTCalendarType)
   end
 end

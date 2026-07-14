@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTMCS < Lutaml::Model::Serializable
+    class CTMCS < Base
       attribute :mc, :ct_mc, collection: 1..Float::INFINITY
 
       xml do
@@ -15,7 +15,5 @@ module Omml
         end
       end
     end
-
-    Omml::Configuration.register_model(CTMCS)
   end
 end

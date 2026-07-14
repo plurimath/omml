@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTOMathArgPr < Lutaml::Model::Serializable
+    class CTOMathArgPr < Base
       attribute :arg_sz, :ct_integer2, collection: 0..1
 
       xml do
@@ -15,7 +15,5 @@ module Omml
         end
       end
     end
-
-    Omml::Configuration.register_model(CTOMathArgPr)
   end
 end

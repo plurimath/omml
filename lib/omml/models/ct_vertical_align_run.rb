@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTVerticalAlignRun < Lutaml::Model::Serializable
+    class CTVerticalAlignRun < Base
       attribute :val, :st_vertical_align_run
 
       xml do
@@ -13,7 +13,5 @@ module Omml
         map_attribute :val, to: :val
       end
     end
-
-    Omml::Configuration.register_model(CTVerticalAlignRun)
   end
 end

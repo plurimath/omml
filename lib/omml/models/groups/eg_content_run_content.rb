@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class EGContentRunContent < Lutaml::Model::Serializable
+    class EGContentRunContent < Base
       choice(min: 1, max: 1) do
         attribute :custom_xml, :ct_custom_xml_run
         attribute :smart_tag, :ct_smart_tag_run
@@ -20,7 +20,5 @@ module Omml
         import_model_mappings :eg_run_level_elts
       end
     end
-
-    Omml::Configuration.register_model(EGContentRunContent)
   end
 end

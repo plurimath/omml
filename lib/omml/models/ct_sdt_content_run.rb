@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTSdtContentRun < Lutaml::Model::Serializable
+    class CTSdtContentRun < Base
       import_model_attributes :eg_p_content
 
       xml do
@@ -13,7 +13,5 @@ module Omml
         import_model_mappings :eg_p_content
       end
     end
-
-    Omml::Configuration.register_model(CTSdtContentRun)
   end
 end

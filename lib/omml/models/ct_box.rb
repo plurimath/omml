@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTBox < Lutaml::Model::Serializable
+    class CTBox < Base
       attribute :box_pr, :ct_box_pr, collection: 0..1
       attribute :e, :ct_o_math_arg
 
@@ -17,7 +17,5 @@ module Omml
         end
       end
     end
-
-    Omml::Configuration.register_model(CTBox)
   end
 end

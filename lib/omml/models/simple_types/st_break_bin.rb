@@ -9,7 +9,5 @@ module Omml
         repeat
       ].freeze
     end
-
-    Omml::Configuration.register_model(STBreakBin)
   end
 end
