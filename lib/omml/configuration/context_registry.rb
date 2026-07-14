@@ -38,6 +38,39 @@ module Omml
         raise Omml::Errors::MissingContextError, normalized_id
       end
 
+      # Register Omml's models into a consumer-owned context.
+      #
+      # Consumers (e.g. Uniword) call this once during boot to make every
+      # OMML schema type resolvable from the consumer's own context. The
+      # consumer's registry is populated directly (via register_models_in)
+      # rather than via fallback, so the Omml register does not need to be
+      # in the chain — the consumer becomes self-sufficient for OMML types.
+      #
+      # The default fallback is `[:default]` so consumer-defined types
+      # still resolve through lutaml-model's built-in type set when not
+      # shadowed by an Omml registration.
+      #
+      # @example Uniword boot
+      #   Omml::Configuration.register_in(:uniword)
+      #   Uniword::DocumentRoot.from_xml(xml, register: :uniword)
+      #
+      # @param consumer_id [Symbol, String] The consumer's context id.
+      # @param fallback_to [Array<Symbol>, nil] Override fallback chain.
+      #   Defaults to `[:default]`.
+      # @return [Lutaml::Model::Context] The created context.
+      def register_in(consumer_id, fallback_to: nil)
+        normalized_id = normalize_context_id(consumer_id)
+        chain = Array(fallback_to || [:default])
+        populate_context!
+        create_context(
+          id: normalized_id,
+          registry: Lutaml::Model::TypeRegistry.new,
+          fallback_to: chain,
+        ).tap do |type_context|
+          register_models_in(type_context)
+        end
+      end
+
       def reset_context!(id: context_id)
         normalized_id = normalize_context_id(id)
         existing_context = Lutaml::Model::GlobalContext.context(normalized_id)
