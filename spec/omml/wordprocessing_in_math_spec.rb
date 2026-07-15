@@ -5,7 +5,9 @@ require "spec_helper"
 # Focused spec for wordprocessing-in-math: elements that belong to the
 # WordprocessingML namespace but appear inside math runs (<m:r>). Per
 # shared-math.xsd CT_R, these come from <xsd:group ref="w:EG_RunInnerContent" />
-# and must round-trip without data loss.
+# and must round-trip without data loss. CT_R's choice has
+# maxOccurs="unbounded", so every attribute on CTR that comes from
+# EG_RunInnerContent or EGWordRunInnerContent is a collection.
 RSpec.describe "wordprocessing-in-math elements" do
   let(:namespaces) do
     'xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" ' \
@@ -24,14 +26,14 @@ RSpec.describe "wordprocessing-in-math elements" do
     it "parses <w:br/> into a CTBr instance" do
       r = run_of(wrap("<w:br/>"))
 
-      expect(r.br).to be_a(Omml::Models::CTBr)
+      expect(r.br.first).to be_a(Omml::Models::CTBr)
     end
 
     it "preserves type and clear attributes" do
       r = run_of(wrap('<w:br w:type="page" w:clear="all"/>'))
 
-      expect(r.br.type).to eq("page")
-      expect(r.br.clear).to eq("all")
+      expect(r.br.first.type).to eq("page")
+      expect(r.br.first.clear).to eq("all")
     end
 
     it "round-trips through serialize and re-parse" do
@@ -39,8 +41,8 @@ RSpec.describe "wordprocessing-in-math elements" do
       serialized = parsed.to_xml(use_prefix: true)
       reparsed = Omml.parse(serialized)
 
-      expect(reparsed.r.first.br).to be_a(Omml::Models::CTBr)
-      expect(reparsed.r.first.br.type).to eq("page")
+      expect(reparsed.r.first.br.first).to be_a(Omml::Models::CTBr)
+      expect(reparsed.r.first.br.first.type).to eq("page")
     end
   end
 
@@ -56,12 +58,11 @@ RSpec.describe "wordprocessing-in-math elements" do
         r = run_of(wrap("<w:#{name}/>"))
         value = r.public_send(attribute_name)
 
-        # Collections default to empty array; populated means parsed OK
-        expect(Array(value).size).to eq(1), lambda {
+        expect(value.size).to eq(1), lambda {
           "expected #{attribute_name} to receive one <w:#{name}/>, " \
             "got #{value.inspect}"
         }
-        expect(Array(value).first).to be_a(Omml::Models::CTWordprocessingEmpty)
+        expect(value.first).to be_a(Omml::Models::CTWordprocessingEmpty)
       end
     end
   end
@@ -77,20 +78,34 @@ RSpec.describe "wordprocessing-in-math elements" do
         r = run_of(wrap("<w:#{name}>payload-#{name}</w:#{name}>"))
         value = r.public_send(attribute_name)
 
-        expect(value).to be_a(Omml::Models::CTWordprocessingText)
-        expect(value.content).to eq("payload-#{name}")
+        expect(value.first).to be_a(Omml::Models::CTWordprocessingText)
+        expect(value.first.content).to eq("payload-#{name}")
       end
     end
 
     it "preserves xml:space attribute on delText" do
       r = run_of(wrap('<w:delText xml:space="preserve">  spaced  </w:delText>'))
 
-      expect(r.del_text.space).to eq("preserve")
-      expect(r.del_text.content).to eq("  spaced  ")
+      expect(r.del_text.first.space).to eq("preserve")
+      expect(r.del_text.first.content).to eq("  spaced  ")
     end
   end
 
-  describe "round-trip fidelity" do
+  describe "multiple occurrences within one run (CT_R choice is unbounded)" do
+    it "preserves text appearing both before and after <w:br/>" do
+      r = run_of(wrap("<m:t>before</m:t><w:br/><m:t>after</m:t>"))
+
+      expect(r.t.map(&:content)).to eq(["before", "after"])
+      expect(r.br.size).to eq(1)
+    end
+
+    it "preserves multiple <w:br/> interleaved with text" do
+      r = run_of(wrap("<m:t>a</m:t><w:br/><m:t>b</m:t><w:br/><m:t>c</m:t>"))
+
+      expect(r.t.map(&:content)).to eq(["a", "b", "c"])
+      expect(r.br.size).to eq(2)
+    end
+
     it "round-trips a complex run with multiple wordprocessing children" do
       xml = wrap("<w:cr/><w:t>x</w:t><w:tab/><m:t>y</m:t>")
       parsed = Omml.parse(xml)
@@ -100,14 +115,14 @@ RSpec.describe "wordprocessing-in-math elements" do
       r = reparsed.r.first
       expect(r.cr.size).to eq(1)
       expect(r.tab.size).to eq(1)
-      expect(r.t.content).to eq("y")
+      expect(r.t.map(&:content)).to include("y")
     end
   end
 
   describe "programmatic construction" do
     it "builds a CTR with CTBr and serializes br with w: prefix" do
       br = Omml::Models::CTBr.new(type: "page")
-      r = Omml::Models::CTR.new(br: br)
+      r = Omml::Models::CTR.new(br: [br])
 
       # `use_prefix: true` makes the serializer honor each namespace's
       # `prefix_default` (m for math, w for wordprocessing). Required for

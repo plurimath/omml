@@ -14,6 +14,7 @@ module Omml
         element "CT_R"
 
         namespace Omml::Namespace
+        ordered
 
         sequence do
           map_element :rPr, to: :r_pr

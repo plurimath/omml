@@ -86,7 +86,7 @@ RSpec.describe Omml do
     parsed = described_class.parse(o_math_xml)
 
     expect(parsed).to be_a(Omml::Models::OMath)
-    expect(parsed.r.first.t.content).to eq("x")
+    expect(parsed.r.first.t.first.content).to eq("x")
     expect(parsed.to_xml(use_prefix: true)).to include("<m:oMath")
     expect(parsed.to_xml(use_prefix: true)).to include("<m:t>x</m:t>")
   end
@@ -95,7 +95,7 @@ RSpec.describe Omml do
     parsed = described_class.parse(o_math_xml_with_prolog)
 
     expect(parsed).to be_a(Omml::Models::OMath)
-    expect(parsed.r.first.t.content).to eq("x")
+    expect(parsed.r.first.t.first.content).to eq("x")
   end
 
   it "preserves wordprocessing on-off run properties under ctrlPr" do
