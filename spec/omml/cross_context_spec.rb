@@ -61,7 +61,7 @@ RSpec.describe "cross-context embedding (Uniword scenario)", :cross_context do #
 
     omath = parsed.o_math.first
     expect(omath).to be_a(Omml::Models::CTOMath)
-    expect(omath.r.first.t.content).to eq("x")
+    expect(omath.r.first.t.first.content).to eq("x")
   end
 
   it "round-trips embedded OMML through the consumer context" do
@@ -76,7 +76,7 @@ RSpec.describe "cross-context embedding (Uniword scenario)", :cross_context do #
       register: consumer_context_id,
     )
 
-    expect(reparsed.o_math.first.r.first.t.content).to eq("x")
+    expect(reparsed.o_math.first.r.first.t.first.content).to eq("x")
   end
 
   it "resolves sibling type symbols inside the Omml subtree" do
@@ -87,7 +87,7 @@ RSpec.describe "cross-context embedding (Uniword scenario)", :cross_context do #
 
     fraction = parsed.o_math.first.f.first
     expect(fraction).to be_a(Omml::Models::CTF)
-    expect(fraction.num.r.first.t.content).to eq("1")
-    expect(fraction.den.r.first.t.content).to eq("2")
+    expect(fraction.num.r.first.t.first.content).to eq("1")
+    expect(fraction.den.r.first.t.first.content).to eq("2")
   end
 end

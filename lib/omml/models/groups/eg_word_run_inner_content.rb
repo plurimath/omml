@@ -6,45 +6,44 @@ module Omml
     # <xsd:group ref="w:EG_RunInnerContent" /> in shared-math.xsd.
     #
     # Every element here belongs to the WordprocessingML namespace regardless
-    # of its containing parent. Per the global rule "define your own types",
-    # Omml owns these wordprocessing stubs so the gem is self-contained;
-    # consumers (e.g. Uniword) substitute their own wordprocessing classes
-    # via the register substitution mechanism.
+    # of its containing parent. CT_R's choice has maxOccurs="unbounded", so
+    # every attribute here is a collection — multiple <w:br/> can appear
+    # interleaved with math text and other wordprocessing elements.
     class EGWordRunInnerContent < Base
       choice(min: 1, max: 1) do
-        attribute :br, :ct_br
-        attribute :del_text, :ct_wordprocessing_text
-        attribute :instr_text, :ct_wordprocessing_text
-        attribute :del_instr_text, :ct_wordprocessing_text
-        attribute :no_break_hyphen, :ct_wordprocessing_empty
-        attribute :soft_hyphen, :ct_wordprocessing_empty, collection: 0..1
-        attribute :day_short, :ct_wordprocessing_empty, collection: 0..1
-        attribute :month_short, :ct_wordprocessing_empty, collection: 0..1
-        attribute :year_short, :ct_wordprocessing_empty, collection: 0..1
-        attribute :day_long, :ct_wordprocessing_empty, collection: 0..1
-        attribute :month_long, :ct_wordprocessing_empty, collection: 0..1
-        attribute :year_long, :ct_wordprocessing_empty, collection: 0..1
-        attribute :annotation_ref, :ct_wordprocessing_empty, collection: 0..1
-        attribute :footnote_ref, :ct_wordprocessing_empty, collection: 0..1
-        attribute :endnote_ref, :ct_wordprocessing_empty, collection: 0..1
-        attribute :separator, :ct_wordprocessing_empty, collection: 0..1
+        attribute :br, :ct_br, collection: true
+        attribute :del_text, :ct_wordprocessing_text, collection: true
+        attribute :instr_text, :ct_wordprocessing_text, collection: true
+        attribute :del_instr_text, :ct_wordprocessing_text, collection: true
+        attribute :no_break_hyphen, :ct_wordprocessing_empty, collection: true
+        attribute :soft_hyphen, :ct_wordprocessing_empty, collection: true
+        attribute :day_short, :ct_wordprocessing_empty, collection: true
+        attribute :month_short, :ct_wordprocessing_empty, collection: true
+        attribute :year_short, :ct_wordprocessing_empty, collection: true
+        attribute :day_long, :ct_wordprocessing_empty, collection: true
+        attribute :month_long, :ct_wordprocessing_empty, collection: true
+        attribute :year_long, :ct_wordprocessing_empty, collection: true
+        attribute :annotation_ref, :ct_wordprocessing_empty, collection: true
+        attribute :footnote_ref, :ct_wordprocessing_empty, collection: true
+        attribute :endnote_ref, :ct_wordprocessing_empty, collection: true
+        attribute :separator, :ct_wordprocessing_empty, collection: true
         attribute :continuation_separator, :ct_wordprocessing_empty,
-                  collection: 0..1
-        attribute :sym, :ct_sym, collection: 0..1
-        attribute :pg_num, :ct_wordprocessing_empty, collection: 0..1
-        attribute :cr, :ct_wordprocessing_empty, collection: 0..1
-        attribute :tab, :ct_wordprocessing_empty, collection: 0..1
-        attribute :object, :ct_object
-        attribute :pict, :ct_picture
-        attribute :fld_char, :ct_fld_char
-        attribute :ruby, :ct_ruby
-        attribute :footnote_reference, :ct_ftn_edn_ref
-        attribute :endnote_reference, :ct_ftn_edn_ref
-        attribute :comment_reference, :ct_markup
-        attribute :drawing, :ct_drawing
-        attribute :ptab, :ct_p_tab, collection: 0..1
+                  collection: true
+        attribute :sym, :ct_sym, collection: true
+        attribute :pg_num, :ct_wordprocessing_empty, collection: true
+        attribute :cr, :ct_wordprocessing_empty, collection: true
+        attribute :tab, :ct_wordprocessing_empty, collection: true
+        attribute :object, :ct_object, collection: true
+        attribute :pict, :ct_picture, collection: true
+        attribute :fld_char, :ct_fld_char, collection: true
+        attribute :ruby, :ct_ruby, collection: true
+        attribute :footnote_reference, :ct_ftn_edn_ref, collection: true
+        attribute :endnote_reference, :ct_ftn_edn_ref, collection: true
+        attribute :comment_reference, :ct_markup, collection: true
+        attribute :drawing, :ct_drawing, collection: true
+        attribute :ptab, :ct_p_tab, collection: true
         attribute :last_rendered_page_break, :ct_wordprocessing_empty,
-                  collection: 0..1
+                  collection: true
       end
 
       xml do
