@@ -36,7 +36,7 @@ RSpec.describe "wordprocessing-in-math elements" do
 
     it "round-trips through serialize and re-parse" do
       parsed = Omml.parse(wrap('<w:br w:type="page"/>'))
-      serialized = parsed.to_xml(prefix: "m")
+      serialized = parsed.to_xml(use_prefix: true)
       reparsed = Omml.parse(serialized)
 
       expect(reparsed.r.first.br).to be_a(Omml::Models::CTBr)
@@ -94,7 +94,7 @@ RSpec.describe "wordprocessing-in-math elements" do
     it "round-trips a complex run with multiple wordprocessing children" do
       xml = wrap("<w:cr/><w:t>x</w:t><w:tab/><m:t>y</m:t>")
       parsed = Omml.parse(xml)
-      serialized = parsed.to_xml(prefix: "m")
+      serialized = parsed.to_xml(use_prefix: true)
       reparsed = Omml.parse(serialized)
 
       r = reparsed.r.first
@@ -105,16 +105,24 @@ RSpec.describe "wordprocessing-in-math elements" do
   end
 
   describe "programmatic construction" do
-    it "builds a CTR with CTBr and serializes to wordprocessing namespace" do
+    it "builds a CTR with CTBr and serializes br with w: prefix" do
       br = Omml::Models::CTBr.new(type: "page")
       r = Omml::Models::CTR.new(br: br)
 
-      # The TYPE namespace determines the element's namespace URI.
-      # CTBr is in wordprocessing, so the element URI must be wordprocessing
-      # regardless of the prefix the serializer chooses to emit.
-      xml = r.to_xml(prefix: "m")
-      expect(xml).to include("http://schemas.openxmlformats.org/wordprocessingml/2006/main")
-      expect(xml).to include("br")
+      # `use_prefix: true` makes the serializer honor each namespace's
+      # `prefix_default` (m for math, w for wordprocessing). Required for
+      # Word compatibility — Word rejects math elements in default xmlns
+      # form; it requires the `m:` prefix on every element.
+      xml = r.to_xml(use_prefix: true)
+      doc = Omml::Configuration.xml_adapter.parse(xml).root
+
+      expect(doc.namespace.uri)
+        .to eq("http://schemas.openxmlformats.org/officeDocument/2006/math")
+      br_element = doc.children.find(&:element?)
+      expect(br_element.unprefixed_name).to eq("br")
+      expect(br_element.namespace.uri)
+        .to eq("http://schemas.openxmlformats.org/wordprocessingml/2006/main")
+      expect(br_element.namespace.prefix).to eq("w")
     end
   end
 end

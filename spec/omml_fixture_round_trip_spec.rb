@@ -166,7 +166,7 @@ RSpec.describe Omml do
   def expect_fixture_to_round_trip(fixture_path)
     xml = File.read(fixture_path)
     parsed = Omml.parse(xml)
-    serialized = parsed.to_xml(prefix: "m")
+    serialized = parsed.to_xml(use_prefix: true)
     diff = xml_difference(xml, serialized)
 
     expect(parsed).to be_a(expected_root_class(xml))
