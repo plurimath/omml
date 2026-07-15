@@ -87,8 +87,8 @@ RSpec.describe Omml do
 
     expect(parsed).to be_a(Omml::Models::OMath)
     expect(parsed.r.first.t.content).to eq("x")
-    expect(parsed.to_xml(prefix: "m")).to include("<m:oMath")
-    expect(parsed.to_xml(prefix: "m")).to include("<m:t>x</m:t>")
+    expect(parsed.to_xml(use_prefix: true)).to include("<m:oMath")
+    expect(parsed.to_xml(use_prefix: true)).to include("<m:t>x</m:t>")
   end
 
   it "parses roots with leading declarations and comments" do
@@ -101,7 +101,7 @@ RSpec.describe Omml do
   it "preserves wordprocessing on-off run properties under ctrlPr" do
     parsed = described_class.parse(o_math_para_with_wordprocessing_flags_xml)
     r_pr = wordprocessing_run_properties(parsed)
-    serialized = parsed.to_xml(prefix: "m")
+    serialized = parsed.to_xml(use_prefix: true)
     reparsed = described_class.parse(serialized)
     reparsed_r_pr = wordprocessing_run_properties(reparsed)
 
