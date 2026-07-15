@@ -12,27 +12,28 @@ module Omml
     # via the register substitution mechanism.
     class EGWordRunInnerContent < Base
       choice(min: 1, max: 1) do
-        attribute :br, :string
-        attribute :del_text, :ct_text
-        attribute :instr_text, :ct_text
-        attribute :del_instr_text, :ct_text
-        attribute :no_break_hyphen, :ct_empty
-        attribute :soft_hyphen, :ct_empty, collection: 0..1
-        attribute :day_short, :ct_empty, collection: 0..1
-        attribute :month_short, :ct_empty, collection: 0..1
-        attribute :year_short, :ct_empty, collection: 0..1
-        attribute :day_long, :ct_empty, collection: 0..1
-        attribute :month_long, :ct_empty, collection: 0..1
-        attribute :year_long, :ct_empty, collection: 0..1
-        attribute :annotation_ref, :ct_empty, collection: 0..1
-        attribute :footnote_ref, :ct_empty, collection: 0..1
-        attribute :endnote_ref, :ct_empty, collection: 0..1
-        attribute :separator, :ct_empty, collection: 0..1
-        attribute :continuation_separator, :ct_empty, collection: 0..1
+        attribute :br, :ct_br
+        attribute :del_text, :ct_wordprocessing_text
+        attribute :instr_text, :ct_wordprocessing_text
+        attribute :del_instr_text, :ct_wordprocessing_text
+        attribute :no_break_hyphen, :ct_wordprocessing_empty
+        attribute :soft_hyphen, :ct_wordprocessing_empty, collection: 0..1
+        attribute :day_short, :ct_wordprocessing_empty, collection: 0..1
+        attribute :month_short, :ct_wordprocessing_empty, collection: 0..1
+        attribute :year_short, :ct_wordprocessing_empty, collection: 0..1
+        attribute :day_long, :ct_wordprocessing_empty, collection: 0..1
+        attribute :month_long, :ct_wordprocessing_empty, collection: 0..1
+        attribute :year_long, :ct_wordprocessing_empty, collection: 0..1
+        attribute :annotation_ref, :ct_wordprocessing_empty, collection: 0..1
+        attribute :footnote_ref, :ct_wordprocessing_empty, collection: 0..1
+        attribute :endnote_ref, :ct_wordprocessing_empty, collection: 0..1
+        attribute :separator, :ct_wordprocessing_empty, collection: 0..1
+        attribute :continuation_separator, :ct_wordprocessing_empty,
+                  collection: 0..1
         attribute :sym, :ct_sym, collection: 0..1
-        attribute :pg_num, :ct_empty, collection: 0..1
-        attribute :cr, :ct_empty, collection: 0..1
-        attribute :tab, :ct_empty, collection: 0..1
+        attribute :pg_num, :ct_wordprocessing_empty, collection: 0..1
+        attribute :cr, :ct_wordprocessing_empty, collection: 0..1
+        attribute :tab, :ct_wordprocessing_empty, collection: 0..1
         attribute :object, :ct_object
         attribute :pict, :ct_picture
         attribute :fld_char, :ct_fld_char
@@ -42,7 +43,8 @@ module Omml
         attribute :comment_reference, :ct_markup
         attribute :drawing, :ct_drawing
         attribute :ptab, :ct_p_tab, collection: 0..1
-        attribute :last_rendered_page_break, :ct_empty, collection: 0..1
+        attribute :last_rendered_page_break, :ct_wordprocessing_empty,
+                  collection: 0..1
       end
 
       xml do

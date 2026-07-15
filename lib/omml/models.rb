@@ -180,6 +180,10 @@ module Omml
     autoload :CTWrapTopBottom, "omml/models/ct_wrap_top_bottom"
     autoload :CTXAlign, "omml/models/ct_x_align"
     autoload :CTYAlign, "omml/models/ct_y_align"
+    autoload :CTWordprocessingEmpty,
+             "omml/models/ct_wordprocessing_empty"
+    autoload :CTWordprocessingText,
+             "omml/models/ct_wordprocessing_text"
 
     autoload :OMath, "omml/models/o_math"
     autoload :OMathPara, "omml/models/o_math_para"
@@ -202,6 +206,8 @@ module Omml
     autoload :EGRunLevelElts, "omml/models/groups/eg_run_level_elts"
     autoload :EGScriptStyle, "omml/models/groups/eg_script_style"
     autoload :EGWordRPr, "omml/models/groups/eg_word_r_pr"
+    autoload :EGWordRunInnerContent,
+             "omml/models/groups/eg_word_run_inner_content"
     autoload :EGWrapType, "omml/models/groups/eg_wrap_type"
 
     autoload :EnumString, "omml/models/simple_types/enum_string"
