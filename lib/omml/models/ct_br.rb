@@ -9,7 +9,7 @@ module Omml
       xml do
         element "CT_Br"
 
-        namespace Omml::Namespace
+        namespace Omml::WordprocessingNamespace
 
         map_attribute :type, to: :type
         map_attribute :clear, to: :clear

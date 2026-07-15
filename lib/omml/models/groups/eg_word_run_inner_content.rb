@@ -2,10 +2,17 @@
 
 module Omml
   module Models
-    class EGRunInnerContent < Base
+    # WordprocessingML run inner content elements referenced from CT_R via
+    # <xsd:group ref="w:EG_RunInnerContent" /> in shared-math.xsd.
+    #
+    # Every element here belongs to the WordprocessingML namespace regardless
+    # of its containing parent. Per the global rule "define your own types",
+    # Omml owns these wordprocessing stubs so the gem is self-contained;
+    # consumers (e.g. Uniword) substitute their own wordprocessing classes
+    # via the register substitution mechanism.
+    class EGWordRunInnerContent < Base
       choice(min: 1, max: 1) do
-        attribute :br, :ct_br
-        attribute :t, :ct_text
+        attribute :br, :string
         attribute :del_text, :ct_text
         attribute :instr_text, :ct_text
         attribute :del_instr_text, :ct_text
@@ -39,9 +46,10 @@ module Omml
       end
 
       xml do
-        type_name "EG_RunInnerContent"
+        type_name "EG_WordRunInnerContent"
+        namespace Omml::WordprocessingNamespace
+
         map_element :br, to: :br, render_empty: true
-        map_element :t, to: :t, render_empty: true
         map_element :delText, to: :del_text, render_empty: true
         map_element :instrText, to: :instr_text, render_empty: true
         map_element :delInstrText, to: :del_instr_text, render_empty: true
