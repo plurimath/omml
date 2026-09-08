@@ -2,12 +2,30 @@
 
 require "omml"
 
-# Pin the XML adapter when OMML_XML_ADAPTER is set, so the suite can be run
-# against each adapter omml declares. Unset, lutaml-model's AdapterResolver
-# auto-detects, which means an unpinned run only ever exercises whichever
-# adapter happens to be installed.
-if (adapter = ENV.fetch("OMML_XML_ADAPTER", nil))
-  Lutaml::Model::Config.xml_adapter_type = adapter.to_sym
+# omml declares nokogiri, ox and oga as runtime dependencies and lutaml-model's
+# AdapterResolver auto-detects between them, so an unpinned run only ever
+# exercises whichever one happens to be installed. The three do not agree --
+# Ox collapses whitespace where the other two preserve it -- so any spec that
+# parses or serialises XML is run against all three.
+#
+# Tag an example `skip_adapters: %i[ox]` to exempt it from one adapter; the
+# reason belongs in a comment above the example.
+OMML_XML_ADAPTERS = %i[nokogiri ox oga].freeze
+
+def describe_per_adapter(name, subject: name, **metadata)
+  OMML_XML_ADAPTERS.each do |adapter|
+    RSpec.describe(subject, "with the #{adapter} adapter", **metadata) do
+      before do |example|
+        if Array(example.metadata[:skip_adapters]).include?(adapter)
+          skip("not supported on the #{adapter} adapter")
+        end
+
+        Lutaml::Model::Config.xml_adapter_type = adapter
+      end
+
+      it_behaves_like name
+    end
+  end
 end
 
 RSpec.configure do |config|
