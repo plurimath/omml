@@ -29,6 +29,11 @@ def describe_per_adapter(name, subject: name, **metadata)
 end
 
 RSpec.configure do |config|
+  # Baseline for specs that do not vary by adapter, matching mml and
+  # plurimath. Without it those specs inherit whichever adapter the previous
+  # example left set.
+  config.before { Lutaml::Model::Config.xml_adapter_type = :nokogiri }
+
   # Enable flags like --only-failures and --next-failure
   config.example_status_persistence_file_path = ".rspec_status"
 
