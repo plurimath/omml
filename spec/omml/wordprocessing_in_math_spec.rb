@@ -85,7 +85,8 @@ RSpec.shared_examples "wordprocessing-in-math elements" do
 
     # moxml's Ox adapter parses with ::Ox.parse, which uses Ox's default skip
     # mode and collapses whitespace runs, so xml:space is not honoured there.
-    # Unchanged in moxml 0.5.30. Drop :skip_adapters once it is fixed upstream.
+    # Present in every released moxml: in 0.1.26, which this gemspec resolves,
+    # and still in 0.5.30. Drop :skip_adapters once it is fixed upstream.
     it "preserves xml:space attribute on delText", skip_adapters: %i[ox] do
       r = run_of(wrap('<w:delText xml:space="preserve">  spaced  </w:delText>'))
 

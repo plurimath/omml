@@ -2,11 +2,12 @@
 
 require "omml"
 
-# omml declares nokogiri, ox and oga as runtime dependencies and lutaml-model's
-# AdapterResolver auto-detects between them, so an unpinned run only ever
-# exercises whichever one happens to be installed. The three do not agree --
-# Ox collapses whitespace where the other two preserve it -- so any spec that
-# parses or serialises XML is run against all three.
+# omml declares ox and oga as runtime dependencies, and nokogiri arrives
+# transitively through lutaml-model -> canon, so all three are always
+# installed. lutaml-model's AdapterResolver auto-detects between them, so an
+# unpinned run only ever exercises whichever one it settles on. The three do
+# not agree -- Ox collapses whitespace where the other two preserve it -- so
+# any spec that parses or serialises XML is run against all three.
 #
 # Tag an example `skip_adapters: %i[ox]` to exempt it from one adapter; the
 # reason belongs in a comment above the example.
