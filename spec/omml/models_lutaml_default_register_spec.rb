@@ -2,8 +2,7 @@
 
 require "spec_helper"
 
-# rubocop:disable RSpec/DescribeClass, RSpec/SpecFilePathFormat
-RSpec.describe "Omml::Models lutaml_default_register coverage" do
+RSpec.describe Omml::Models do
   before { Omml::Configuration.populate_context! }
 
   def serializable_subclasses_in(mod)
@@ -13,7 +12,7 @@ RSpec.describe "Omml::Models lutaml_default_register coverage" do
   end
 
   it "every Serializable subclass in Omml::Models returns :omml" do
-    classes = serializable_subclasses_in(Omml::Models)
+    classes = serializable_subclasses_in(described_class)
 
     expect(classes).not_to be_empty
 
@@ -49,4 +48,3 @@ RSpec.describe "Omml::Models lutaml_default_register coverage" do
     expect(Omml::Models::CTAcc.lutaml_default_register).to eq(original)
   end
 end
-# rubocop:enable RSpec/DescribeClass, RSpec/SpecFilePathFormat
