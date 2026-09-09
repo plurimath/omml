@@ -4,7 +4,7 @@ require "spec_helper"
 
 FIXTURE_PATHS = Dir[File.join(__dir__, "fixtures/omml/**/*.omml")].freeze
 
-RSpec.describe Omml do
+RSpec.shared_examples "OMML fixture round trip" do
   def normalize_string(value)
     return value unless value.is_a?(String)
 
@@ -173,3 +173,5 @@ RSpec.describe Omml do
     expect(diff).to be_nil, diff
   end
 end
+
+describe_per_adapter("OMML fixture round trip", subject: Omml)
