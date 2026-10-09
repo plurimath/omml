@@ -6,7 +6,7 @@ require "spec_helper"
 # references Omml model types as attributes. Parsed XML contains OMML
 # subtrees that must resolve through `:omml` even though the parent
 # context is the consumer's own.
-RSpec.describe "cross-context embedding (Uniword scenario)", :cross_context do # rubocop:disable RSpec/DescribeClass
+RSpec.shared_examples "cross-context embedding (Uniword scenario)" do
   let(:consumer_context_id) { :test_consumer }
   let(:consumer_container_class) do
     Class.new(Lutaml::Model::Serializable) do
@@ -91,3 +91,6 @@ RSpec.describe "cross-context embedding (Uniword scenario)", :cross_context do #
     expect(fraction.den.r.first.t.first.content).to eq("2")
   end
 end
+
+describe_per_adapter("cross-context embedding (Uniword scenario)",
+                     cross_context: true)

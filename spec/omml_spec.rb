@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-RSpec.describe Omml do
+RSpec.shared_examples "Omml.parse" do
   let(:o_math_xml) do
     <<~XML
       <m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math">
@@ -313,3 +313,5 @@ RSpec.describe Omml do
     Omml::Configuration.populate_context!
   end
 end
+
+describe_per_adapter("Omml.parse", subject: Omml)
