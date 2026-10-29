@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTSdtDocPart < Lutaml::Model::Serializable
+    class CTSdtDocPart < Base
       attribute :doc_part_gallery, :ct_string, collection: 0..1
       attribute :doc_part_category, :ct_string, collection: 0..1
       attribute :doc_part_unique, :ct_on_off, collection: 0..1
@@ -19,7 +19,5 @@ module Omml
         end
       end
     end
-
-    Omml::Configuration.register_model(CTSdtDocPart)
   end
 end

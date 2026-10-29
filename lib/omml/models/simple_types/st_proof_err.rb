@@ -10,7 +10,5 @@ module Omml
         gramEnd
       ].freeze
     end
-
-    Omml::Configuration.register_model(STProofErr)
   end
 end

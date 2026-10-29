@@ -15,7 +15,5 @@ module Omml
         map_attribute :date, to: :date
       end
     end
-
-    Omml::Configuration.register_model(CTTrackChange)
   end
 end

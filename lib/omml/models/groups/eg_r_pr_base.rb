@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class EGRPrBase < Lutaml::Model::Serializable
+    class EGRPrBase < Base
       attribute :r_style, :ct_string, collection: 0..1
       attribute :r_fonts, :ct_fonts, collection: 0..1
       attribute :b, :ct_wordprocessing_on_off, collection: 0..1
@@ -87,7 +87,5 @@ module Omml
         map_element :oMath, to: :o_math, render_empty: true
       end
     end
-
-    Omml::Configuration.register_model(EGRPrBase)
   end
 end

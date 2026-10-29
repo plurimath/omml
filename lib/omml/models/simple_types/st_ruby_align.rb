@@ -12,7 +12,5 @@ module Omml
         rightVertical
       ].freeze
     end
-
-    Omml::Configuration.register_model(STRubyAlign)
   end
 end

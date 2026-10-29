@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTWrapThrough < Lutaml::Model::Serializable
+    class CTWrapThrough < Base
       attribute :wrap_polygon, :ct_wrap_path, collection: 1..1
       attribute :wrap_text, :st_wrap_text
       attribute :dist_l, :st_wrap_distance
@@ -21,7 +21,5 @@ module Omml
         map_attribute :distR, to: :dist_r
       end
     end
-
-    Omml::Configuration.register_model(CTWrapThrough)
   end
 end

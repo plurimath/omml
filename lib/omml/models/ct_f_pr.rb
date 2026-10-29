@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTFPr < Lutaml::Model::Serializable
+    class CTFPr < Base
       attribute :type, :ct_f_type, collection: 0..1
       attribute :ctrl_pr, :ct_ctrl_pr, collection: 0..1
 
@@ -17,7 +17,5 @@ module Omml
         end
       end
     end
-
-    Omml::Configuration.register_model(CTFPr)
   end
 end

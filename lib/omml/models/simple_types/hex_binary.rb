@@ -11,7 +11,6 @@ module Omml
         super(value, options.merge(pattern: PATTERN))
       end
     end
-
     Omml::Configuration.register_model(HexBinary)
   end
 end

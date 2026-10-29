@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTBorder < Lutaml::Model::Serializable
+    class CTBorder < Base
       attribute :val, :st_border
       attribute :color, :st_hex_color
       attribute :theme_color, :st_theme_color
@@ -29,7 +29,5 @@ module Omml
         map_attribute :frame, to: :frame
       end
     end
-
-    Omml::Configuration.register_model(CTBorder)
   end
 end

@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTInteger255 < Lutaml::Model::Serializable
+    class CTInteger255 < Base
       attribute :val, :st_integer255
 
       xml do
@@ -13,7 +13,5 @@ module Omml
         map_attribute :val, to: :val
       end
     end
-
-    Omml::Configuration.register_model(CTInteger255)
   end
 end

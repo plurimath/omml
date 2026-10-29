@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTNary < Lutaml::Model::Serializable
+    class CTNary < Base
       attribute :nary_pr, :ct_nary_pr, collection: 0..1
       attribute :sub, :ct_o_math_arg
       attribute :sup, :ct_o_math_arg
@@ -21,7 +21,5 @@ module Omml
         end
       end
     end
-
-    Omml::Configuration.register_model(CTNary)
   end
 end

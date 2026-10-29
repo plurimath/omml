@@ -3,7 +3,7 @@
 module Omml
   module Models
     # Root element wrapper for the generated CTOMath content model.
-    class OMath < Lutaml::Model::Serializable
+    class OMath < Base
       import_model_attributes :eg_o_math_elements
 
       xml do
@@ -15,7 +15,5 @@ module Omml
         end
       end
     end
-
-    Omml::Configuration.register_model(OMath, id: :o_math)
   end
 end

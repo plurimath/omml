@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTLock < Lutaml::Model::Serializable
+    class CTLock < Base
       attribute :val, :st_lock
 
       xml do
@@ -13,7 +13,5 @@ module Omml
         map_attribute :val, to: :val
       end
     end
-
-    Omml::Configuration.register_model(CTLock)
   end
 end

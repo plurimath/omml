@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTManualBreak < Lutaml::Model::Serializable
+    class CTManualBreak < Base
       attribute :aln_at, :st_integer255
 
       xml do
@@ -13,7 +13,5 @@ module Omml
         map_attribute :alnAt, to: :aln_at
       end
     end
-
-    Omml::Configuration.register_model(CTManualBreak)
   end
 end

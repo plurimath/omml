@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-RSpec.describe Omml do
+RSpec.shared_examples "Omml.parse" do
   let(:o_math_xml) do
     <<~XML
       <m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math">
@@ -86,22 +86,22 @@ RSpec.describe Omml do
     parsed = described_class.parse(o_math_xml)
 
     expect(parsed).to be_a(Omml::Models::OMath)
-    expect(parsed.r.first.t.content).to eq("x")
-    expect(parsed.to_xml(prefix: "m")).to include("<m:oMath")
-    expect(parsed.to_xml(prefix: "m")).to include("<m:t>x</m:t>")
+    expect(parsed.r.first.t.first.content).to eq("x")
+    expect(parsed.to_xml(use_prefix: true)).to include("<m:oMath")
+    expect(parsed.to_xml(use_prefix: true)).to include("<m:t>x</m:t>")
   end
 
   it "parses roots with leading declarations and comments" do
     parsed = described_class.parse(o_math_xml_with_prolog)
 
     expect(parsed).to be_a(Omml::Models::OMath)
-    expect(parsed.r.first.t.content).to eq("x")
+    expect(parsed.r.first.t.first.content).to eq("x")
   end
 
   it "preserves wordprocessing on-off run properties under ctrlPr" do
     parsed = described_class.parse(o_math_para_with_wordprocessing_flags_xml)
     r_pr = wordprocessing_run_properties(parsed)
-    serialized = parsed.to_xml(prefix: "m")
+    serialized = parsed.to_xml(use_prefix: true)
     reparsed = described_class.parse(serialized)
     reparsed_r_pr = wordprocessing_run_properties(reparsed)
 
@@ -303,24 +303,20 @@ RSpec.describe Omml do
     )
   end
 
-  it "registers schema models against the context being populated" do
+  it "registers schema models into a consumer context via register_in" do
     custom_context_id = :isolated_omml
-    Omml::Configuration.populate_context!
-    custom_context = Omml::Configuration.create_context(id: custom_context_id,
-                                                        fallback_to: [])
+    Omml::Configuration.register_in(custom_context_id, fallback_to: [])
 
-    Omml::Configuration.send(:register_models_in, custom_context)
-
-    registered_context = Omml::Models::OMath.instance_variable_get(:@register)
     resolved_type = Omml::Configuration.resolve_type(
       :o_math,
       context: custom_context_id,
     )
 
-    expect(registered_context).to eq(custom_context_id)
     expect(resolved_type).to eq(Omml::Models::OMath)
   ensure
     Omml::Configuration.reset_context!(id: custom_context_id)
     Omml::Configuration.populate_context!
   end
 end
+
+describe_per_adapter("Omml.parse", subject: Omml)

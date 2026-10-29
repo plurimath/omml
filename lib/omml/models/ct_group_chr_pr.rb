@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTGroupChrPr < Lutaml::Model::Serializable
+    class CTGroupChrPr < Base
       attribute :chr, :ct_char, collection: 0..1
       attribute :pos, :ct_top_bot, collection: 0..1
       attribute :vert_jc, :ct_top_bot, collection: 0..1
@@ -21,7 +21,5 @@ module Omml
         end
       end
     end
-
-    Omml::Configuration.register_model(CTGroupChrPr)
   end
 end

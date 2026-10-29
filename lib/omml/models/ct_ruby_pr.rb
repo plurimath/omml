@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTRubyPr < Lutaml::Model::Serializable
+    class CTRubyPr < Base
       attribute :ruby_align, :ct_ruby_align
       attribute :hps, :ct_hps_measure
       attribute :hps_raise, :ct_hps_measure
@@ -25,7 +25,5 @@ module Omml
         end
       end
     end
-
-    Omml::Configuration.register_model(CTRubyPr)
   end
 end

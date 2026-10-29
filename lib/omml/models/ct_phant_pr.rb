@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTPhantPr < Lutaml::Model::Serializable
+    class CTPhantPr < Base
       attribute :show, :ct_on_off, collection: 0..1
       attribute :zero_wid, :ct_on_off, collection: 0..1
       attribute :zero_asc, :ct_on_off, collection: 0..1
@@ -25,7 +25,5 @@ module Omml
         end
       end
     end
-
-    Omml::Configuration.register_model(CTPhantPr)
   end
 end

@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTSimpleField < Lutaml::Model::Serializable
+    class CTSimpleField < Base
       attribute :fld_data, :ct_text, collection: 0..1
       import_model_attributes :eg_p_content
       attribute :instr, :st_string
@@ -23,7 +23,5 @@ module Omml
         map_attribute :dirty, to: :dirty
       end
     end
-
-    Omml::Configuration.register_model(CTSimpleField)
   end
 end

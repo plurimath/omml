@@ -8,7 +8,5 @@ module Omml
         match
       ].freeze
     end
-
-    Omml::Configuration.register_model(STShp)
   end
 end

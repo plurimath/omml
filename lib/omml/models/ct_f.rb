@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTF < Lutaml::Model::Serializable
+    class CTF < Base
       attribute :f_pr, :ct_f_pr, collection: 0..1
       attribute :num, :ct_o_math_arg
       attribute :den, :ct_o_math_arg
@@ -19,7 +19,5 @@ module Omml
         end
       end
     end
-
-    Omml::Configuration.register_model(CTF)
   end
 end

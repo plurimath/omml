@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class EGOfficeArtExtensionList < Lutaml::Model::Serializable
+    class EGOfficeArtExtensionList < Base
       attribute :ext, :ct_office_art_extension, collection: 0..Float::INFINITY
 
       xml do
@@ -10,7 +10,5 @@ module Omml
         map_element :ext, to: :ext
       end
     end
-
-    Omml::Configuration.register_model(EGOfficeArtExtensionList)
   end
 end

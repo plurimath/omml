@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTOfficeArtExtensionList < Lutaml::Model::Serializable
+    class CTOfficeArtExtensionList < Base
       import_model_attributes :eg_office_art_extension_list
 
       xml do
@@ -15,7 +15,5 @@ module Omml
         end
       end
     end
-
-    Omml::Configuration.register_model(CTOfficeArtExtensionList)
   end
 end

@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTNonVisualGraphicFrameProperties < Lutaml::Model::Serializable
+    class CTNonVisualGraphicFrameProperties < Base
       attribute :graphic_frame_locks, :ct_graphical_object_frame_locking,
                 collection: 0..1
       attribute :ext_lst, :ct_office_art_extension_list, collection: 0..1
@@ -18,7 +18,5 @@ module Omml
         end
       end
     end
-
-    Omml::Configuration.register_model(CTNonVisualGraphicFrameProperties)
   end
 end

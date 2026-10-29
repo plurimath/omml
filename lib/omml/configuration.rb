@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
-require_relative "configuration/adapter"
-require_relative "configuration/context_registry"
-require_relative "configuration/model_registry"
-require_relative "configuration/type_resolver"
-
 module Omml
   module Configuration
+    autoload :Adapter, "omml/configuration/adapter"
+    autoload :ContextRegistry, "omml/configuration/context_registry"
+    autoload :ModelRegistry, "omml/configuration/model_registry"
+    autoload :TypeResolver, "omml/configuration/type_resolver"
+
     extend Adapter
     extend ContextRegistry
     extend ModelRegistry

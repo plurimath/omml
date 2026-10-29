@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTAcc < Lutaml::Model::Serializable
+    class CTAcc < Base
       attribute :acc_pr, :ct_acc_pr, collection: 0..1
       attribute :e, :ct_o_math_arg
 
@@ -17,7 +17,5 @@ module Omml
         end
       end
     end
-
-    Omml::Configuration.register_model(CTAcc)
   end
 end

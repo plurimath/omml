@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTDecimalNumber < Lutaml::Model::Serializable
+    class CTDecimalNumber < Base
       attribute :val, :st_decimal_number
 
       xml do
@@ -13,7 +13,5 @@ module Omml
         map_attribute :val, to: :val
       end
     end
-
-    Omml::Configuration.register_model(CTDecimalNumber)
   end
 end

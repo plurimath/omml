@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTD < Lutaml::Model::Serializable
+    class CTD < Base
       attribute :d_pr, :ct_d_pr, collection: 0..1
       attribute :e, :ct_o_math_arg, collection: 1..Float::INFINITY
 
@@ -17,7 +17,5 @@ module Omml
         end
       end
     end
-
-    Omml::Configuration.register_model(CTD)
   end
 end

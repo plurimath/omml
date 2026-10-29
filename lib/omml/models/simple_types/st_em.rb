@@ -11,7 +11,5 @@ module Omml
         underDot
       ].freeze
     end
-
-    Omml::Configuration.register_model(STEm)
   end
 end

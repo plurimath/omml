@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTMacroName < Lutaml::Model::Serializable
+    class CTMacroName < Base
       attribute :val, :st_macro_name
 
       xml do
@@ -13,7 +13,5 @@ module Omml
         map_attribute :val, to: :val
       end
     end
-
-    Omml::Configuration.register_model(CTMacroName)
   end
 end

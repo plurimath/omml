@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTColor < Lutaml::Model::Serializable
+    class CTColor < Base
       attribute :val, :st_hex_color
       attribute :theme_color, :st_theme_color
       attribute :theme_tint, :st_uchar_hex_number
@@ -19,7 +19,5 @@ module Omml
         map_attribute :themeShade, to: :theme_shade
       end
     end
-
-    Omml::Configuration.register_model(CTColor)
   end
 end

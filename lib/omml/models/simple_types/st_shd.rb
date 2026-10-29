@@ -44,7 +44,5 @@ module Omml
         pct95
       ].freeze
     end
-
-    Omml::Configuration.register_model(STShd)
   end
 end

@@ -9,7 +9,6 @@ module Omml
         super(value, options.merge(max: 4_294_967_295, min: 0))
       end
     end
-
     Omml::Configuration.register_model(UnsignedInt)
   end
 end

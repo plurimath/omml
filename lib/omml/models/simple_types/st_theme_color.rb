@@ -23,7 +23,5 @@ module Omml
         text2
       ].freeze
     end
-
-    Omml::Configuration.register_model(STThemeColor)
   end
 end

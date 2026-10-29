@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTSdtDateMappingType < Lutaml::Model::Serializable
+    class CTSdtDateMappingType < Base
       attribute :val, :st_sdt_date_mapping_type
 
       xml do
@@ -13,7 +13,5 @@ module Omml
         map_attribute :val, to: :val
       end
     end
-
-    Omml::Configuration.register_model(CTSdtDateMappingType)
   end
 end

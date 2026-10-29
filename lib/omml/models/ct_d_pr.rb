@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTDPr < Lutaml::Model::Serializable
+    class CTDPr < Base
       import_model_attributes :eg_word_r_pr
       attribute :beg_chr, :ct_char, collection: 0..1
       attribute :sep_chr, :ct_char, collection: 0..1
@@ -28,7 +28,5 @@ module Omml
         end
       end
     end
-
-    Omml::Configuration.register_model(CTDPr)
   end
 end

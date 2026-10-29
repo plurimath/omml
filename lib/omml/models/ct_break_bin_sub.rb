@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTBreakBinSub < Lutaml::Model::Serializable
+    class CTBreakBinSub < Base
       attribute :val, :st_break_bin_sub
 
       xml do
@@ -13,7 +13,5 @@ module Omml
         map_attribute :val, to: :val
       end
     end
-
-    Omml::Configuration.register_model(CTBreakBinSub)
   end
 end

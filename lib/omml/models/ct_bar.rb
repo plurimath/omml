@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTBar < Lutaml::Model::Serializable
+    class CTBar < Base
       attribute :bar_pr, :ct_bar_pr, collection: 0..1
       attribute :e, :ct_o_math_arg
 
@@ -17,7 +17,5 @@ module Omml
         end
       end
     end
-
-    Omml::Configuration.register_model(CTBar)
   end
 end

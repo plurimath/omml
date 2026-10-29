@@ -9,7 +9,5 @@ module Omml
         dateTime
       ].freeze
     end
-
-    Omml::Configuration.register_model(STSdtDateMappingType)
   end
 end

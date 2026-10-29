@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTRad < Lutaml::Model::Serializable
+    class CTRad < Base
       attribute :rad_pr, :ct_rad_pr, collection: 0..1
       attribute :deg, :ct_o_math_arg
       attribute :e, :ct_o_math_arg
@@ -19,7 +19,5 @@ module Omml
         end
       end
     end
-
-    Omml::Configuration.register_model(CTRad)
   end
 end

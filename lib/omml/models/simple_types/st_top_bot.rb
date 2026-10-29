@@ -8,7 +8,5 @@ module Omml
         bot
       ].freeze
     end
-
-    Omml::Configuration.register_model(STTopBot)
   end
 end

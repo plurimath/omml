@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTRPR < Lutaml::Model::Serializable
+    class CTRPR < Base
       attribute :lit, :ct_on_off, collection: 0..1
       choice(min: 1, max: 1) do
         attribute :nor, :ct_on_off, collection: 0..1
@@ -27,7 +27,5 @@ module Omml
         end
       end
     end
-
-    Omml::Configuration.register_model(CTRPR)
   end
 end

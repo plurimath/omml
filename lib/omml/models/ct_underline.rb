@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTUnderline < Lutaml::Model::Serializable
+    class CTUnderline < Base
       attribute :val, :st_underline
       attribute :color, :st_hex_color
       attribute :theme_color, :st_theme_color
@@ -21,7 +21,5 @@ module Omml
         map_attribute :themeShade, to: :theme_shade
       end
     end
-
-    Omml::Configuration.register_model(CTUnderline)
   end
 end

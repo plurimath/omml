@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class EGOMathMathElements < Lutaml::Model::Serializable
+    class EGOMathMathElements < Base
       choice(min: 1, max: 1) do
         attribute :acc, :ct_acc, collection: 0..Float::INFINITY
         attribute :bar, :ct_bar, collection: 0..Float::INFINITY
@@ -50,7 +50,5 @@ module Omml
         map_element :r, to: :r, render_empty: true
       end
     end
-
-    Omml::Configuration.register_model(EGOMathMathElements)
   end
 end

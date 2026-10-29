@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTFFHelpText < Lutaml::Model::Serializable
+    class CTFFHelpText < Base
       attribute :type, :st_info_text_type
       attribute :val, :st_ff_help_text_val
 
@@ -15,7 +15,5 @@ module Omml
         map_attribute :val, to: :val
       end
     end
-
-    Omml::Configuration.register_model(CTFFHelpText)
   end
 end

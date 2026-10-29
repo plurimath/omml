@@ -19,7 +19,5 @@ module Omml
         map_attribute :colLast, to: :col_last
       end
     end
-
-    Omml::Configuration.register_model(CTPermStart)
   end
 end

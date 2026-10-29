@@ -9,7 +9,5 @@ module Omml
         bot
       ].freeze
     end
-
-    Omml::Configuration.register_model(STYAlign)
   end
 end

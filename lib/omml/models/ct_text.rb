@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTText < Lutaml::Model::Serializable
+    class CTText < Base
       attribute :content, :st_string
       attribute :space, ::Lutaml::Xml::W3c::XmlSpaceType
       xml do
@@ -13,7 +13,5 @@ module Omml
         map_attribute :space, to: :space
       end
     end
-
-    Omml::Configuration.register_model(CTText)
   end
 end

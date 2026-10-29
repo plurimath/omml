@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTFFTextType < Lutaml::Model::Serializable
+    class CTFFTextType < Base
       attribute :val, :st_ff_text_type
 
       xml do
@@ -13,7 +13,5 @@ module Omml
         map_attribute :val, to: :val
       end
     end
-
-    Omml::Configuration.register_model(CTFFTextType)
   end
 end

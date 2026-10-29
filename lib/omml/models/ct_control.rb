@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTControl < Lutaml::Model::Serializable
+    class CTControl < Base
       attribute :name, :st_string
       attribute :shapeid, :st_string
       attribute :id, :st_relationship_id
@@ -17,7 +17,5 @@ module Omml
         map_attribute :id, to: :id
       end
     end
-
-    Omml::Configuration.register_model(CTControl)
   end
 end

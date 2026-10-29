@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTNaryPr < Lutaml::Model::Serializable
+    class CTNaryPr < Base
       attribute :chr, :ct_char, collection: 0..1
       attribute :lim_loc, :ct_lim_loc, collection: 0..1
       attribute :grow, :ct_on_off, collection: 0..1
@@ -25,7 +25,5 @@ module Omml
         end
       end
     end
-
-    Omml::Configuration.register_model(CTNaryPr)
   end
 end

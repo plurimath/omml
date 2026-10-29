@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class EGRPrContent < Lutaml::Model::Serializable
+    class EGRPrContent < Base
       import_model_attributes :eg_r_pr_base
       attribute :r_pr_change, :ct_r_pr_change, collection: 0..1
 
@@ -13,7 +13,5 @@ module Omml
         map_element :rPrChange, to: :r_pr_change
       end
     end
-
-    Omml::Configuration.register_model(EGRPrContent)
   end
 end

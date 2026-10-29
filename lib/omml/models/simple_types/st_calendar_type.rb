@@ -16,7 +16,5 @@ module Omml
         gregorianXlitFrench
       ].freeze
     end
-
-    Omml::Configuration.register_model(STCalendarType)
   end
 end

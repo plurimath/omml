@@ -12,7 +12,5 @@ module Omml
         false
       ].freeze
     end
-
-    Omml::Configuration.register_model(STOnOff)
   end
 end

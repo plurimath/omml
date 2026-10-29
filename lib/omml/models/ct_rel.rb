@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTRel < Lutaml::Model::Serializable
+    class CTRel < Base
       attribute :id, :st_relationship_id
 
       xml do
@@ -13,7 +13,5 @@ module Omml
         map_attribute :id, to: :id
       end
     end
-
-    Omml::Configuration.register_model(CTRel)
   end
 end

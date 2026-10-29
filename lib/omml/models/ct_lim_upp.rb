@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTLimUpp < Lutaml::Model::Serializable
+    class CTLimUpp < Base
       attribute :lim_upp_pr, :ct_lim_upp_pr, collection: 0..1
       attribute :e, :ct_o_math_arg
       attribute :lim, :ct_o_math_arg
@@ -19,7 +19,5 @@ module Omml
         end
       end
     end
-
-    Omml::Configuration.register_model(CTLimUpp)
   end
 end

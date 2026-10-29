@@ -17,7 +17,5 @@ module Omml
         import_model_mappings :eg_o_math_math_elements
       end
     end
-
-    Omml::Configuration.register_model(CTRunTrackChange)
   end
 end

@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class EGScriptStyle < Lutaml::Model::Serializable
+    class EGScriptStyle < Base
       attribute :scr, :ct_script, collection: 0..1
       attribute :sty, :ct_style, collection: 0..1
 
@@ -12,7 +12,5 @@ module Omml
         map_element :sty, to: :sty
       end
     end
-
-    Omml::Configuration.register_model(EGScriptStyle)
   end
 end

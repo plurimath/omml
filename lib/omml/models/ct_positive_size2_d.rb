@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTPositiveSize2D < Lutaml::Model::Serializable
+    class CTPositiveSize2D < Base
       attribute :cx, :st_positive_coordinate
       attribute :cy, :st_positive_coordinate
 
@@ -15,7 +15,5 @@ module Omml
         map_attribute :cy, to: :cy
       end
     end
-
-    Omml::Configuration.register_model(CTPositiveSize2D)
   end
 end

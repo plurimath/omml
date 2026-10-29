@@ -10,7 +10,5 @@ module Omml
         sdtContentLocked
       ].freeze
     end
-
-    Omml::Configuration.register_model(STLock)
   end
 end

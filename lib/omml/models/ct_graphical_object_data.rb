@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTGraphicalObjectData < Lutaml::Model::Serializable
+    class CTGraphicalObjectData < Base
       attribute :uri, :token
 
       xml do
@@ -13,7 +13,5 @@ module Omml
         map_attribute :uri, to: :uri
       end
     end
-
-    Omml::Configuration.register_model(CTGraphicalObjectData)
   end
 end

@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTMathPr < Lutaml::Model::Serializable
+    class CTMathPr < Base
       attribute :math_font, :ct_string, collection: 0..1
       attribute :brk_bin, :ct_break_bin, collection: 0..1
       attribute :brk_bin_sub, :ct_break_bin_sub, collection: 0..1
@@ -47,7 +47,5 @@ module Omml
         end
       end
     end
-
-    Omml::Configuration.register_model(CTMathPr)
   end
 end

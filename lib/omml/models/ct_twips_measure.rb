@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTTwipsMeasure < Lutaml::Model::Serializable
+    class CTTwipsMeasure < Base
       attribute :val, :st_twips_measure
 
       xml do
@@ -13,7 +13,5 @@ module Omml
         map_attribute :val, to: :val
       end
     end
-
-    Omml::Configuration.register_model(CTTwipsMeasure)
   end
 end

@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTEastAsianLayout < Lutaml::Model::Serializable
+    class CTEastAsianLayout < Base
       attribute :id, :st_decimal_number
       attribute :combine, :st_on_off
       attribute :combine_brackets, :st_combine_brackets
@@ -21,7 +21,5 @@ module Omml
         map_attribute :vertCompress, to: :vert_compress
       end
     end
-
-    Omml::Configuration.register_model(CTEastAsianLayout)
   end
 end

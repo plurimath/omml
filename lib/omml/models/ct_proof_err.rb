@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTProofErr < Lutaml::Model::Serializable
+    class CTProofErr < Base
       attribute :type, :st_proof_err
 
       xml do
@@ -13,7 +13,5 @@ module Omml
         map_attribute :type, to: :type
       end
     end
-
-    Omml::Configuration.register_model(CTProofErr)
   end
 end

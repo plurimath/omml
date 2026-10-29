@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTGraphicalObjectFrameLocking < Lutaml::Model::Serializable
+    class CTGraphicalObjectFrameLocking < Base
       attribute :ext_lst, :ct_office_art_extension_list, collection: 0..1
       attribute :no_grp, :boolean
       attribute :no_drilldown, :boolean
@@ -27,7 +27,5 @@ module Omml
         map_attribute :noResize, to: :no_resize
       end
     end
-
-    Omml::Configuration.register_model(CTGraphicalObjectFrameLocking)
   end
 end

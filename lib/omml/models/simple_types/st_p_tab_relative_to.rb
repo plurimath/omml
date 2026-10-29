@@ -8,7 +8,5 @@ module Omml
         indent
       ].freeze
     end
-
-    Omml::Configuration.register_model(STPTabRelativeTo)
   end
 end

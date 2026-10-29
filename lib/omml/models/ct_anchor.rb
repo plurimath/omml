@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTAnchor < Lutaml::Model::Serializable
+    class CTAnchor < Base
       attribute :simple_pos, :ct_point2_d
       attribute :position_h, :ct_pos_h
       attribute :position_v, :ct_pos_v
@@ -54,7 +54,5 @@ module Omml
         map_attribute :allowOverlap, to: :allow_overlap
       end
     end
-
-    Omml::Configuration.register_model(CTAnchor)
   end
 end

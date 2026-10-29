@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class EGRPr < Lutaml::Model::Serializable
+    class EGRPr < Base
       attribute :r_pr, :ct_r_pr, collection: 0..1
 
       xml do
@@ -11,7 +11,5 @@ module Omml
         map_element :rPr, to: :r_pr
       end
     end
-
-    Omml::Configuration.register_model(EGRPr)
   end
 end

@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTSdtRun < Lutaml::Model::Serializable
+    class CTSdtRun < Base
       attribute :sdt_pr, :ct_sdt_pr, collection: 0..1
       attribute :sdt_end_pr, :ct_sdt_end_pr, collection: 0..1
       attribute :sdt_content, :ct_sdt_content_run, collection: 0..1
@@ -19,7 +19,5 @@ module Omml
         end
       end
     end
-
-    Omml::Configuration.register_model(CTSdtRun)
   end
 end

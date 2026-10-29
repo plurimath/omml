@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class EGRunLevelElts < Lutaml::Model::Serializable
+    class EGRunLevelElts < Base
       choice(min: 1, max: 1) do
         attribute :proof_err, :ct_proof_err, collection: 0..1
         attribute :perm_start, :ct_perm_start, collection: 0..1
@@ -28,7 +28,5 @@ module Omml
         import_model_mappings :eg_math_content
       end
     end
-
-    Omml::Configuration.register_model(EGRunLevelElts)
   end
 end

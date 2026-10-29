@@ -9,7 +9,5 @@ module Omml
         cs
       ].freeze
     end
-
-    Omml::Configuration.register_model(STHint)
   end
 end
