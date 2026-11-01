@@ -30,7 +30,9 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_dependency "lutaml-model", ">= 0.8.0", "< 1.0"
-  spec.add_dependency "moxml", "~> 0.6.0" # moxml 0.6 removed the Opal surface (lutaml/moxml#516); owner call to forward-pin the 0.6 series
+  # moxml 0.6 removed the Opal surface (lutaml/moxml#516); owner
+  # call to forward-pin the 0.6 series.
+  spec.add_dependency "moxml", "~> 0.6.0"
   spec.add_dependency "oga", "~> 3.4"
   spec.add_dependency "ox", "~> 2.14"
 
