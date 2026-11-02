@@ -8,7 +8,7 @@ require "spec_helper"
 # and must round-trip without data loss. CT_R's choice has
 # maxOccurs="unbounded", so every attribute on CTR that comes from
 # EG_RunInnerContent or EGWordRunInnerContent is a collection.
-RSpec.describe "wordprocessing-in-math elements" do
+RSpec.shared_examples "wordprocessing-in-math elements" do
   let(:namespaces) do
     'xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" ' \
       'xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"'
@@ -83,7 +83,11 @@ RSpec.describe "wordprocessing-in-math elements" do
       end
     end
 
-    it "preserves xml:space attribute on delText" do
+    # moxml's Ox adapter parses with ::Ox.parse, which uses Ox's default skip
+    # mode and collapses whitespace runs, so xml:space is not honoured there.
+    # Present in every released moxml: in 0.1.26, which this gemspec resolves,
+    # and still in 0.5.30. Drop :skip_adapters once it is fixed upstream.
+    it "preserves xml:space attribute on delText", skip_adapters: %i[ox] do
       r = run_of(wrap('<w:delText xml:space="preserve">  spaced  </w:delText>'))
 
       expect(r.del_text.first.space).to eq("preserve")
@@ -141,3 +145,5 @@ RSpec.describe "wordprocessing-in-math elements" do
     end
   end
 end
+
+describe_per_adapter("wordprocessing-in-math elements")

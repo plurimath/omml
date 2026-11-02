@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-RSpec.describe Omml do
+RSpec.shared_examples "Omml.parse" do
   let(:o_math_xml) do
     <<~XML
       <m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math">
@@ -278,6 +278,11 @@ RSpec.describe Omml do
     end
   end
 
+  it "uses Opal-compatible simple type pattern sources" do
+    expect(Omml::Models::HexBinary::PATTERN.source).not_to include("(?-mix:")
+    expect(Omml::Models::Token::TOKEN_PATTERN.source).not_to include("(?-mix:")
+  end
+
   it "creates custom contexts that fall back to the OMML context" do
     Omml::Configuration.create_context(id: :custom_omml)
 
@@ -313,3 +318,5 @@ RSpec.describe Omml do
     Omml::Configuration.populate_context!
   end
 end
+
+describe_per_adapter("Omml.parse", subject: Omml)
