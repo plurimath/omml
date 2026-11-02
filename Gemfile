@@ -6,6 +6,7 @@ gemspec
 git_source(:github) { |repo_name| "https://github.com/#{repo_name}" }
 
 gem "nokogiri"
+gem "opal", "~> 1.8"
 # Adapter gems for the per-adapter spec matrix (describe_per_adapter);
 # dev-only on purpose — consumers get the adapter stack via moxml/lutaml-model.
 gem "oga"
