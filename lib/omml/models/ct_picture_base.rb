@@ -2,14 +2,12 @@
 
 module Omml
   module Models
-    class CTPictureBase < Lutaml::Model::Serializable
+    class CTPictureBase < Base
       xml do
         element "CT_PictureBase"
 
         namespace Omml::Namespace
       end
     end
-
-    Omml::Configuration.register_model(CTPictureBase)
   end
 end

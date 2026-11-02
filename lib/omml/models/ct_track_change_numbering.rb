@@ -13,7 +13,5 @@ module Omml
         map_attribute :original, to: :original
       end
     end
-
-    Omml::Configuration.register_model(CTTrackChangeNumbering)
   end
 end

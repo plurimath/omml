@@ -23,7 +23,5 @@ module Omml
         none
       ].freeze
     end
-
-    Omml::Configuration.register_model(STHighlightColor)
   end
 end

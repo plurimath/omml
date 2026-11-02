@@ -13,7 +13,5 @@ module Omml
         none
       ].freeze
     end
-
-    Omml::Configuration.register_model(STTextEffect)
   end
 end

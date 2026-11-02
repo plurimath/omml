@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTEffectExtent < Lutaml::Model::Serializable
+    class CTEffectExtent < Base
       attribute :l, :st_coordinate
       attribute :t, :st_coordinate
       attribute :r, :st_coordinate
@@ -19,7 +19,5 @@ module Omml
         map_attribute :b, to: :b
       end
     end
-
-    Omml::Configuration.register_model(CTEffectExtent)
   end
 end

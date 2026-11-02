@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTLimLoc < Lutaml::Model::Serializable
+    class CTLimLoc < Base
       attribute :val, :st_lim_loc
 
       xml do
@@ -13,7 +13,5 @@ module Omml
         map_attribute :val, to: :val
       end
     end
-
-    Omml::Configuration.register_model(CTLimLoc)
   end
 end

@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class EGPContent < Lutaml::Model::Serializable
+    class EGPContent < Base
       choice(min: 1, max: 1) do
         import_model_attributes :eg_content_run_content
         attribute :fld_simple, :ct_simple_field, collection: 0..Float::INFINITY
@@ -18,7 +18,5 @@ module Omml
         map_element :subDoc, to: :sub_doc, render_empty: true
       end
     end
-
-    Omml::Configuration.register_model(EGPContent)
   end
 end

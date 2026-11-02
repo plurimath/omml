@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTM < Lutaml::Model::Serializable
+    class CTM < Base
       attribute :m_pr, :ct_m_pr, collection: 0..1
       attribute :mr, :ct_mr, collection: 1..Float::INFINITY
 
@@ -17,7 +17,5 @@ module Omml
         end
       end
     end
-
-    Omml::Configuration.register_model(CTM)
   end
 end

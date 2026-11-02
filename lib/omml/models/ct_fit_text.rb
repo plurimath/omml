@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTFitText < Lutaml::Model::Serializable
+    class CTFitText < Base
       attribute :val, :st_twips_measure
       attribute :id, :st_decimal_number
 
@@ -15,7 +15,5 @@ module Omml
         map_attribute :id, to: :id
       end
     end
-
-    Omml::Configuration.register_model(CTFitText)
   end
 end

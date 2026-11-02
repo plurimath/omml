@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTFonts < Lutaml::Model::Serializable
+    class CTFonts < Base
       attribute :hint, :st_hint
       attribute :ascii, :st_string
       attribute :h_ansi, :st_string
@@ -29,7 +29,5 @@ module Omml
         map_attribute :cstheme, to: :cstheme
       end
     end
-
-    Omml::Configuration.register_model(CTFonts)
   end
 end

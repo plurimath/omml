@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTShp < Lutaml::Model::Serializable
+    class CTShp < Base
       attribute :val, :st_shp
 
       xml do
@@ -13,7 +13,5 @@ module Omml
         map_attribute :val, to: :val
       end
     end
-
-    Omml::Configuration.register_model(CTShp)
   end
 end

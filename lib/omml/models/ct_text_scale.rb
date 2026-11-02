@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTTextScale < Lutaml::Model::Serializable
+    class CTTextScale < Base
       attribute :val, :st_text_scale
 
       xml do
@@ -13,7 +13,5 @@ module Omml
         map_attribute :val, to: :val
       end
     end
-
-    Omml::Configuration.register_model(CTTextScale)
   end
 end

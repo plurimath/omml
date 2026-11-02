@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTShd < Lutaml::Model::Serializable
+    class CTShd < Base
       attribute :val, :st_shd
       attribute :color, :st_hex_color
       attribute :theme_color, :st_theme_color
@@ -29,7 +29,5 @@ module Omml
         map_attribute :themeFillShade, to: :theme_fill_shade
       end
     end
-
-    Omml::Configuration.register_model(CTShd)
   end
 end

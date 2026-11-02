@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTWrapTopBottom < Lutaml::Model::Serializable
+    class CTWrapTopBottom < Base
       attribute :effect_extent, :ct_effect_extent, collection: 0..1
       attribute :dist_t, :st_wrap_distance
       attribute :dist_b, :st_wrap_distance
@@ -19,7 +19,5 @@ module Omml
         map_attribute :distB, to: :dist_b
       end
     end
-
-    Omml::Configuration.register_model(CTWrapTopBottom)
   end
 end

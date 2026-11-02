@@ -9,7 +9,5 @@ module Omml
         +-
       ].freeze
     end
-
-    Omml::Configuration.register_model(STBreakBinSub)
   end
 end

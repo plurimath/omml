@@ -9,7 +9,5 @@ module Omml
         textWrapping
       ].freeze
     end
-
-    Omml::Configuration.register_model(STBrType)
   end
 end

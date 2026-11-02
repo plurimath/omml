@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTOMathArg < Lutaml::Model::Serializable
+    class CTOMathArg < Base
       attribute :arg_pr, :ct_o_math_arg_pr, collection: 0..1
       attribute :t, :ct_text, collection: 0..1
       import_model_attributes :eg_o_math_elements
@@ -22,7 +22,5 @@ module Omml
         end
       end
     end
-
-    Omml::Configuration.register_model(CTOMathArg)
   end
 end

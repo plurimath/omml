@@ -14,7 +14,5 @@ module Omml
         outsideMargin
       ].freeze
     end
-
-    Omml::Configuration.register_model(STRelFromH)
   end
 end

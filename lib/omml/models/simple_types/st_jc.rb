@@ -10,7 +10,5 @@ module Omml
         centerGroup
       ].freeze
     end
-
-    Omml::Configuration.register_model(STJc)
   end
 end

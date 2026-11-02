@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTEm < Lutaml::Model::Serializable
+    class CTEm < Base
       attribute :val, :st_em
 
       xml do
@@ -13,7 +13,5 @@ module Omml
         map_attribute :val, to: :val
       end
     end
-
-    Omml::Configuration.register_model(CTEm)
   end
 end

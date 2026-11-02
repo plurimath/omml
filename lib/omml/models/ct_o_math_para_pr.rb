@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTOMathParaPr < Lutaml::Model::Serializable
+    class CTOMathParaPr < Base
       attribute :jc, :ct_o_math_jc, collection: 0..1
 
       xml do
@@ -15,7 +15,5 @@ module Omml
         end
       end
     end
-
-    Omml::Configuration.register_model(CTOMathParaPr)
   end
 end

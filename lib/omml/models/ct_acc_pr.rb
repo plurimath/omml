@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTAccPr < Lutaml::Model::Serializable
+    class CTAccPr < Base
       attribute :chr, :ct_char, collection: 0..1
       attribute :ctrl_pr, :ct_ctrl_pr, collection: 0..1
 
@@ -17,7 +17,5 @@ module Omml
         end
       end
     end
-
-    Omml::Configuration.register_model(CTAccPr)
   end
 end

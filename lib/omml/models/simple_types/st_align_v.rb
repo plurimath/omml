@@ -11,7 +11,5 @@ module Omml
         outside
       ].freeze
     end
-
-    Omml::Configuration.register_model(STAlignV)
   end
 end

@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class EGWrapType < Lutaml::Model::Serializable
+    class EGWrapType < Base
       choice(min: 1, max: 1) do
         attribute :wrap_none, :ct_wrap_none, collection: 1..1
         attribute :wrap_square, :ct_wrap_square, collection: 1..1
@@ -21,7 +21,5 @@ module Omml
                                        render_empty: true
       end
     end
-
-    Omml::Configuration.register_model(EGWrapType)
   end
 end

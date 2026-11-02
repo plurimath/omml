@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTYAlign < Lutaml::Model::Serializable
+    class CTYAlign < Base
       attribute :val, :st_y_align
 
       xml do
@@ -13,7 +13,5 @@ module Omml
         map_attribute :val, to: :val
       end
     end
-
-    Omml::Configuration.register_model(CTYAlign)
   end
 end

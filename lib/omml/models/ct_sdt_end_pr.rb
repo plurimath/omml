@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTSdtEndPr < Lutaml::Model::Serializable
+    class CTSdtEndPr < Base
       choice(min: 1, max: Float::INFINITY) do
         attribute :r_pr, :ct_r_pr, collection: 0..1
       end
@@ -15,7 +15,5 @@ module Omml
         map_element :rPr, to: :r_pr
       end
     end
-
-    Omml::Configuration.register_model(CTSdtEndPr)
   end
 end

@@ -3,7 +3,12 @@
 module Omml
   module Models
     class Token < Lutaml::Model::Type::String
-      TOKEN_PATTERN = /(?-mix:\A[^\t\n\f\r ]+(?: [^\t\n\f\r ]+)*\z)/
+      def self.inherited(subclass)
+        super
+        Omml::Configuration.register_model(subclass)
+      end
+
+      TOKEN_PATTERN = /\A[^\t\n\f\r ]+(?: [^\t\n\f\r ]+)*\z/
 
       def self.cast(value, options = {})
         return if value.nil?

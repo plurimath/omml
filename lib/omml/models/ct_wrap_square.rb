@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTWrapSquare < Lutaml::Model::Serializable
+    class CTWrapSquare < Base
       attribute :effect_extent, :ct_effect_extent, collection: 0..1
       attribute :wrap_text, :st_wrap_text
       attribute :dist_t, :st_wrap_distance
@@ -25,7 +25,5 @@ module Omml
         map_attribute :distR, to: :dist_r
       end
     end
-
-    Omml::Configuration.register_model(CTWrapSquare)
   end
 end

@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTFFCheckBox < Lutaml::Model::Serializable
+    class CTFFCheckBox < Base
       choice(min: 1, max: 1) do
         attribute :size, :ct_hps_measure
         attribute :size_auto, :ct_on_off
@@ -23,7 +23,5 @@ module Omml
         end
       end
     end
-
-    Omml::Configuration.register_model(CTFFCheckBox)
   end
 end

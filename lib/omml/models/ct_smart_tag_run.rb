@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTSmartTagRun < Lutaml::Model::Serializable
+    class CTSmartTagRun < Base
       attribute :smart_tag_pr, :ct_smart_tag_pr, collection: 0..1
       import_model_attributes :eg_p_content
       attribute :uri, :st_string
@@ -21,7 +21,5 @@ module Omml
         map_attribute :element, to: :element
       end
     end
-
-    Omml::Configuration.register_model(CTSmartTagRun)
   end
 end

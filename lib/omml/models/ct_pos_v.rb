@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTPosV < Lutaml::Model::Serializable
+    class CTPosV < Base
       choice(min: 1, max: 1) do
         attribute :align, :st_align_v, collection: 1..1
         attribute :pos_offset, :st_position_offset, collection: 1..1
@@ -21,7 +21,5 @@ module Omml
         map_attribute :relativeFrom, to: :relative_from
       end
     end
-
-    Omml::Configuration.register_model(CTPosV)
   end
 end

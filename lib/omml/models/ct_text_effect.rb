@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTTextEffect < Lutaml::Model::Serializable
+    class CTTextEffect < Base
       attribute :val, :st_text_effect
 
       xml do
@@ -13,7 +13,5 @@ module Omml
         map_attribute :val, to: :val
       end
     end
-
-    Omml::Configuration.register_model(CTTextEffect)
   end
 end

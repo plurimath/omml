@@ -8,7 +8,5 @@ module Omml
         prev
       ].freeze
     end
-
-    Omml::Configuration.register_model(STDisplacedByCustomXml)
   end
 end

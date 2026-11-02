@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTBorderBoxPr < Lutaml::Model::Serializable
+    class CTBorderBoxPr < Base
       attribute :hide_top, :ct_on_off, collection: 0..1
       attribute :hide_bot, :ct_on_off, collection: 0..1
       attribute :hide_left, :ct_on_off, collection: 0..1
@@ -31,7 +31,5 @@ module Omml
         end
       end
     end
-
-    Omml::Configuration.register_model(CTBorderBoxPr)
   end
 end

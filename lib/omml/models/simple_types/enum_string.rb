@@ -3,6 +3,11 @@
 module Omml
   module Models
     class EnumString < Lutaml::Model::Type::String
+      def self.inherited(subclass)
+        super
+        Omml::Configuration.register_model(subclass)
+      end
+
       def self.cast(value, options = {})
         return if value.nil?
 

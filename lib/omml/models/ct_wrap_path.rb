@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTWrapPath < Lutaml::Model::Serializable
+    class CTWrapPath < Base
       attribute :start, :ct_point2_d, collection: 1..1
       attribute :line_to, :ct_point2_d, collection: 2..Float::INFINITY
       attribute :edited, :boolean
@@ -19,7 +19,5 @@ module Omml
         map_attribute :edited, to: :edited
       end
     end
-
-    Omml::Configuration.register_model(CTWrapPath)
   end
 end

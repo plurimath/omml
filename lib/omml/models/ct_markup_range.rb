@@ -13,7 +13,5 @@ module Omml
         map_attribute :displacedByCustomXml, to: :displaced_by_custom_xml
       end
     end
-
-    Omml::Configuration.register_model(CTMarkupRange)
   end
 end

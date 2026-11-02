@@ -52,8 +52,12 @@ module Omml
       end
 
       def clear_cache(klass, register_id)
-        klass.instance_variable_set(:@register, register_id)
-        klass.clear_cache(register_id) if klass.respond_to?(:clear_cache)
+        if klass.is_a?(Class) && klass < Lutaml::Model::Serializable
+          klass.set_register_context(register_id)
+          klass.clear_cache(register_id)
+        elsif klass.include?(Omml::Models::Registerable)
+          klass.register = register_id
+        end
       end
     end
   end

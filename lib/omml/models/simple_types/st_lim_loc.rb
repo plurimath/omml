@@ -8,7 +8,5 @@ module Omml
         subSup
       ].freeze
     end
-
-    Omml::Configuration.register_model(STLimLoc)
   end
 end

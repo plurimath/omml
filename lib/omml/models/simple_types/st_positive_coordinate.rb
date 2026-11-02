@@ -9,7 +9,6 @@ module Omml
         super(value, options.merge(max: 27_273_042_316_900, min: 0))
       end
     end
-
     Omml::Configuration.register_model(STPositiveCoordinate)
   end
 end

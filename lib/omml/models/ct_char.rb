@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTChar < Lutaml::Model::Serializable
+    class CTChar < Base
       attribute :val, :st_char
 
       xml do
@@ -13,7 +13,5 @@ module Omml
         map_attribute :val, to: :val, render_empty: true
       end
     end
-
-    Omml::Configuration.register_model(CTChar)
   end
 end

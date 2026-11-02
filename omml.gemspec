@@ -29,8 +29,10 @@ Gem::Specification.new do |spec|
   spec.executables = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
-  spec.add_dependency "lutaml-model", ">= 0.8.0", "< 1.0"
-  spec.add_dependency "moxml", ">= 0.1.18", "< 0.2"
+  spec.add_dependency "lutaml-model", "~> 0.8.155"
+  # moxml 0.6 removed the Opal surface (lutaml/moxml#516); owner
+  # call to forward-pin the 0.6 series.
+  spec.add_dependency "moxml", "~> 0.6.1"
   spec.add_dependency "oga", "~> 3.4"
   spec.add_dependency "ox", "~> 2.14"
 

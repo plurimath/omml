@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTInline < Lutaml::Model::Serializable
+    class CTInline < Base
       attribute :extent, :ct_positive_size2_d
       attribute :effect_extent, :ct_effect_extent, collection: 0..1
       attribute :doc_pr, :ct_non_visual_drawing_props, collection: 1..1
@@ -32,7 +32,5 @@ module Omml
         map_attribute :distR, to: :dist_r
       end
     end
-
-    Omml::Configuration.register_model(CTInline)
   end
 end

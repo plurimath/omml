@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTGraphicalObject < Lutaml::Model::Serializable
+    class CTGraphicalObject < Base
       attribute :graphic_data, :ct_graphical_object_data
 
       xml do
@@ -15,7 +15,5 @@ module Omml
         end
       end
     end
-
-    Omml::Configuration.register_model(CTGraphicalObject)
   end
 end

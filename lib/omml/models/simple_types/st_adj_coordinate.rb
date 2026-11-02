@@ -3,6 +3,8 @@
 module Omml
   module Models
     class STAdjCoordinate < Lutaml::Model::Type::Value
+      include Registerable
+
       def self.cast(value, options = {})
         return if value.nil?
 
@@ -18,7 +20,6 @@ module Omml
 
       private_class_method :cast_value
     end
-
     Omml::Configuration.register_model(STAdjCoordinate)
   end
 end

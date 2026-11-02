@@ -13,7 +13,5 @@ module Omml
         current
       ].freeze
     end
-
-    Omml::Configuration.register_model(STEdGrp)
   end
 end

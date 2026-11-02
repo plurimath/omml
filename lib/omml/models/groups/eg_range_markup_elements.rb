@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class EGRangeMarkupElements < Lutaml::Model::Serializable
+    class EGRangeMarkupElements < Base
       choice(min: 1, max: 1) do
         attribute :bookmark_start, :ct_bookmark
         attribute :bookmark_end, :ct_markup_range
@@ -54,7 +54,5 @@ module Omml
                     to: :custom_xml_move_to_range_end, render_empty: true
       end
     end
-
-    Omml::Configuration.register_model(EGRangeMarkupElements)
   end
 end

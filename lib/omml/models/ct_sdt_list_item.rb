@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTSdtListItem < Lutaml::Model::Serializable
+    class CTSdtListItem < Base
       attribute :display_text, :st_string
       attribute :value, :st_string
 
@@ -15,7 +15,5 @@ module Omml
         map_attribute :value, to: :value
       end
     end
-
-    Omml::Configuration.register_model(CTSdtListItem)
   end
 end

@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTAttr < Lutaml::Model::Serializable
+    class CTAttr < Base
       attribute :uri, :st_string
       attribute :name, :st_string
       attribute :val, :st_string
@@ -17,7 +17,5 @@ module Omml
         map_attribute :val, to: :val
       end
     end
-
-    Omml::Configuration.register_model(CTAttr)
   end
 end

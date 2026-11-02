@@ -10,7 +10,6 @@ module Omml
                                    min: -27_273_042_329_600))
       end
     end
-
     Omml::Configuration.register_model(STCoordinate)
   end
 end

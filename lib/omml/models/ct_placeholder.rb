@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTPlaceholder < Lutaml::Model::Serializable
+    class CTPlaceholder < Base
       attribute :doc_part, :ct_string
 
       xml do
@@ -15,7 +15,5 @@ module Omml
         end
       end
     end
-
-    Omml::Configuration.register_model(CTPlaceholder)
   end
 end

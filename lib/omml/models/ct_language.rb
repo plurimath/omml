@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTLanguage < Lutaml::Model::Serializable
+    class CTLanguage < Base
       attribute :val, :st_lang
       attribute :east_asia, :st_lang
       attribute :bidi, :st_lang
@@ -17,7 +17,5 @@ module Omml
         map_attribute :bidi, to: :bidi
       end
     end
-
-    Omml::Configuration.register_model(CTLanguage)
   end
 end

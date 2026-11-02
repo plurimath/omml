@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTFunc < Lutaml::Model::Serializable
+    class CTFunc < Base
       attribute :func_pr, :ct_func_pr, collection: 0..1
       attribute :f_name, :ct_o_math_arg
       attribute :e, :ct_o_math_arg
@@ -20,7 +20,5 @@ module Omml
         end
       end
     end
-
-    Omml::Configuration.register_model(CTFunc)
   end
 end

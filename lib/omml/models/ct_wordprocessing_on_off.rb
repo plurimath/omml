@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTWordprocessingOnOff < Lutaml::Model::Serializable
+    class CTWordprocessingOnOff < Base
       attribute :val, :st_on_off, default: -> { "on" }
 
       xml do
@@ -13,7 +13,5 @@ module Omml
         map_attribute :val, to: :val
       end
     end
-
-    Omml::Configuration.register_model(CTWordprocessingOnOff)
   end
 end

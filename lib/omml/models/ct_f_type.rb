@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTFType < Lutaml::Model::Serializable
+    class CTFType < Base
       attribute :val, :st_f_type
 
       xml do
@@ -13,7 +13,5 @@ module Omml
         map_attribute :val, to: :val
       end
     end
-
-    Omml::Configuration.register_model(CTFType)
   end
 end

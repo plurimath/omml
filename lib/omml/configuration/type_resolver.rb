@@ -32,8 +32,6 @@ module Omml
       end
 
       def root_namespace_uri(root)
-        return unless root.respond_to?(:namespace)
-
         root.namespace&.uri
       end
 

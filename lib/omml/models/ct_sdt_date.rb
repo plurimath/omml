@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTSdtDate < Lutaml::Model::Serializable
+    class CTSdtDate < Base
       attribute :date_format, :ct_string, collection: 0..1
       attribute :lid, :ct_lang, collection: 0..1
       attribute :store_mapped_data_as, :ct_sdt_date_mapping_type,
@@ -24,7 +24,5 @@ module Omml
         map_attribute :fullDate, to: :full_date
       end
     end
-
-    Omml::Configuration.register_model(CTSdtDate)
   end
 end

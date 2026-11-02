@@ -2,7 +2,7 @@
 
 module Omml
   module Models
-    class CTSdtText < Lutaml::Model::Serializable
+    class CTSdtText < Base
       attribute :multi_line, :st_on_off
 
       xml do
@@ -13,7 +13,5 @@ module Omml
         map_attribute :multiLine, to: :multi_line
       end
     end
-
-    Omml::Configuration.register_model(CTSdtText)
   end
 end
