@@ -23,3 +23,8 @@ RSpec/ExampleLength:
 
 RSpec/MultipleExpectations:
   Max: 10
+
+# .gitattributes checks Ruby files out with LF on every OS, so check for LF
+# rather than the platform-native line ending.
+Layout/EndOfLine:
+  EnforcedStyle: lf
