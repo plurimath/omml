@@ -1,0 +1,12 @@
+# The plurimath-testsuite stage generation this gem replays in CI
+# (.github/workflows/corpus.yml, scripts/replay_corpus.rb). Commit,
+# generation and digest change together, in one deliberate upgrade; the
+# testsuite's `ruby scripts/validate-stages.rb <checkout> --pin <this file>`
+# checks them.
+---
+schema: plurimath-stage/pin/1
+repository: https://github.com/plurimath/plurimath-testsuite
+commit: 337262eda0483ceaa43a02cc52362c5b721e5eb3
+language: omml
+generation: 2
+snapshot_digest: sha256:1d8307a72fa48acfae8fd3e5f5bebecb941e02282aa265f3e9c168b96761d439
