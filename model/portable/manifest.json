@@ -3,6 +3,30 @@
   "registry": {
     "version": 1,
     "types": {
+      "Omml::Models::STAlignH": {
+        "base": "string",
+        "facets": {
+          "enumeration": [
+            "left",
+            "right",
+            "center",
+            "inside",
+            "outside"
+          ]
+        }
+      },
+      "Omml::Models::STAlignV": {
+        "base": "string",
+        "facets": {
+          "enumeration": [
+            "top",
+            "bottom",
+            "center",
+            "inside",
+            "outside"
+          ]
+        }
+      },
       "Omml::Models::STBorder": {
         "base": "string",
         "facets": {
@@ -469,6 +493,36 @@
           ]
         }
       },
+      "Omml::Models::STRelFromH": {
+        "base": "string",
+        "facets": {
+          "enumeration": [
+            "margin",
+            "page",
+            "column",
+            "character",
+            "leftMargin",
+            "rightMargin",
+            "insideMargin",
+            "outsideMargin"
+          ]
+        }
+      },
+      "Omml::Models::STRelFromV": {
+        "base": "string",
+        "facets": {
+          "enumeration": [
+            "margin",
+            "page",
+            "paragraph",
+            "line",
+            "topMargin",
+            "bottomMargin",
+            "insideMargin",
+            "outsideMargin"
+          ]
+        }
+      },
       "Omml::Models::STRubyAlign": {
         "base": "string",
         "facets": {
@@ -667,6 +721,17 @@
           ]
         }
       },
+      "Omml::Models::STWrapText": {
+        "base": "string",
+        "facets": {
+          "enumeration": [
+            "bothSides",
+            "left",
+            "right",
+            "largest"
+          ]
+        }
+      },
       "Omml::Models::STXAlign": {
         "base": "string",
         "facets": {
@@ -699,9 +764,9 @@
     }
   },
   "producer": {
-    "source_commit": "67969d0a62a45042a8a5394fe21e10104c294ff3",
+    "source_commit": "e3dc25724b2dab73ddf6cb1208c2330a27bbcfa9",
     "framework_commit": "d875a4a97aedc1e251b0c8e972c1a550e47ec00c",
     "ruby": "4.0.1",
-    "scope": "CTBr graph and verified closed EnumString registry"
+    "scope": "CTBr graph and verified closed string enum registry"
   }
 }
