@@ -135,7 +135,8 @@ module Omml
       {
         "base" => "integer",
         "facets" => {
-          "min_inclusive" => min.to_s, "max_inclusive" => max.to_s,
+          "min_inclusive" => min.to_s,
+          "max_inclusive" => max.to_s,
           "source_binding_v1" => true,
         },
       }
