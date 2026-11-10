@@ -9,7 +9,9 @@ module Omml
   # Only explicitly verified scalar declarations participate in this registry.
   module Portable
     REGISTRY_VERSION = 1
-    DIRECTORY = RUBY_ENGINE == "opal" ? nil : File.expand_path("../../model/portable", __dir__).freeze
+    DIRECTORY = if RUBY_ENGINE != "opal"
+                  File.expand_path("../../model/portable", __dir__).freeze
+                end
     ENUM_TYPES = %i[
       STAlignH STAlignV STBorder STBrClear
       STBrType STBreakBin STBreakBinSub STCalendarType
@@ -23,6 +25,13 @@ module Omml
       STThemeColor STTopBot STUnderline STVerticalAlignRun
       STWrapText STXAlign STYAlign
     ].freeze
+    INTEGER_BOUNDS = {
+      UnsignedInt: [0, 4_294_967_295].freeze,
+      UnsignedLong: [0, 18_446_744_073_709_551_615].freeze,
+      STInteger2: [-2, 2].freeze,
+      STInteger255: [1, 255].freeze,
+      STSpacingRule: [0, 4].freeze,
+    }.freeze
     REQUIRED_RUNTIME = "portable scalar export requires " \
                        "named-value declaration registry version 1"
 
@@ -30,10 +39,13 @@ module Omml
 
     module_function
 
-    def model_declarations
-      raise UnsupportedRuntime, "load model declarations through the target runtime" unless DIRECTORY
+    def model_declarations(graph = "enum-subset-v1")
+      unless DIRECTORY
+        raise UnsupportedRuntime,
+              "load model declarations through the target runtime"
+      end
 
-      entry = declaration_manifest.fetch("graphs").fetch("enum-subset-v1")
+      entry = declaration_manifest.fetch("graphs").fetch(graph)
       bytes = File.binread(File.join(DIRECTORY, entry.fetch("file")))
       unless Digest::SHA256.hexdigest(bytes) == entry.fetch("sha256")
         raise UnsupportedRuntime, "OMML model declaration checksum mismatch"
@@ -44,16 +56,16 @@ module Omml
 
     def enum_declarations
       require_registry!
-      entries = ENUM_TYPES.to_h do |name|
-        klass = Omml::Models.const_get(name, false)
-        [klass, enum_definition(klass)]
-      end
-      Lutaml::Model::Lml::ValueDeclarations.new(entries,
-                                                version: REGISTRY_VERSION)
+      make_registry(enum_entries)
+    end
+
+    def value_declarations
+      require_registry!
+      make_registry(value_entries)
     end
 
     def export_bundle(roots, register: nil)
-      declarations = enum_declarations
+      declarations = value_declarations
       Omml::Models.eager_load!
       Omml::Configuration.populate_context! unless Omml::Configuration.context
       Lutaml::Model::Lml.export_bundle(
@@ -64,9 +76,13 @@ module Omml
 
     # Native bindings remain separate from declaration bytes.
     def native_bindings(bundle)
-      declarations = enum_declarations
+      require_registry!
+      entries = value_entries
+      declarations = make_registry(entries)
+      classes = entries.keys.to_h { |klass| [klass.name, klass] }
       bundle.value_types.to_h do |id, definition|
-        [id, verified_binding(id, definition, declarations)]
+        klass = classes[id.split("@", 2).first]
+        [id, verified_binding(id, definition, declarations, klass)]
       end
     end
 
@@ -89,20 +105,43 @@ module Omml
         Lutaml::Model::Lml::ValueDeclarations::VERSION == REGISTRY_VERSION
     end
 
-    def enum_definition(klass)
-      { "base" => "string",
-        "facets" => { "enumeration" => klass::VALUES.dup } }
+    def make_registry(entries)
+      Lutaml::Model::Lml::ValueDeclarations.new(entries,
+                                                version: REGISTRY_VERSION)
     end
 
-    def enum_types_by_name
-      ENUM_TYPES.to_h do |name|
+    def enum_entries
+      entries = ENUM_TYPES.to_h do |name|
         klass = Omml::Models.const_get(name, false)
-        [klass.name, klass]
+        [klass, enum_definition(klass::VALUES)]
       end
+      entries[Lutaml::Xml::W3c::XmlSpaceType] =
+        enum_definition(%w[default preserve])
+      entries
     end
 
-    def verified_binding(id, definition, declarations)
-      klass = enum_types_by_name[id.split("@", 2).first]
+    def enum_definition(values)
+      { "base" => "string", "facets" => { "enumeration" => values.dup } }
+    end
+
+    def value_entries
+      enum_entries.merge(INTEGER_BOUNDS.to_h do |name, (min, max)|
+        klass = Omml::Models.const_get(name, false)
+        [klass, integer_definition(min, max)]
+      end)
+    end
+
+    def integer_definition(min, max)
+      {
+        "base" => "integer",
+        "facets" => {
+          "min_inclusive" => min.to_s, "max_inclusive" => max.to_s,
+          "source_binding_v1" => true,
+        },
+      }
+    end
+
+    def verified_binding(id, definition, declarations, klass)
       unless klass && definition == declarations.fetch(klass)
         raise Lutaml::Model::Lml::RejectedError.new(
           :missing_type_binding, nil, "unverified scalar binding: #{id}"
@@ -122,7 +161,8 @@ module Omml
     end
 
     private_class_method :require_registry!, :registry_available?,
-                         :enum_definition, :enum_types_by_name,
+                         :make_registry, :enum_entries, :enum_definition,
+                         :value_entries, :integer_definition,
                          :verified_binding, :declaration_manifest
   end
 end

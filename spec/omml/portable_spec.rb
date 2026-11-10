@@ -94,6 +94,21 @@ if portable_registry_available?
       end
     end
 
+    it "requires named integer bindings and preserves the XML space QName" do
+      data = described_class.model_declarations("scalar-subset-v1")
+      types = data.fetch("value_types")
+      integer = types.fetch("Omml::Models::UnsignedInt@omml")
+      expect(integer.fetch("facets").fetch("source_binding_v1")).to be(true)
+
+      text = data.fetch("models").fetch("Omml::Models::CTText@omml")
+      rule = text.dig("mappings", "xml", "rules").find do |mapping|
+        mapping.fetch("to") == "space"
+      end
+      expect(rule.fetch("namespace")).to include(
+        "uri" => "http://www.w3.org/XML/1998/namespace", "prefix" => "xml",
+      )
+    end
+
     it "keeps unverified scalar families as explicit exporter refusals" do
       expect do
         described_class.export_bundle(Omml::Models::CTColor)

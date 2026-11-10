@@ -3,7 +3,7 @@
 module Omml
   module Models
     class CTOnOff < Base
-      attribute :val, :st_on_off, default: -> { "on" }
+      attribute :val, :st_on_off, default: "on"
 
       xml do
         element "CT_OnOff"

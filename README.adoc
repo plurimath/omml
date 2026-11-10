@@ -231,8 +231,17 @@ https://opensource.org/licenses/BSD-2-Clause[BSD-2-Clause License].
 
 `Omml::Portable.export_bundle(Omml::Models::CTBr)` exports the verified
 closed string enum family through the explicit LutaML named-value
-registry. The 43 declared classes have finite, unchanged source enum behavior.
-All 448 literals and explicit invalid/nil cases are verified, including
+registry. The 43 OMML classes have finite, unchanged source enum behavior.
+The registry also declares the two allowed `xml:space` values and five bounded
+integer types. The integer types require the accompanying trusted bindings
+in `model/portable/bindings/` to preserve Ruby XML casting while keeping
+canonical JSON integer strings.
+
+`Omml::Portable.model_declarations("scalar-subset-v1")` reads the separate
+bundle for seven native text and integer models. The default graph remains
+the CTBr bundle.
+
+All 448 OMML enum literals and explicit invalid/nil cases are verified, including
 finite Token subtypes without whitespace normalization. The source classes and cast behavior are unchanged. Other custom
 scalar families remain explicit unsupported types; this is not the complete
 OMML model graph. The candidate framework dependency is pinned in the
