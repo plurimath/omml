@@ -2,6 +2,8 @@
 
 require "spec_helper"
 require "nokogiri"
+require "tmpdir"
+require "fileutils"
 
 def portable_registry_available?
   require "lutaml/model/lml"
@@ -88,6 +90,29 @@ else
   RSpec.describe "portable scalar capability" do
     it "requires an explicit compatible framework" do
       expect { Omml::Portable.enum_declarations }.to raise_error(Omml::Portable::UnsupportedRuntime)
+    end
+  end
+end
+
+RSpec.describe Omml::Portable do
+  it "loads the checksummed data without materializing models" do
+    tree = described_class.model_declarations
+    expect(tree.fetch("lml_bundle")).to eq(1)
+    expect(tree.fetch("models").keys).to eq(["Omml::Models::CTBr@omml"])
+    expect(tree.fetch("value_types").length).to eq(2)
+  end
+
+  it "refuses a corrupted packaged declaration" do
+    Dir.mktmpdir("omml-declarations-") do |directory|
+      FileUtils.cp(Dir.glob(File.join(described_class::DIRECTORY, "*.json")),
+                   directory)
+      File.open(File.join(directory, "enum-subset-v1.json"), "a") do |file|
+        file.write(" ")
+      end
+      stub_const("Omml::Portable::DIRECTORY", directory)
+      expect { described_class.model_declarations }.to raise_error(
+        described_class::UnsupportedRuntime, /checksum mismatch/
+      )
     end
   end
 end

@@ -1,0 +1,44 @@
+{
+  "manifest": 1,
+  "registry": {
+    "version": 1,
+    "types": {
+      "Omml::Models::STBrClear": {
+        "base": "string",
+        "facets": {
+          "enumeration": [
+            "none",
+            "left",
+            "right",
+            "all"
+          ]
+        }
+      },
+      "Omml::Models::STBrType": {
+        "base": "string",
+        "facets": {
+          "enumeration": [
+            "page",
+            "column",
+            "textWrapping"
+          ]
+        }
+      }
+    }
+  },
+  "graphs": {
+    "enum-subset-v1": {
+      "file": "enum-subset-v1.json",
+      "sha256": "8bf00520968f21f385d3758cf30c6bd6e29543fd4832f66bd2736c5c3959da9a",
+      "lml_checksum": "sha256:12b944a5da4decf717d8fc8bc683e863058417f98162dc8dec048634b62a6d9e",
+      "models": 1,
+      "value_types": 2
+    }
+  },
+  "producer": {
+    "source_commit": "ee5ac78392d2c493c276d428fd9b503c1012ee02",
+    "framework_commit": "d875a4a97aedc1e251b0c8e972c1a550e47ec00c",
+    "ruby": "4.0.1",
+    "scope": "CTBr and verified STBrType/STBrClear declarations"
+  }
+}
