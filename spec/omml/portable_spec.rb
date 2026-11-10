@@ -76,9 +76,27 @@ if portable_registry_available?
       end
     end
 
+    it "declares only the unchanged closed String enum family" do
+      registry = described_class.enum_declarations
+      owner = Omml::Models::EnumString.method(:cast).owner
+      described_class::ENUM_TYPES.each do |name|
+        klass = Omml::Models.const_get(name, false)
+        expect(klass.method(:cast).owner).to eq(owner)
+        expect(klass.facets).to be_empty
+        values = registry.fetch(klass).fetch("facets").fetch("enumeration")
+        values.each do |value|
+          expect(klass.cast(value)).to eq(value)
+        end
+        expect(klass.cast(nil)).to be_nil
+        expect { klass.cast("__not_a_portable_enum_value__") }.to raise_error(
+          Lutaml::Model::Type::InvalidValueError,
+        )
+      end
+    end
+
     it "keeps unverified scalar families as explicit exporter refusals" do
       expect do
-        described_class.export_bundle(Omml::Models::CTFldChar)
+        described_class.export_bundle(Omml::Models::CTColor)
       end.to raise_error(Lutaml::Model::Lml::RejectedError) { |failure|
                expect(failure.reason).to eq(:unsupported_type)
              }
