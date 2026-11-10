@@ -31,8 +31,18 @@ unless File.expand_path(location).start_with?(expected_directory)
   abort("framework runtime is not the pinned source checkout")
 end
 FileUtils.mkdir_p(destination)
+runtime_roots = %i[
+  CTDrawing CTFFCheckBox CTFFData CTFldChar
+  CTMathPr CTPosH CTPosV CTR
+  CTRPR CTRunTrackChange CTSdtEndPr CTSdtPr
+  EGContentRunContent EGMathContent EGOMathElements EGOMathMathElements
+  EGPContent EGRPrMath EGRangeMarkupElements EGRubyContent
+  EGRunInnerContent EGRunLevelElts EGWordRunInnerContent EGWrapType
+  CTOMath CTOMathPara OMath OMathPara
+].map { |name| Omml::Models.const_get(name, false) }
 subsets = {
   "enum-subset-v1" => [Omml::Models::CTBr],
+  "runtime-graph-v1" => runtime_roots,
   "scalar-subset-v1" => [
     Omml::Models::CTHpsMeasure,
     Omml::Models::CTInteger2,
@@ -55,7 +65,10 @@ graphs = subsets.to_h do |id, roots|
   }]
 end
 binding_directory = File.join(root, "model/portable/bindings")
-binding_sources = %w[integer.rs integer.ts].to_h do |filename|
+binding_files = %w[
+  coordinate.rs coordinate.ts integer.rs integer.ts token.rs token.ts
+]
+binding_sources = binding_files.to_h do |filename|
   digest = Digest::SHA256.file(File.join(binding_directory, filename)).hexdigest
   [filename, digest]
 end
@@ -69,7 +82,7 @@ manifest = {
   "producer" => {
     "source_commit" => source_head.strip,
     "framework_commit" => expected_framework, "ruby" => RUBY_VERSION,
-    "scope" => "CTBr and verified scalar XML model graphs"
+    "scope" => "CTBr, scalar subsets, and the OMML runtime graph"
   }
 }
 File.write(File.join(destination, "manifest.json"),

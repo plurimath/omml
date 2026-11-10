@@ -231,28 +231,21 @@ https://opensource.org/licenses/BSD-2-Clause[BSD-2-Clause License].
 
 `Omml::Portable.export_bundle(Omml::Models::CTBr)` exports the verified
 closed string enum family through the explicit LutaML named-value
-registry. The 43 OMML classes have finite, unchanged source enum behavior.
-The registry also declares the two allowed `xml:space` values and five bounded
-integer types. The integer types require the accompanying trusted bindings
-in `model/portable/bindings/` to preserve Ruby XML casting while keeping
-canonical JSON integer strings.
+registry. The registry declares 43 OMML string enums, the two allowed
+`xml:space` values, six bounded integer types, and two coordinate types.
+The accompanying trusted bindings in `model/portable/bindings/` preserve
+Ruby XML casting separately from canonical JSON values.
 
-`Omml::Portable.model_declarations("scalar-subset-v1")` reads the separate
-bundle for seven native text and integer models. The default graph remains
-the CTBr bundle.
-
-All 448 OMML enum literals, 43 accepted empty cases, and explicit
-invalid/nil cases are verified, including
-finite Token subtypes without whitespace normalization. The source classes and cast behavior are unchanged. Other custom
-scalar families remain explicit unsupported types; this is not the complete
-OMML model graph. The candidate framework dependency is pinned in the
-portable-declarations CI workflow and requires registry version 1.
+`Omml::Portable.model_declarations` reads the checksummed CTBr graph.
+Pass `"scalar-subset-v1"` for seven native text and integer models, or
+`"runtime-graph-v1"` for the public OMath and OMathPara roots and the
+native model graph with all 26 choice groups. Target generators determine
+which XML mappings they can realize. The TypeScript candidate replays the
+native formula corpus through both public roots.
 
 `Omml::Portable.native_bindings(bundle)` supplies the verified native class
-bindings separately. `Omml::Portable.model_declarations` reads the packaged,
-checksummed `enum-subset-v1` graph without constructing model instances.
-The source XML corpus uses the existing `use_prefix: true` writer option;
-qualified attribute QNames are retained.
+bindings separately. The source XML corpus uses the existing
+`use_prefix: true` writer option to retain qualified attribute QNames.
 
 To reproduce the declaration artifact, check out the exact framework commit
 from `.github/workflows/portable.yml`, set `LUTAML_MODEL_SOURCE` to that
