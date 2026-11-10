@@ -12,6 +12,10 @@
           ]
         }
       },
+      "Omml::Models::HexBinary": {
+        "base": "string",
+        "facets": {}
+      },
       "Omml::Models::STAlignH": {
         "base": "string",
         "facets": {
@@ -313,6 +317,14 @@
           ]
         }
       },
+      "Omml::Models::STCoordinate": {
+        "base": "decimal",
+        "facets": {
+          "min_inclusive": "-27273042329600",
+          "max_inclusive": "27273042316900",
+          "source_binding_v1": true
+        }
+      },
       "Omml::Models::STDisplacedByCustomXml": {
         "base": "string",
         "facets": {
@@ -384,6 +396,15 @@
             "begin",
             "separate",
             "end",
+            ""
+          ]
+        }
+      },
+      "Omml::Models::STHexColor": {
+        "base": "string",
+        "facets": {
+          "enumeration": [
+            "auto",
             ""
           ]
         }
@@ -462,6 +483,10 @@
           ]
         }
       },
+      "Omml::Models::STLang": {
+        "base": "string",
+        "facets": {}
+      },
       "Omml::Models::STLimLoc": {
         "base": "string",
         "facets": {
@@ -530,6 +555,14 @@
             "indent",
             ""
           ]
+        }
+      },
+      "Omml::Models::STPositiveCoordinate": {
+        "base": "decimal",
+        "facets": {
+          "min_inclusive": "0",
+          "max_inclusive": "27273042316900",
+          "source_binding_v1": true
         }
       },
       "Omml::Models::STProofErr": {
@@ -706,6 +739,14 @@
           ]
         }
       },
+      "Omml::Models::STTextScale": {
+        "base": "integer",
+        "facets": {
+          "min_inclusive": "0",
+          "max_inclusive": "600",
+          "source_binding_v1": true
+        }
+      },
       "Omml::Models::STTheme": {
         "base": "string",
         "facets": {
@@ -828,6 +869,12 @@
           ]
         }
       },
+      "Omml::Models::Token": {
+        "base": "string",
+        "facets": {
+          "source_binding_v1": true
+        }
+      },
       "Omml::Models::UnsignedInt": {
         "base": "integer",
         "facets": {
@@ -854,6 +901,13 @@
       "models": 1,
       "value_types": 2
     },
+    "runtime-graph-v1": {
+      "file": "runtime-graph-v1.json",
+      "sha256": "742bff3830421f9b24a971f7bbe647f84b8c9160553a4d03e6adc5eb13006556",
+      "lml_checksum": "sha256:f5dbaab43b343da58327a88946d22b2c9f2d4fe4cb6d14436808fe77ad1bd2e1",
+      "models": 186,
+      "value_types": 56
+    },
     "scalar-subset-v1": {
       "file": "scalar-subset-v1.json",
       "sha256": "51fa9b697d3a975980d3d83ca696f21c21743d7920e05ebdebc85883425e22cd",
@@ -863,13 +917,17 @@
     }
   },
   "binding_sources": {
-    "integer.rs": "5dff6802ff19f38e72b2a155f27dc848bb87576a02ac79b81c5fe09f9fe59f7e",
-    "integer.ts": "0ecddb6368a8ec12b6b0499202db133f140e8f336093bb84c57ba067a6c4dc8d"
+    "coordinate.rs": "168ddaa79f16deaf25f1ca906e00f48c3195861c6fea8225504f3105858235d4",
+    "coordinate.ts": "db508f7fc4aa07b0b99b001e6ef4c9cbe7463b70f3551da097965e092bc2081b",
+    "integer.rs": "877a51dd6afddbc3e219e4fcb6d28012436edc9a9deb1eadc0f3d8626e647fce",
+    "integer.ts": "84381b6d94127dd45098410c4bc750e735029df6c577311c9f6409dedab10036",
+    "token.rs": "51701621b609e52742f614a8dd8ed6a34bd1bd85cdbe340506e0986ce7663d5b",
+    "token.ts": "433ae76bb40597baf4898efe1366452c8c42de3bcf7fea3b3df391420e18d66e"
   },
   "producer": {
-    "source_commit": "533f015b9a091b155aed4fc6564f39d5a0ee84e2",
-    "framework_commit": "d875a4a97aedc1e251b0c8e972c1a550e47ec00c",
+    "source_commit": "fc426cf6143e9dee24b723ca76b6e6107b58e77d",
+    "framework_commit": "eff859d0f6c2bb0936dd3add8ee252aea9dbaa17",
     "ruby": "4.0.1",
-    "scope": "CTBr and verified scalar XML model graphs"
+    "scope": "CTBr, scalar subsets, and the OMML runtime graph"
   }
 }
