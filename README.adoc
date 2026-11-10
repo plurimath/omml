@@ -225,3 +225,25 @@ https://github.com/plurimath/omml.
 Copyright Ribose Inc.
 
 https://opensource.org/licenses/BSD-2-Clause[BSD-2-Clause License].
+
+
+== Portable enum declarations (candidate)
+
+`Omml::Portable.export_bundle(Omml::Models::CTBr)` exports the verified
+`STBrType`/`STBrClear` scalar subset through the explicit LutaML named-value
+registry. The source classes and cast behavior are unchanged. Other custom
+scalar families remain explicit unsupported types; this is not the complete
+OMML model graph. The candidate framework dependency is pinned in the
+portable-declarations CI workflow and requires registry version 1.
+
+`Omml::Portable.native_bindings(bundle)` supplies the verified native class
+bindings separately. `Omml::Portable.model_declarations` reads the packaged,
+checksummed `enum-subset-v1` graph without constructing model instances.
+The source XML corpus uses the existing `use_prefix: true` writer option;
+qualified attribute QNames are retained.
+
+To reproduce the declaration artifact, check out the exact framework commit
+from `.github/workflows/portable.yml`, set `LUTAML_MODEL_SOURCE` to that
+checkout and `LUTAML_MODEL_COMMIT` to its SHA, then run
+`BUNDLE_GEMFILE=.ci/Gemfile.portable bundle exec ruby scripts/export_portable_models.rb`.
+No callback code is serialized into the artifact.

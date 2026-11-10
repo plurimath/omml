@@ -22,7 +22,8 @@ Gem::Specification.new do |spec|
   # `git ls-files -z` loads files that have been added to git.
   spec.files = Dir.chdir(File.expand_path(__dir__)) do
     `git ls-files -z`.split("\x0").reject do |f|
-      f.match(%r{^(test|spec|features)/})
+      f.match?(%r{^(test|spec|features|\.ci)/}) ||
+        f.match?(/\A(?:CLAUDE|AGENTS)\.md\z/)
     end
   end
   spec.bindir = "exe"

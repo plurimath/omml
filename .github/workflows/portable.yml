@@ -1,0 +1,45 @@
+name: portable model declarations
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+defaults:
+  run:
+    shell: bash
+
+env:
+  BUNDLE_GEMFILE: .ci/Gemfile.portable
+  LUTAML_MODEL_SOURCE: .build/lutaml-model
+  LUTAML_MODEL_COMMIT: d875a4a97aedc1e251b0c8e972c1a550e47ec00c
+
+jobs:
+  enum-declarations:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        ruby: ["3.3", "4.0"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: lutaml/lutaml-model
+          ref: d875a4a97aedc1e251b0c8e972c1a550e47ec00c
+          path: .build/lutaml-model
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby }}
+          bundler-cache: true
+      - name: Require the declared candidate API
+        run: bundle exec ruby -rlutaml/model/lml -e 'raise "missing candidate registry" unless Lutaml::Model::Lml::ValueDeclarations::VERSION == 1'
+      - name: Replay native scalar and namespace behavior across adapters
+        run: bundle exec rspec spec/omml/portable_spec.rb
+      - name: Reproduce the owned declaration artifact
+        run: |
+          bundle exec ruby -Ilib scripts/export_portable_models.rb .build/portable
+          cmp model/portable/enum-subset-v1.json .build/portable/enum-subset-v1.json
+          bundle exec ruby -Ilib -romml -e 'raise "wrong model count" unless Omml::Portable.model_declarations.fetch("models").length == 1'
