@@ -14,7 +14,7 @@ defaults:
 env:
   BUNDLE_GEMFILE: .ci/Gemfile.portable
   LUTAML_MODEL_SOURCE: .build/lutaml-model
-  LUTAML_MODEL_COMMIT: d875a4a97aedc1e251b0c8e972c1a550e47ec00c
+  LUTAML_MODEL_COMMIT: eff859d0f6c2bb0936dd3add8ee252aea9dbaa17
 
 jobs:
   enum-declarations:
@@ -28,7 +28,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           repository: lutaml/lutaml-model
-          ref: d875a4a97aedc1e251b0c8e972c1a550e47ec00c
+          ref: eff859d0f6c2bb0936dd3add8ee252aea9dbaa17
           path: .build/lutaml-model
       - uses: ruby/setup-ruby@v1
         with:
@@ -43,4 +43,5 @@ jobs:
           bundle exec ruby -Ilib scripts/export_portable_models.rb .build/portable
           cmp model/portable/enum-subset-v1.json .build/portable/enum-subset-v1.json
           cmp model/portable/scalar-subset-v1.json .build/portable/scalar-subset-v1.json
+          cmp model/portable/runtime-graph-v1.json .build/portable/runtime-graph-v1.json
           bundle exec ruby -Ilib -romml -e 'raise "wrong model count" unless Omml::Portable.model_declarations.fetch("models").length == 1'

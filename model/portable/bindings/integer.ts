@@ -67,3 +67,8 @@ export type STSpacingRule = bigint;
 const spacing = bound(0n, 4n);
 export const {is: isSTSpacingRule, parse: parseSTSpacingRule, parseXml: parseSTSpacingRuleXml, format: formatSTSpacingRule} = spacing;
 export const formatSTSpacingRuleXml = formatSTSpacingRule;
+
+export type STTextScale = bigint;
+const scale = bound(0n, 600n);
+export const {is: isSTTextScale, parse: parseSTTextScale, parseXml: parseSTTextScaleXml, format: formatSTTextScale} = scale;
+export const formatSTTextScaleXml = formatSTTextScale;

@@ -31,6 +31,11 @@ module Omml
       STInteger2: [-2, 2].freeze,
       STInteger255: [1, 255].freeze,
       STSpacingRule: [0, 4].freeze,
+      STTextScale: [0, 600].freeze,
+    }.freeze
+    DECIMAL_BOUNDS = {
+      STCoordinate: [-27_273_042_329_600, 27_273_042_316_900].freeze,
+      STPositiveCoordinate: [0, 27_273_042_316_900].freeze,
     }.freeze
     REQUIRED_RUNTIME = "portable scalar export requires " \
                        "named-value declaration registry version 1"
@@ -126,19 +131,36 @@ module Omml
     end
 
     def value_entries
-      enum_entries.merge(INTEGER_BOUNDS.to_h do |name, (min, max)|
-        klass = Omml::Models.const_get(name, false)
-        [klass, integer_definition(min, max)]
-      end)
+      enum_entries
+        .merge(numeric_entries(INTEGER_BOUNDS, "integer"))
+        .merge(numeric_entries(DECIMAL_BOUNDS, "decimal"))
+        .merge(string_entries)
     end
 
-    def integer_definition(min, max)
+    def numeric_entries(bounds, base)
+      bounds.to_h do |name, (min, max)|
+        klass = Omml::Models.const_get(name, false)
+        [klass, {
+          "base" => base,
+          "facets" => {
+            "min_inclusive" => min.to_s,
+            "max_inclusive" => max.to_s,
+            "source_binding_v1" => true,
+          },
+        }]
+      end
+    end
+
+    def string_entries
+      # HexBinary's native pattern matches every String, including empty.
+      # The restored STLangCode alias uses exactly that String cast.
+      transparent = { "base" => "string", "facets" => {} }
       {
-        "base" => "integer",
-        "facets" => {
-          "min_inclusive" => min.to_s,
-          "max_inclusive" => max.to_s,
-          "source_binding_v1" => true,
+        Omml::Models::HexBinary => transparent,
+        Omml::Models::STLang => transparent,
+        Omml::Models::STHexColor => enum_definition(["auto", ""]),
+        Omml::Models::Token => {
+          "base" => "string", "facets" => { "source_binding_v1" => true }
         },
       }
     end
@@ -164,7 +186,7 @@ module Omml
 
     private_class_method :require_registry!, :registry_available?,
                          :make_registry, :enum_entries, :enum_definition,
-                         :value_entries, :integer_definition,
+                         :value_entries, :numeric_entries, :string_entries,
                          :verified_binding, :declaration_manifest
   end
 end

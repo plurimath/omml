@@ -110,9 +110,25 @@ if portable_registry_available?
       )
     end
 
+    it "exports the public OMML roots with their choice declarations" do
+      graph = described_class.model_declarations("runtime-graph-v1")
+      expect(graph.fetch("roots")).to include(
+        "Omml::Models::OMath@omml",
+        "Omml::Models::OMathPara@omml",
+      )
+      expect(graph.fetch("capabilities")).to include("model.choices.v1")
+      expect(graph.fetch("models").fetch("Omml::Models::CTPosH@omml")
+        .fetch("choices").fetch("groups")).not_to be_empty
+    end
+
     it "keeps unverified scalar families as explicit exporter refusals" do
+      mixed = Class.new(Lutaml::Model::Serializable) do
+        def self.name = "OmmlUnsupportedMixedScalar"
+
+        attribute :value, Omml::Models::STAdjCoordinate
+      end
       expect do
-        described_class.export_bundle(Omml::Models::CTColor)
+        described_class.export_bundle(mixed)
       end.to raise_error(Lutaml::Model::Lml::RejectedError) { |failure|
                expect(failure.reason).to eq(:unsupported_type)
              }

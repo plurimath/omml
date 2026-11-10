@@ -107,3 +107,4 @@ define_bound!(unsigned_long, UnsignedLong, 0, 18_446_744_073_709_551_615);
 define_bound!(st_integer2, STInteger2, -2, 2);
 define_bound!(st_integer255, STInteger255, 1, 255);
 define_bound!(st_spacing_rule, STSpacingRule, 0, 4);
+define_bound!(st_text_scale, STTextScale, 0, 600);
