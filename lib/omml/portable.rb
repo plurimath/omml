@@ -1,13 +1,15 @@
 # frozen_string_literal: true
 
-require "json"
-require "digest"
+if RUBY_ENGINE != "opal"
+  require "json"
+  require "digest"
+end
 
 module Omml
   # Only explicitly verified scalar declarations participate in this registry.
   module Portable
     REGISTRY_VERSION = 1
-    DIRECTORY = File.expand_path("../../model/portable", __dir__).freeze
+    DIRECTORY = RUBY_ENGINE == "opal" ? nil : File.expand_path("../../model/portable", __dir__).freeze
     ENUM_TYPES = %i[
       STAlignH STAlignV STBorder STBrClear
       STBrType STBreakBin STBreakBinSub STCalendarType
@@ -29,6 +31,8 @@ module Omml
     module_function
 
     def model_declarations
+      raise UnsupportedRuntime, "load model declarations through the target runtime" unless DIRECTORY
+
       entry = declaration_manifest.fetch("graphs").fetch("enum-subset-v1")
       bytes = File.binread(File.join(DIRECTORY, entry.fetch("file")))
       unless Digest::SHA256.hexdigest(bytes) == entry.fetch("sha256")
@@ -67,7 +71,12 @@ module Omml
     end
 
     def require_registry!
-      require "lutaml/model/lml"
+      if RUBY_ENGINE == "opal"
+        raise UnsupportedRuntime, REQUIRED_RUNTIME
+      else
+        require "lutaml/model/lml"
+      end
+
       raise UnsupportedRuntime, REQUIRED_RUNTIME unless registry_available?
     rescue LoadError => e
       raise unless e.path == "lutaml/model/lml"
