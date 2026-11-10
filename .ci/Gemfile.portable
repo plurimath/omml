@@ -1,0 +1,10 @@
+# frozen_string_literal: true
+
+source "https://rubygems.org"
+
+gemspec path: ".."
+gem "lutaml-model", path: File.expand_path(ENV.fetch("LUTAML_MODEL_SOURCE"))
+gem "nokogiri"
+gem "oga"
+gem "ox"
+gem "rspec", "~> 3.0"

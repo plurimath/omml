@@ -11,6 +11,7 @@ module Omml
   autoload :Models, "omml/models"
   autoload :Namespace, "omml/namespace"
   autoload :Parser, "omml/parser"
+  autoload :Portable, "omml/portable"
   autoload :TypeSubstitutions, "omml/type_substitutions"
   autoload :WordprocessingNamespace, "omml/wordprocessing_namespace"
 
