@@ -18,6 +18,7 @@ require "lutaml/model"
 
 require "omml"
 require "omml/version"
+require "omml/portable"
 require "omml/namespace"
 require "omml/wordprocessing_namespace"
 
