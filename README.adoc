@@ -230,8 +230,9 @@ https://opensource.org/licenses/BSD-2-Clause[BSD-2-Clause License].
 == Portable enum declarations (candidate)
 
 `Omml::Portable.export_bundle(Omml::Models::CTBr)` exports the verified
-`STBrType`/`STBrClear` scalar subset through the explicit LutaML named-value
-registry. The source classes and cast behavior are unchanged. Other custom
+closed `EnumString` scalar family through the explicit LutaML named-value
+registry. The 38 declared classes pass all 418 source enumeration literals,
+38 invalid-value refusals and 38 nil cases. The source classes and cast behavior are unchanged. Other custom
 scalar families remain explicit unsupported types; this is not the complete
 OMML model graph. The candidate framework dependency is pinned in the
 portable-declarations CI workflow and requires registry version 1.
