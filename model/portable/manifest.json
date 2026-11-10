@@ -3,6 +3,15 @@
   "registry": {
     "version": 1,
     "types": {
+      "Lutaml::Xml::W3c::XmlSpaceType": {
+        "base": "string",
+        "facets": {
+          "enumeration": [
+            "default",
+            "preserve"
+          ]
+        }
+      },
       "Omml::Models::STAlignH": {
         "base": "string",
         "facets": {
@@ -407,6 +416,22 @@
           ]
         }
       },
+      "Omml::Models::STInteger2": {
+        "base": "integer",
+        "facets": {
+          "min_inclusive": "-2",
+          "max_inclusive": "2",
+          "source_binding_v1": true
+        }
+      },
+      "Omml::Models::STInteger255": {
+        "base": "integer",
+        "facets": {
+          "min_inclusive": "1",
+          "max_inclusive": "255",
+          "source_binding_v1": true
+        }
+      },
       "Omml::Models::STJc": {
         "base": "string",
         "facets": {
@@ -613,6 +638,14 @@
           ]
         }
       },
+      "Omml::Models::STSpacingRule": {
+        "base": "integer",
+        "facets": {
+          "min_inclusive": "0",
+          "max_inclusive": "4",
+          "source_binding_v1": true
+        }
+      },
       "Omml::Models::STStyle": {
         "base": "string",
         "facets": {
@@ -751,6 +784,22 @@
             "bot"
           ]
         }
+      },
+      "Omml::Models::UnsignedInt": {
+        "base": "integer",
+        "facets": {
+          "min_inclusive": "0",
+          "max_inclusive": "4294967295",
+          "source_binding_v1": true
+        }
+      },
+      "Omml::Models::UnsignedLong": {
+        "base": "integer",
+        "facets": {
+          "min_inclusive": "0",
+          "max_inclusive": "18446744073709551615",
+          "source_binding_v1": true
+        }
       }
     }
   },
@@ -761,12 +810,23 @@
       "lml_checksum": "sha256:12b944a5da4decf717d8fc8bc683e863058417f98162dc8dec048634b62a6d9e",
       "models": 1,
       "value_types": 2
+    },
+    "scalar-subset-v1": {
+      "file": "scalar-subset-v1.json",
+      "sha256": "51fa9b697d3a975980d3d83ca696f21c21743d7920e05ebdebc85883425e22cd",
+      "lml_checksum": "sha256:e14e8efc0c5c3b50371ef2d104a91cba77570175955f7c0badac9a8ac1295825",
+      "models": 7,
+      "value_types": 6
     }
   },
+  "binding_sources": {
+    "integer.rs": "5dff6802ff19f38e72b2a155f27dc848bb87576a02ac79b81c5fe09f9fe59f7e",
+    "integer.ts": "0ecddb6368a8ec12b6b0499202db133f140e8f336093bb84c57ba067a6c4dc8d"
+  },
   "producer": {
-    "source_commit": "e3dc25724b2dab73ddf6cb1208c2330a27bbcfa9",
+    "source_commit": "21c3305c65c16a80ab8f3266dc445bfafa3ce285",
     "framework_commit": "d875a4a97aedc1e251b0c8e972c1a550e47ec00c",
     "ruby": "4.0.1",
-    "scope": "CTBr graph and verified closed string enum registry"
+    "scope": "CTBr and verified scalar XML model graphs"
   }
 }
