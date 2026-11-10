@@ -88,6 +88,7 @@ if portable_registry_available?
           expect(klass.cast(value)).to eq(value)
         end
         expect(klass.cast(nil)).to be_nil
+        expect(values).to include("")
         expect { klass.cast("__not_a_portable_enum_value__") }.to raise_error(
           Lutaml::Model::Type::InvalidValueError,
         )
