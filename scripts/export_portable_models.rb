@@ -50,7 +50,7 @@ manifest = {
   "producer" => {
     "source_commit" => source_head.strip,
     "framework_commit" => expected_framework, "ruby" => RUBY_VERSION,
-    "scope" => "CTBr graph and verified closed EnumString registry"
+    "scope" => "CTBr graph and verified closed string enum registry"
   }
 }
 File.write(File.join(destination, "manifest.json"),
