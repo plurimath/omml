@@ -241,7 +241,8 @@ canonical JSON integer strings.
 bundle for seven native text and integer models. The default graph remains
 the CTBr bundle.
 
-All 448 OMML enum literals and explicit invalid/nil cases are verified, including
+All 448 OMML enum literals, 43 accepted empty cases, and explicit
+invalid/nil cases are verified, including
 finite Token subtypes without whitespace normalization. The source classes and cast behavior are unchanged. Other custom
 scalar families remain explicit unsupported types; this is not the complete
 OMML model graph. The candidate framework dependency is pinned in the
