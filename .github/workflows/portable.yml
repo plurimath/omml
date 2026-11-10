@@ -42,4 +42,5 @@ jobs:
         run: |
           bundle exec ruby -Ilib scripts/export_portable_models.rb .build/portable
           cmp model/portable/enum-subset-v1.json .build/portable/enum-subset-v1.json
+          cmp model/portable/scalar-subset-v1.json .build/portable/scalar-subset-v1.json
           bundle exec ruby -Ilib -romml -e 'raise "wrong model count" unless Omml::Portable.model_declarations.fetch("models").length == 1'

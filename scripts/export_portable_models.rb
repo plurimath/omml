@@ -16,7 +16,7 @@ framework_head, status = Open3.capture2("git", "-C", framework_source,
 unless status.success? && framework_head.strip == expected_framework
   abort("framework source pin mismatch")
 end
-Omml::Portable.enum_declarations
+Omml::Portable.value_declarations
 changes, clean = Open3.capture2("git", "-C", framework_source, "status",
                                 "--porcelain", "--untracked-files=all",
                                 "--", "lib")
@@ -30,29 +30,48 @@ expected_directory = "#{File.expand_path(framework_source)}/lib/"
 unless File.expand_path(location).start_with?(expected_directory)
   abort("framework runtime is not the pinned source checkout")
 end
-bundle = Omml::Portable.export_bundle(Omml::Models::CTBr)
 FileUtils.mkdir_p(destination)
-filename = "enum-subset-v1.json"
-bytes = "#{JSON.generate(bundle.to_h)}\n"
-File.binwrite(File.join(destination, filename), bytes)
+subsets = {
+  "enum-subset-v1" => [Omml::Models::CTBr],
+  "scalar-subset-v1" => [
+    Omml::Models::CTHpsMeasure,
+    Omml::Models::CTInteger2,
+    Omml::Models::CTManualBreak,
+    Omml::Models::CTSpacingRule,
+    Omml::Models::CTText,
+    Omml::Models::CTUnSignedInteger,
+    Omml::Models::CTWordprocessingText,
+  ],
+}
+graphs = subsets.to_h do |id, roots|
+  bundle = Omml::Portable.export_bundle(roots)
+  filename = "#{id}.json"
+  bytes = "#{JSON.generate(bundle.to_h)}\n"
+  File.binwrite(File.join(destination, filename), bytes)
+  [id, {
+    "file" => filename, "sha256" => Digest::SHA256.hexdigest(bytes),
+    "lml_checksum" => bundle.checksum, "models" => bundle.models.length,
+    "value_types" => bundle.value_types.length
+  }]
+end
+binding_directory = File.join(root, "model/portable/bindings")
+binding_sources = %w[integer.rs integer.ts].to_h do |filename|
+  digest = Digest::SHA256.file(File.join(binding_directory, filename)).hexdigest
+  [filename, digest]
+end
 source_head, source_status = Open3.capture2("git", "-C", root, "rev-parse",
                                             "HEAD")
 abort("source repository unavailable") unless source_status.success?
 manifest = {
-  "manifest" => 1, "registry" => Omml::Portable.enum_declarations.to_h,
-  "graphs" => {
-    "enum-subset-v1" => {
-      "file" => filename, "sha256" => Digest::SHA256.hexdigest(bytes),
-      "lml_checksum" => bundle.checksum, "models" => bundle.models.length,
-      "value_types" => bundle.value_types.length
-    },
-  },
+  "manifest" => 1, "registry" => Omml::Portable.value_declarations.to_h,
+  "graphs" => graphs,
+  "binding_sources" => binding_sources,
   "producer" => {
     "source_commit" => source_head.strip,
     "framework_commit" => expected_framework, "ruby" => RUBY_VERSION,
-    "scope" => "CTBr graph and verified closed string enum registry"
+    "scope" => "CTBr and verified scalar XML model graphs"
   }
 }
 File.write(File.join(destination, "manifest.json"),
            "#{JSON.pretty_generate(manifest)}\n")
-puts JSON.generate(manifest.fetch("graphs").fetch("enum-subset-v1"))
+puts JSON.generate(graphs)
