@@ -113,7 +113,8 @@ module Omml
     def enum_entries
       entries = ENUM_TYPES.to_h do |name|
         klass = Omml::Models.const_get(name, false)
-        [klass, enum_definition(klass::VALUES)]
+        # The native String validator accepts empty strings before enum checks.
+        [klass, enum_definition([*klass::VALUES, ""])]
       end
       entries[Lutaml::Xml::W3c::XmlSpaceType] =
         enum_definition(%w[default preserve])
