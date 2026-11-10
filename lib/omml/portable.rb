@@ -9,16 +9,17 @@ module Omml
     REGISTRY_VERSION = 1
     DIRECTORY = File.expand_path("../../model/portable", __dir__).freeze
     ENUM_TYPES = %i[
-      STBorder STBrClear STBrType STBreakBin
-      STBreakBinSub STCalendarType STCombineBrackets STDisplacedByCustomXml
-      STEdGrp STEm STFFTextType STFType
-      STFldCharType STHighlightColor STHint STInfoTextType
-      STJc STLimLoc STLock STOnOff
-      STPTabAlignment STPTabLeader STPTabRelativeTo STProofErr
+      STAlignH STAlignV STBorder STBrClear
+      STBrType STBreakBin STBreakBinSub STCalendarType
+      STCombineBrackets STDisplacedByCustomXml STEdGrp STEm
+      STFFTextType STFType STFldCharType STHighlightColor
+      STHint STInfoTextType STJc STLimLoc
+      STLock STOnOff STPTabAlignment STPTabLeader
+      STPTabRelativeTo STProofErr STRelFromH STRelFromV
       STRubyAlign STScript STSdtDateMappingType STShd
       STShp STStyle STTextEffect STTheme
       STThemeColor STTopBot STUnderline STVerticalAlignRun
-      STXAlign STYAlign
+      STWrapText STXAlign STYAlign
     ].freeze
     REQUIRED_RUNTIME = "portable scalar export requires " \
                        "named-value declaration registry version 1"

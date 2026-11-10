@@ -78,10 +78,10 @@ if portable_registry_available?
 
     it "declares only the unchanged closed String enum family" do
       registry = described_class.enum_declarations
-      owner = Omml::Models::EnumString.method(:cast).owner
       described_class::ENUM_TYPES.each do |name|
         klass = Omml::Models.const_get(name, false)
-        expect(klass.method(:cast).owner).to eq(owner)
+        base = klass < Omml::Models::EnumString ? Omml::Models::EnumString : Omml::Models::Token
+        expect(klass.method(:cast).owner).to eq(base.method(:cast).owner)
         expect(klass.facets).to be_empty
         values = registry.fetch(klass).fetch("facets").fetch("enumeration")
         values.each do |value|
