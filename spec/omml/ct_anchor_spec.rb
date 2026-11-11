@@ -36,3 +36,16 @@ RSpec.shared_examples "anchor simple positioning" do
 end
 
 describe_per_adapter "anchor simple positioning", subject: Omml::Models::CTAnchor
+
+RSpec.describe "portable anchor positioning" do
+  it "keeps the Boolean attribute separate from the coordinate model" do
+    graph = Omml::Portable.model_declarations("runtime-graph-v1")
+    anchor = graph.fetch("models").fetch("Omml::Models::CTAnchor@omml")
+    attributes = anchor.fetch("attributes").to_h { |entry| [entry.fetch("name"), entry.fetch("type")] }
+
+    expect(attributes.fetch("simple_position")).to eq(
+      "kind" => "model", "id" => "Omml::Models::CTPoint2D@omml",
+    )
+    expect(attributes.fetch("simple_pos").fetch("name")).to eq("boolean")
+  end
+end
