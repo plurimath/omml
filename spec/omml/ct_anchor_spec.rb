@@ -13,7 +13,7 @@ RSpec.shared_examples "anchor simple positioning" do
     "0" => false,
     nil => nil,
   }.each do |lexical_flag, flag|
-    it "round-trips the coordinate point independently of #{lexical_flag.inspect}" do
+    it "round-trips #{lexical_flag.inspect} with independent coordinates" do
       attribute = lexical_flag ? %( m:simplePos="#{lexical_flag}") : ""
       xml = <<~XML
         <m:CT_Anchor xmlns:m="#{Omml::Namespace.uri}"#{attribute}>
@@ -24,24 +24,26 @@ RSpec.shared_examples "anchor simple positioning" do
 
       expect(anchor.simple_pos).to eq(flag)
       expect(anchor.simple_position).to be_a(Omml::Models::CTPoint2D)
-      expect([anchor.simple_position.x, anchor.simple_position.y]).to eq([125, -250])
+      expect(anchor.simple_position).to have_attributes(x: 125, y: -250)
 
       output = anchor.to_xml(register: register)
       reparsed = model.from_xml(output, register: register)
       expect(reparsed.simple_pos).to eq(flag)
       expect(reparsed.simple_position).to be_a(Omml::Models::CTPoint2D)
-      expect([reparsed.simple_position.x, reparsed.simple_position.y]).to eq([125, -250])
+      expect(reparsed.simple_position).to have_attributes(x: 125, y: -250)
     end
   end
 end
 
 describe_per_adapter "anchor simple positioning", subject: Omml::Models::CTAnchor
 
-RSpec.describe "portable anchor positioning" do
+RSpec.describe Omml::Models::CTAnchor do
   it "keeps the Boolean attribute separate from the coordinate model" do
     graph = Omml::Portable.model_declarations("runtime-graph-v1")
     anchor = graph.fetch("models").fetch("Omml::Models::CTAnchor@omml")
-    attributes = anchor.fetch("attributes").to_h { |entry| [entry.fetch("name"), entry.fetch("type")] }
+    attributes = anchor.fetch("attributes").to_h do |entry|
+      [entry.fetch("name"), entry.fetch("type")]
+    end
 
     expect(attributes.fetch("simple_position")).to eq(
       "kind" => "model", "id" => "Omml::Models::CTPoint2D@omml",
