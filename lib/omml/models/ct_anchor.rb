@@ -3,7 +3,7 @@
 module Omml
   module Models
     class CTAnchor < Base
-      attribute :simple_pos, :ct_point2_d
+      attribute :simple_position, :ct_point2_d
       attribute :position_h, :ct_pos_h
       attribute :position_v, :ct_pos_v
       attribute :extent, :ct_positive_size2_d
@@ -31,7 +31,7 @@ module Omml
         namespace Omml::Namespace
 
         sequence do
-          map_element :simplePos, to: :simple_pos, render_empty: true
+          map_element :simplePos, to: :simple_position, render_empty: true
           map_element :positionH, to: :position_h, render_empty: true
           map_element :positionV, to: :position_v, render_empty: true
           map_element :extent, to: :extent, render_empty: true
