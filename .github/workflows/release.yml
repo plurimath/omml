@@ -21,3 +21,4 @@ jobs:
       next_version: ${{ github.event.inputs.next_version }}
     secrets:
       rubygems-api-key: ${{ secrets.PLURIMATH_CI_RUBYGEMS_API_KEY }}
+      pat_token: ${{ secrets.PLURIMATH_CI_PAT_TOKEN }}
